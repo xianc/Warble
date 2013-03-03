@@ -1,8 +1,137 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+	margin:0;
+	background: url('/images/body_bg.png') repeat;
+	font-family:"Times New Roman", Times, serif;
+	color:#000;
+	line-height:1.5em;
+}
+a,a:link,a:active,a:visited{
+	color:#000;
+	text-decoration:none;
+	}
+
+a:hover{
+	text-decoration:underline;
+	}
+
+#header{
+	height:64px;
+	width:100%;
+	background:#000;
+	text-align:center;
+	background: url('/images/header_bg.png') repeat-x;
 }
 
-a {
-  color: #00B7FF;
+#footer{
 }
+
+#content{
+	margin:10;
+	background:#daeba5;
+	padding: 12px 10px 12px 10px;
+	font-size: 13pt;
+	border:solid 1px #6a8f01;
+	-webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+	filter:alpha(opacity=.9);
+	opacity:.9;
+}
+
+.text{
+	filter:alpha(opacity=.7);
+	opacity:.7;
+}
+
+h1{
+	margin:0;
+	padding:0;
+	font-size: 16pt;
+	filter:alpha(opacity=.7);
+	opacity:.7;
+
+}
+
+hr {
+	border:solid 1px #000;
+	border-bottom:none;
+	filter:alpha(opacity=.7);
+	opacity:.7;
+}
+
+button {
+	height:64px;
+	padding-left:20px;
+	padding-right:20px;
+	background:#ccc;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	line-height:1.5em;
+	font-size:13pt;
+	border:none;
+	background:none;
+
+}
+tr{
+	margin: 0;
+	padding: 0px;
+}
+
+
+.active{
+	background: url('/images/button_active_bg.png') repeat-x;
+}
+
+textarea,select{
+	width:95%;
+	font-family:"Times New Roman", Times, serif;
+	color:#616060;
+	font-size: 12pt;
+	line-height:1.5em;
+	padding:6px 6px 6px 6px;
+	border-color:#8f9f5c:;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+input{
+	font-family:"Times New Roman", Times, serif;
+	color:#000;
+	font-size: 12pt;
+	line-height:1.5em;
+	filter:alpha(opacity=.8);
+	opacity:.8;
+
+}
+
+.topleft{
+margin:0;
+padding:0;
+background:url('images/topleft.png') top left no-repeat;}	
+
+.topright{
+margin:0;
+padding:0;
+background:url('images/topright.png') top right no-repeat;}	
+
+.bottomright{
+margin:0;
+padding:0;
+background:url('images/bottomright.png') bottom right no-repeat;}	
+
+.bottomleft{
+margin:0;
+padding:0;
+background:url('images/bottomleft.png') bottom left no-repeat;}
+
+/**button?
+.cat{
+	padding-left: 10px;
+	padding-right: 10px;
+	height=100%;
+	border-style:solid;
+	border-color:#CCC;
+	border-width:1px;
+
+}**/
