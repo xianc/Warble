@@ -13,9 +13,9 @@ exports.index = function (req, res){
 // Renders the front page:
 exports.pages = function (req, res) {
   var id = req.params.id;
-  res.render('front',
-             { layout: 'front/layout',
-               title: 'Pages - ' + id,
+  res.render('pages/'+id,
+             { layout: 'pages/layout',
+               title: 'pages - ' + id,
                id: id });
 };
 
