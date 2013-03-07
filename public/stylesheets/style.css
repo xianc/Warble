@@ -31,9 +31,9 @@ a:hover{
 	padding: 12px 10px 12px 10px;
 	font-size: 13pt;
 	border:solid 2px #000;
-	-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+	-webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
 }
 
 #content{
