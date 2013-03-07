@@ -25,6 +25,17 @@ a:hover{
 #footer{
 }
 
+#default{
+	margin:10;
+	background:#d5e99a;
+	padding: 12px 10px 12px 10px;
+	font-size: 13pt;
+	border:solid 2px #000;
+	-webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
 #content{
 	margin:10;
 	background:#daeba5;
