@@ -22,6 +22,7 @@ a:hover{
 	background: url('/images/header_bg.png') repeat-x;
 }
 
+
 #footer{
 }
 
@@ -59,6 +60,16 @@ h2{
 	text-decoration: underline bold;
 	filter:alpha(opacity=.7);
 	opacity:.7;
+}
+
+logh1{
+	margin:0;
+	padding:0;
+	font-size: 38pt;
+	text-decoration: bold;
+	filter:alpha(opacity=.7);
+	opacity:.7;
+	text-align:center;
 }
 
 hr {
