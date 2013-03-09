@@ -10,7 +10,7 @@ exports.index = function (req, res){
   res.render('index', { title: 'Warble' })
 };
 
-// Renders the front page:
+// Renders the user pages:
 exports.pages = function (req, res) {
   var id = req.params.id;
   res.render('pages/'+id,

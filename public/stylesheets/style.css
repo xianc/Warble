@@ -1,9 +1,10 @@
-body{
+html,body{
 	margin:0;
 	background: url('/images/body_bg.png') repeat;
 	font-family:"Times New Roman", Times, serif;
 	color:#000;
 	line-height:1.5em;
+	height:100%;
 }
 a,a:link,a:active,a:visited{
 	color:#000;
@@ -22,8 +23,36 @@ a:hover{
 	background: url('/images/header_bg.png') repeat-x;
 }
 
+<<<<<<< HEAD
+=======
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#body {
+   padding:0px;
+   padding-bottom:20px;   /* Height of the footer */
+}
+>>>>>>> b8951375c1690534a6dced03e699dc550859af8b
 
 #footer{
+	width: 100%;
+	height:20px;
+	background:#d5e99a;
+	position:absolute;
+	bottom:0;
+}
+
+#default{
+	margin:10;
+	background:#d5e99a;
+	padding: 12px 10px 12px 10px;
+	font-size: 13pt;
+	border:solid 2px #000;
+	-webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
 }
 
 #content{
@@ -123,6 +152,10 @@ input{
 	filter:alpha(opacity=.8);
 	opacity:.8;
 
+}
+
+#size{
+	width:99%;
 }
 
 .topleft{
