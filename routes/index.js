@@ -5,12 +5,44 @@
 
 var users = require('../lib/users');
 
-// Renders the index view:
+/*##Renders the Login/Home Page: index.ejs
+The Home Page is a simple login portal for users. It serves two purposes: 
+>1. Allow members who have already signed up to log on
+>2. Allow people who want to sign up to create an account.
+
+The index.ejs file includes header.ejs and footer.ejs which includes starting tages for the file (html, head, body etc.) and closing tags. 
+*/
+
 exports.index = function (req, res){
   res.render('index', { title: 'Warble' })
 };
 
-// Renders the user pages:
+/* ##Renders the user pages:
+> All pages are linked to header.ejs and footer.ejs which includes starting tages for the file (html, head, body etc.) and closing tags. 
+
+
+###1. Front Page: pages/front.ejs
+Displays and allows users to create status updates aka "warbles" and to upload files
+
+###2. Forget Password: pages/forget_password.ejs
+A form that asks a user for their username/email. 
+
+###3. Sign Up: pages/sign_up.ejs
+A form that asks a user for information in order to create an account.
+
+###4. Discover: pages/discover.ejs
+Displays search results. Users can search people or warbles. 
+
+###5. Profile: pages/profile.ejs
+Shows users their information and their warbles
+
+###6. At Me: pages/at_me.ejs
+Displays all messages and references to a specific user
+
+###7. About: pages/about.ejs
+An introdction to the web application project. 
+ */
+
 exports.pages = function (req, res) {
   var id = req.params.id;
   res.render('pages/'+id,
@@ -19,7 +51,7 @@ exports.pages = function (req, res) {
                id: id });
 };
 
-// Renders the form examples:
+//###Renders the form examples:
 exports.form = function (req, res) {
   var id = req.params.id;
   genUserList(function (ul) {
@@ -31,7 +63,7 @@ exports.form = function (req, res) {
   });
 };
 
-// Processes form get requests:
+//###Processes form get requests:
 exports.process = function (req, res) {
   var id   = req.params.id;
   var user = userData(req);
@@ -93,6 +125,7 @@ function userData(req) {
   return user;
 }
 
+//###Displays Updates
 function genUserList(callback) {
   var i;
   users.getUserInfo([], function (list) {
