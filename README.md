@@ -37,3 +37,6 @@ Currently, the code is a "skeleton" of our Web Application.
 
 >#### Profile
 >- The Profile page shows the user's member information (number of Warbles, uploads... etc.) as well as their most recent "Warbles" (Status Updates). 
+
+>####About
+>- The About page gives an introduction to the web application project
