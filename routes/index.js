@@ -101,6 +101,7 @@ exports.process = function (req, res) {
   }
 };
 
+//####Get and post userData
 function userData(req) {
   var user;
   if (req.method === 'GET') {
