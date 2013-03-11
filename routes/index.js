@@ -7,12 +7,10 @@ var users = require('../lib/users');
 
 /**##Renders the Login/Home Page: index.ejs
 *The Home Page is a simple login portal for users. It serves two purposes: 
-*1. Allow members who have already signed up to log on
-*2. Allow people who want to sign up to create an account.
+*>1. Allow members who have already signed up to log on
+*>2. Allow people who want to sign up to create an account.
 *
-*The index.ejs file includes header.ejs and footer.ejs which includes starting tages for the file (html, head, body etc.) and closing tags. 
-*
-*As of now, the sign in button will redirect to pages/front
+*As of now, when clicked, the sign in button will redirect to pages/front
 **/
 
 exports.index = function (req, res){
@@ -47,10 +45,10 @@ exports.pages = function (req, res) {
 };
 
 /*## Renders the forget password ans sign_up pages:
-###1. Forget Password: pages/forget_password.ejs
+###1. Forget Password: form/forget_password.ejs
 A form that asks a user for their username/email. 
 
-###2. Sign Up: pages/sign_up.ejs
+###2. Sign Up: form/sign_up.ejs
 A form that asks a user for information in order to create an account.
 
 */
@@ -112,10 +110,10 @@ function userData(req) {
       email: req.query.email,
       pass : req.query.pass,
       newu : req.query.newu,
- /*     sex  : req.query.sex,
+      sex  : req.query.sex,
       month : req.query.month,
       day : req.query.day,
-      year : req.query.year,*/
+      year : req.query.year,
     };
   }
   else {
@@ -124,10 +122,10 @@ function userData(req) {
       lname: req.body.lname,
       email: req.body.email,
       pass : req.body.pass,
-  /*    sex  : req.body.sex,
+      sex  : req.body.sex,
       month: req.body.month,
       day  : req.body.day,
-      year : req.body.year,*/
+      year : req.body.year,
     };
   }
   

@@ -22,37 +22,37 @@
         <a href="#renders-the-login-home-page--index.ejs">Renders the Login/Home Page: index.ejs</a>
       </div>
       <div class="heading h2">
-        <a href="#renders-the-user-pages-">Renders the user pages:</a>
+        <a href="#renders-the-user-specific-pages-">Renders the user specific pages:</a>
       </div>
       <div class="heading h3">
         <a href="#1.-front-page--pages-front.ejs">1. Front Page: pages/front.ejs</a>
       </div>
       <div class="heading h3">
-        <a href="#2.-forget-password--pages-forget_password.ejs">2. Forget Password: pages/forget_password.ejs</a>
+        <a href="#2.-discover--pages-discover.ejs">2. Discover: pages/discover.ejs</a>
       </div>
       <div class="heading h3">
-        <a href="#3.-sign-up--pages-sign_up.ejs">3. Sign Up: pages/sign_up.ejs</a>
+        <a href="#3.-profile--pages-profile.ejs">3. Profile: pages/profile.ejs</a>
       </div>
       <div class="heading h3">
-        <a href="#4.-discover--pages-discover.ejs">4. Discover: pages/discover.ejs</a>
+        <a href="#4.-at-me--pages-at_me.ejs">4. At Me: pages/at_me.ejs</a>
       </div>
       <div class="heading h3">
-        <a href="#5.-profile--pages-profile.ejs">5. Profile: pages/profile.ejs</a>
+        <a href="#5.-about--pages-about.ejs">5. About: pages/about.ejs</a>
+      </div>
+      <div class="heading h2">
+        <a href="#renders-the-forget-password-ans-sign_up-pages-">Renders the forget password ans sign_up pages:</a>
       </div>
       <div class="heading h3">
-        <a href="#6.-at-me--pages-at_me.ejs">6. At Me: pages/at_me.ejs</a>
+        <a href="#1.-forget-password--form-forget_password.ejs">1. Forget Password: form/forget_password.ejs</a>
       </div>
       <div class="heading h3">
-        <a href="#7.-about--pages-about.ejs">7. About: pages/about.ejs</a>
-      </div>
-      <div class="heading h3">
-        <a href="#renders-the-form-examples-">Renders the form examples:</a>
+        <a href="#2.-sign-up--form-sign_up.ejs">2. Sign Up: form/sign_up.ejs</a>
       </div>
       <div class="heading h3">
         <a href="#processes-form-get-requests-">Processes form get requests:</a>
       </div>
       <div class="heading h3">
-        <a href="#displays-updates">Displays Updates</a>
+        <a href="#displays-users">Displays Users</a>
       </div>
     </div>
   </div>
@@ -104,7 +104,7 @@
   </ol>
 </blockquote>
   </div>
-  <div class="body"><p>The index.ejs file includes header.ejs and footer.ejs which includes starting tages for the file (html, head, body etc.) and closing tags. </p>
+  <div class="body"><p>As of now, when clicked, the sign in button will redirect to pages/front</p>
   </div>
 </div>
         </td>
@@ -121,10 +121,10 @@
       <tr>
         <td class="docs"><div class="dox">
   <div class="summary">
-<div class="pilwrap" id="renders-the-user-pages-">
+<div class="pilwrap" id="renders-the-user-specific-pages-">
   <h2>
-    <a href="#renders-the-user-pages-" class="pilcrow">&#182;</a>
-    Renders the user pages:
+    <a href="#renders-the-user-specific-pages-" class="pilcrow">&#182;</a>
+    Renders the user specific pages:
   </h2>
 </div>
 
@@ -145,32 +145,10 @@
 <p>Displays and allows users to create status updates aka "warbles" and to upload files</p>
 
 
-<div class="pilwrap" id="2.-forget-password--pages-forget_password.ejs">
+<div class="pilwrap" id="2.-discover--pages-discover.ejs">
   <h3>
-    <a href="#2.-forget-password--pages-forget_password.ejs" class="pilcrow">&#182;</a>
-    2. Forget Password: pages/forget_password.ejs
-  </h3>
-</div>
-
-
-<p>A form that asks a user for their username/email. </p>
-
-
-<div class="pilwrap" id="3.-sign-up--pages-sign_up.ejs">
-  <h3>
-    <a href="#3.-sign-up--pages-sign_up.ejs" class="pilcrow">&#182;</a>
-    3. Sign Up: pages/sign_up.ejs
-  </h3>
-</div>
-
-
-<p>A form that asks a user for information in order to create an account.</p>
-
-
-<div class="pilwrap" id="4.-discover--pages-discover.ejs">
-  <h3>
-    <a href="#4.-discover--pages-discover.ejs" class="pilcrow">&#182;</a>
-    4. Discover: pages/discover.ejs
+    <a href="#2.-discover--pages-discover.ejs" class="pilcrow">&#182;</a>
+    2. Discover: pages/discover.ejs
   </h3>
 </div>
 
@@ -178,10 +156,10 @@
 <p>Displays search results. Users can search people or warbles. </p>
 
 
-<div class="pilwrap" id="5.-profile--pages-profile.ejs">
+<div class="pilwrap" id="3.-profile--pages-profile.ejs">
   <h3>
-    <a href="#5.-profile--pages-profile.ejs" class="pilcrow">&#182;</a>
-    5. Profile: pages/profile.ejs
+    <a href="#3.-profile--pages-profile.ejs" class="pilcrow">&#182;</a>
+    3. Profile: pages/profile.ejs
   </h3>
 </div>
 
@@ -189,10 +167,10 @@
 <p>Shows users their information and their warbles</p>
 
 
-<div class="pilwrap" id="6.-at-me--pages-at_me.ejs">
+<div class="pilwrap" id="4.-at-me--pages-at_me.ejs">
   <h3>
-    <a href="#6.-at-me--pages-at_me.ejs" class="pilcrow">&#182;</a>
-    6. At Me: pages/at_me.ejs
+    <a href="#4.-at-me--pages-at_me.ejs" class="pilcrow">&#182;</a>
+    4. At Me: pages/at_me.ejs
   </h3>
 </div>
 
@@ -200,10 +178,10 @@
 <p>Displays all messages and references to a specific user</p>
 
 
-<div class="pilwrap" id="7.-about--pages-about.ejs">
+<div class="pilwrap" id="5.-about--pages-about.ejs">
   <h3>
-    <a href="#7.-about--pages-about.ejs" class="pilcrow">&#182;</a>
-    7. About: pages/about.ejs
+    <a href="#5.-about--pages-about.ejs" class="pilcrow">&#182;</a>
+    5. About: pages/about.ejs
   </h3>
 </div>
 
@@ -227,14 +205,39 @@
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap" id="renders-the-form-examples-">
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="renders-the-forget-password-ans-sign_up-pages-">
+  <h2>
+    <a href="#renders-the-forget-password-ans-sign_up-pages-" class="pilcrow">&#182;</a>
+    Renders the forget password ans sign_up pages:
+  </h2>
+</div>
+
+
+
+<div class="pilwrap" id="1.-forget-password--form-forget_password.ejs">
   <h3>
-    <a href="#renders-the-form-examples-" class="pilcrow">&#182;</a>
-    Renders the form examples:
+    <a href="#1.-forget-password--form-forget_password.ejs" class="pilcrow">&#182;</a>
+    1. Forget Password: form/forget_password.ejs
   </h3>
 </div>
 
+
+<p>A form that asks a user for their username/email. </p>
+  </div>
+  <div class="body">
+<div class="pilwrap" id="2.-sign-up--form-sign_up.ejs">
+  <h3>
+    <a href="#2.-sign-up--form-sign_up.ejs" class="pilcrow">&#182;</a>
+    2. Sign Up: form/sign_up.ejs
+  </h3>
+</div>
+
+
+<p>A form that asks a user for information in order to create an account.</p>
+  </div>
+</div>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -273,7 +276,7 @@
       <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
                  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
                    <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
-                   <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;Success!&#39;</span><span class="p">,</span>
+                   <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;Congrats! Your Account has been created!!&#39;</span><span class="p">,</span>
                    <span class="nx">users</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
     <span class="p">});</span>
   <span class="p">}</span>
@@ -306,18 +309,25 @@
     <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">fname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">fname</span><span class="p">,</span>
       <span class="nx">lname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">lname</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
       <span class="nx">pass</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">pass</span><span class="p">,</span>
-      <span class="nx">sex</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">sex</span><span class="p">,</span>
       <span class="nx">newu</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">newu</span><span class="p">,</span>
+      <span class="nx">sex</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">sex</span><span class="p">,</span>
+      <span class="nx">month</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">month</span><span class="p">,</span>
+      <span class="nx">day</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">day</span><span class="p">,</span>
+      <span class="nx">year</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span>
     <span class="p">};</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
     <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">fname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">fname</span><span class="p">,</span>
       <span class="nx">lname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">lname</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
       <span class="nx">pass</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">pass</span><span class="p">,</span>
       <span class="nx">sex</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">sex</span><span class="p">,</span>
-      <span class="nx">newu</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">newu</span><span class="p">,</span>
+      <span class="nx">month</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">month</span><span class="p">,</span>
+      <span class="nx">day</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">day</span><span class="p">,</span>
+      <span class="nx">year</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span>
     <span class="p">};</span>
   <span class="p">}</span>
   
@@ -330,10 +340,10 @@
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="displays-updates">
+<div class="pilwrap" id="displays-users">
   <h3>
-    <a href="#displays-updates" class="pilcrow">&#182;</a>
-    Displays Updates
+    <a href="#displays-users" class="pilcrow">&#182;</a>
+    Displays Users
   </h3>
 </div>
 
