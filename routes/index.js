@@ -3,7 +3,7 @@
  * GET home page.
  */
 
-var users = require('../lib/users');
+var users = require('../lib/user');
 
 /**##Renders the Login/Home Page: index.ejs
 *The Home Page is a simple login portal for users. It serves two purposes: 

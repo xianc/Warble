@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="javascript/jquery-1.7.1.min.js"> 
+</script>
+  </head>
+  <body>
+
+<br><br><br>
+<center><img src="/warble.png"></center>
+<table cellspacing="0" cellpadding="0" width="400px" align="center">
+    <tr height="25px"></tr>
+    <tr>
+        <td valign="top" id="default"><div class="text">
+        <center><font size="6">Login</font></center>
+        <hr><br>
+        
+          <form method="post" action="/user/auth"> 
+            <h1>username:</h1>
+              <textarea name="username" rows="1" onfocus="if(this.value == 'Username') this.value='';" onblur="if(this.value == '') this.value='Username;" >Username</textarea>
+    	      
+    	       <h1>password:</h1>
+    	       <textarea name="password" rows="1" onfocus="if(this.value == 'Password') this.value='';" onblur="if(this.value == '') this.value='Password;" >Password</textarea>
+
+    	      <input type="checkbox"></input> Remember me?
+    	      <br><br>
+    	     <center><input type="submit" value="Sign in"></input>
+              </form>
+    	      <br><br>
+        	<a href="form/sign_up">Sign Up</a> | <a href="form/forget_password">Forget Password?</a></center>
+
+        </div></td>
+    </tr>
+
+</table>
+<br><br><div id="footer" align="center">
+<center>
+<a href="pages/about"><font color=white>About Warble</font></a>
+</center>
+</div>
+
+  </body>
+</html>
