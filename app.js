@@ -38,6 +38,10 @@ app.post('/user/auth'  , user.auth);
 app.get ('/user/main'  , user.main);
 app.get ('/user/logout', user.logout);
 app.get ('/user/online', user.online);
+app.get ('/user/discover', user.discover);
+app.get ('/user/me',      user.me);
+app.get ('/user/profile', user.my_profile);
+app.get('/user/front',   user.main);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

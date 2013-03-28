@@ -55,3 +55,15 @@ exports.online = function(req, res) {
   // A stub function we fill in `user-after.js`.
   res.send('You are the only one online!');
 };
+
+exports.discover = function (req,res) {
+  res.render('discover', { title  : 'Discover'});
+}
+
+exports.me = function (req, res) {
+  res.render('me', { title  : 'At Me'});
+}
+
+exports.my_profile = function (req, res) {
+  res.render ('my_profile', { title : 'My Profile'});
+}

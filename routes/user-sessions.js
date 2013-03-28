@@ -103,3 +103,15 @@ exports.online = function(req, res) {
   res.render('online', { title : 'Users Online',
                          users : online });
 };
+
+exports.discover = function (req,res) {
+  res.render('discover', { title  : 'Discover'});
+}
+
+exports.me = function (req, res) {
+  res.render('me', { title  : 'At Me'});
+}
+
+exports.my_profile = function (req, res) {
+  res.render ('my_profile', { title : 'My Profile'});
+}
