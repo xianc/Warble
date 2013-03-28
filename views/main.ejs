@@ -27,36 +27,31 @@
 
 <!-- Using a table to create a dynamically fluid webpage -->
 <table cellspacing="0" cellpadding="0" id="main_size" align="center">
-<td valign="top" width="180px">
-            <div id="black">
-          
-            <h1 class="Warble" align="center">Hello <%= username %></h1>
+  <td valign="top" width="180px">
+     <div id="black">
+        <div class="Warble" align="center">Hello <%= username %></div>
+      </div>
             
-            </div>
-            
-            <div id="black">
-            <div class="Warble"><center>Online Users</center></div>
-            <div style="padding:5px">
-            <% for(var userid in users) { %>
+      <div id="black">
+          <h1 class="Warble"><center>Online Users</center></h1>
+          <div style="padding:5px">
+          <font color="#b2b2b2">
+              <% for(var userid in users) { %>
             - <%= users[userid].username %><br>
             <% } %>
-            </div>
+          </font>
+          </div>
 
-            </div>
-            </td>
-            <td width="10px"></td>
-            <td>
-  <table width="100%">
-
-    <tr>
-
-    
+      </div>
+    </td>
+    <td width="10px"></td>
+    <td>
+      <table width="100%"><tr>
         <td valign="top">
-        <div id="content">
+          <div id="content">
 
             <!--JavaScript for Status Updates-->
             <script type="text/javascript" src="javascript/update.js" /> </script>
-
 
             <!-- Status Update and Document Upload Form -->
             <form>
