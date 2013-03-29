@@ -14,9 +14,14 @@
 </button>
 
 <button type="button">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="profile">My Profile</a>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
 </button>
-</div><div id="bar"></div>
+
+<button type="button">
+<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/logout">Logout</a>
+</button>
+</div>
+<div id="bar"></div>
 <br>
 
 <!-- Using a table to create a dynamically fluid webpage -->
@@ -34,7 +39,7 @@
             <div id="content"width="100%">
                 <div class="text">
                 <!-- Search by Categories -->
-                  <b>Categories</b>
+                  <h3><center>Categories</center></h3>
                   <hr><font size="3pt">
                   <ul>
                     <li><a href="" title="search by profiles">People</a></li>
@@ -45,12 +50,24 @@
                 </div>
             </div>
 
+            <br> 
+            <div id="content"width="100%">
+          <h1 class="Warble"><center>Online Users</center></h1>
+          <div class="text"><hr></div>
+          <div style="padding:5px; filter:alpha(opacity=.7); opacity:.7;" >
+
+              <% for(var userid in users) { %>
+            - <%= users[userid].username %><br>
+            <% } %>
+
+          </div>
+
  		</td>
 
         <td width="15px"></td>
     	<td valign="top" id="default">
             <!-- Search Results -->
-            <h1>Search Results: People</h1><hr>
+            <h3>Search Results: People</h3><hr>
                     <table width="100%" valign="top"><td>
                     <b>Eric Smith</b> <font size="2">Last Update on 3/8/13 at 9:15 pm</font><br>
                     Done! Login Page!<br>

@@ -1,0 +1,8 @@
+{ 
+    "name"     : "users",
+    "verstion" : "0.0.1",
+    "author"   : "Team Sugarloaf",
+    "description" : "a library for accessing users",
+    "main": "./user.js" 
+}
+

@@ -15,7 +15,11 @@
 </button>
 
 <button type="button">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="profile">My Profile</a>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
+</button>
+
+<button type="button">
+<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/logout">Logout</a>
 </button>
 </div>
 <div id="bar"></div>
@@ -23,16 +27,31 @@
 
 <!-- Using a table to create a dynamically fluid webpage -->
 <table cellspacing="0" cellpadding="0" id="main_size" align="center">
-    <tr>
+  <td valign="top" width="180px">
+     <div id="black">
+        <div class="Warble" align="center">Hello <%= username %></div>
+      </div>
+            
+      <div id="black">
+          <h1 class="Warble"><center>Online Users</center></h1>
+          <div style="padding:5px">
+          <font color="#b2b2b2">
+              <% for(var userid in users) { %>
+            - <%= users[userid].username %><br>
+            <% } %>
+          </font>
+          </div>
 
-    
+      </div>
+    </td>
+    <td width="10px"></td>
+    <td>
+      <table width="100%"><tr>
         <td valign="top">
-
-        <div id="content">
+          <div id="content">
 
             <!--JavaScript for Status Updates-->
             <script type="text/javascript" src="javascript/update.js" /> </script>
-
 
             <!-- Status Update and Document Upload Form -->
             <form>
@@ -59,15 +78,8 @@
 
         </tr>
         </table><br>
-        <table id="main_size" align="center"><tr>
-            <td valign="top">
-            <div id="black">
-            <h1>Following</h1>
-            <a href=""><font color=white>Eric Smith</a></font><br>
-            <a href=""><font color=white>Xian Chen</a></font><br>
-            <a href=""><font color=white>Ryan Becker</font color></a><br>
-            </div>
-            </td>
+        <table width="100%" align="center"><tr>
+            
             <td valign="top"><div id="content">
                 <!-- List of status updates -->
                 <h1>Warbles</h1>
@@ -97,5 +109,6 @@
         </tr>
 
 </table>
+</td></table>
 
 <% include footer %>

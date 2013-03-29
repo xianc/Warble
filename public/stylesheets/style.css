@@ -7,6 +7,22 @@ html,body{
 	height:100%;
 }
 
+li {
+	list-style-type: circle;
+}
+
+@font-face {
+    font-family: "Warble";
+    src: url(/fonts/warble.ttf) format("truetype");
+}
+
+.Warble { 
+    font-family: "Warble", Verdana, Tahoma;
+    font-size:14pt;
+    letter-spacing:3px;
+}
+
+
 a,a:link,a:active,a:visited{
 	color:#000;
 	text-decoration:none;
@@ -98,6 +114,7 @@ a:hover{
 	opacity:.7;
 }
 
+
 h1{
 	margin:0;
 	padding:0;
@@ -116,6 +133,21 @@ h2{
 	opacity:.7;
 }
 
+h3{
+	font-family: "Warble", Verdana, Tahoma;
+    font-size:15pt;
+    letter-spacing:3px;
+	margin:0;
+	padding:0;
+	font-size: 14pt;
+	text-decoration: underline bold;
+
+}
+
+
+
+
+
 
 hr {
 	border:solid 1px #000;
@@ -124,12 +156,16 @@ hr {
 	opacity:.7;
 }
 
+
+
 button {
 	height:64px;
-	padding-left:20px;
-	padding-right:20px;
+	padding-left:10px;
+	padding-right:10px;
 	background:#ccc;
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-family: "Warble", Verdana, Tahoma;
+    font-size:16pt;
+    letter-spacing:3px;
 	line-height:1.5em;
 	font-size:13pt;
 	border:none;
@@ -158,6 +194,19 @@ textarea,select{
     -moz-border-radius: 5px;
     border-radius: 5px;
 
+}
+
+.rounded{
+	width:95%;
+	font-family:"Times New Roman", Times, serif;
+	color:#616060;
+	font-size: 12pt;
+	line-height:1.5em;
+	padding:6px 6px 6px 6px;
+	border-color:#8f9f5c:;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 input{
