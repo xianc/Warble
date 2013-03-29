@@ -40,8 +40,12 @@ app.get ('/user/logout', user.logout);
 app.get ('/user/online', user.online);
 app.get ('/user/discover', user.discover);
 app.get ('/user/me',      user.me);
-app.get ('/user/profile', user.my_profile);
+app.get ('/user/my_profile', user.my_profile);
 app.get('/user/front',   user.main);
+
+app.get('/user/form/:id', user.form);
+app.get('/user/form/process/:id', user.process);
+app.post('/user/form/process/:id', user.process);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

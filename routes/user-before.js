@@ -57,7 +57,7 @@ exports.online = function(req, res) {
 };
 
 exports.discover = function (req,res) {
-  res.render('discover', { title  : 'Discover'});
+  res.send('You are the only one online!');
 }
 
 exports.me = function (req, res) {
@@ -65,5 +65,59 @@ exports.me = function (req, res) {
 }
 
 exports.my_profile = function (req, res) {
-  res.render ('my_profile', { title : 'My Profile'});
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('my_profile', { title : 'My Profile',
+                              username : user.username });
 }
+
+
+exports.form = function (req, res) {
+  var id = req.params.id;
+  genUserList(function (ul) {
+    res.render('/user/form/' + id,
+               { title: 'form - ' + id,
+                 id: id,
+                 msg: '',
+                 users: ul });
+  });
+};
+
+//###Processes form get requests:
+exports.process = function (req, res) {
+  var id   = req.params.id;
+  var user = userData(req);
+
+  if (users.validateUser(user)) {
+    users.addUser(user);
+    genUserList(function (ul) {
+      res.render('/user/form/' + id,
+                 { title: 'form - ' + id,
+                   id: id,
+                   msg: 'Congrats! Your Account has been created!!',
+                   users: ul });
+    });
+  }
+  else {
+    var smap = {
+      'fname': 'First Name',
+      'lname': 'Last Name',
+      'pass' : 'Password',
+    };
+    var m = 'Missing information:<br>';
+    for (p in smap) {
+      if (user[p] === '' &&
+          p in smap) {
+        m += smap[p] + ' is required! <br/>';
+      }
+    }
+    genUserList(function (ul) {
+      res.render('/user/form/' + id,
+                 { title: 'form - ' + id,
+                   id: id,
+                   msg: m,
+                   users: ul });
+    });
+  }
+};
