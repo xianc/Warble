@@ -19,11 +19,12 @@
         
           <form method="post" action="/user/auth"> 
             <h1>username:</h1>
-              <textarea name="username" rows="1" onfocus="if(this.value == 'Username') this.value='';" onblur="if(this.value == '') this.value='Username;" >Username</textarea>
+              <input name="username" id="size"></input>
     	      
     	       <h1>password:</h1>
-    	       <textarea name="password" rows="1" onfocus="if(this.value == 'Password') this.value='';" onblur="if(this.value == '') this.value='Password;" >Password</textarea>
-
+    	       <input type="password" name="password" id="size"></input>
+            <br>
+            <br>
     	      <input type="checkbox"></input> Remember me?
     	      <br><br>
     	     <center><input type="submit" value="Sign in"></input>
