@@ -40,7 +40,7 @@ exports.auth = function(req, res) {
 // ## logout
 // Does nothing!
 exports.logout = function(req, res) {
-  res.redirect('/user/login');
+  res.redirect('/');
 };
 
 // ## main

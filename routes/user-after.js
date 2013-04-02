@@ -122,7 +122,7 @@ exports.logout = function(req, res) {
     res.clearCookie('userid');
     delete online[userid];
   }
-  res.redirect('/user/login');
+  res.redirect('/');
 };
 
 // ## main
