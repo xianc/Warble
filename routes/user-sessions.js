@@ -122,3 +122,19 @@ exports.my_profile = function (req, res) {
                               username : user.username });
 }
 
+exports.followers = function (req, res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('followers', { title : 'Followers',
+                              username : user.username });
+}
+
+exports.following = function (req, res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('following', { title : 'Following',
+                              username : user.username });
+}
+
