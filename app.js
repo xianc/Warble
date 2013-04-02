@@ -47,6 +47,13 @@ app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
 app.post('/form/process/:id', user.process);
 
+app.get('/testy', function(req, res){
+  res.send('<form method="post" action="/testy" enctype="multipart/form-data">'
+           + '<p>Image: <input type="file" name="test" /></p>'
+           + '<p><input type="submit" value="Upload" /></p>'
+           + '</form>');
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
