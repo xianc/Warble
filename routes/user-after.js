@@ -162,6 +162,10 @@ exports.me = function (req, res) {
   res.render('me', { title  : 'At Me'});
 }
 
+exports.about = function (req, res) {
+  res.render('about', { title  : 'About'});
+}
+
 exports.my_profile = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -171,6 +175,32 @@ exports.my_profile = function (req, res) {
   else {
     var users = online[userid];
   res.render ('my_profile', { title : 'My Profile',
+                              username : users.username });
+  }
+}
+
+exports.followers = function (req, res) {
+   var userid = req.cookies.userid;
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    var users = online[userid];
+  res.render ('followers', { title : 'Followers',
+                              username : users.username });
+  }
+}
+
+exports.following = function (req, res) {
+   var userid = req.cookies.userid;
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    var users = online[userid];
+  res.render ('following', { title : 'Following',
                               username : users.username });
   }
 }
