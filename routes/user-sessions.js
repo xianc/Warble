@@ -105,6 +105,10 @@ exports.discover = function (req,res) {
   res.render('discover', { title  : 'Discover',
                             users : online });
 }
+exports.about = function (req, res) {
+  res.render('about', { title  : 'About'});
+}
+
 
 exports.me = function (req, res) {
   res.render('me', { title  : 'At Me'});

@@ -42,6 +42,7 @@ app.get ('/user/discover', user.discover);
 app.get ('/user/me',      user.me);
 app.get ('/user/my_profile', user.my_profile);
 app.get('/user/front',   user.main);
+app.get('/user/about',   user.about);
 
 app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
