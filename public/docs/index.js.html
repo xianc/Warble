@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "", thisFile = "Users/xianchen/Warble//index.js", defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+      <div class="heading h2">
+        <a href="#renders-the-login-home-page--index.ejs">Renders the Login/Home Page: index.ejs</a>
+      </div>
+      <div class="heading h2">
+        <a href="#renders-the-user-specific-pages-">Renders the user specific pages:</a>
+      </div>
+      <div class="heading h3">
+        <a href="#1.-front-page--pages-front.ejs">1. Front Page: pages/front.ejs</a>
+      </div>
+      <div class="heading h3">
+        <a href="#2.-discover--pages-discover.ejs">2. Discover: pages/discover.ejs</a>
+      </div>
+      <div class="heading h3">
+        <a href="#3.-profile--pages-profile.ejs">3. Profile: pages/profile.ejs</a>
+      </div>
+      <div class="heading h3">
+        <a href="#4.-at-me--pages-at_me.ejs">4. At Me: pages/at_me.ejs</a>
+      </div>
+      <div class="heading h3">
+        <a href="#5.-about--pages-about.ejs">5. About: pages/about.ejs</a>
+      </div>
+      <div class="heading h2">
+        <a href="#renders-the-forget-password-ans-sign_up-pages-">Renders the forget password ans sign_up pages:</a>
+      </div>
+      <div class="heading h3">
+        <a href="#1.-forget-password--form-forget_password.ejs">1. Forget Password: form/forget_password.ejs</a>
+      </div>
+      <div class="heading h3">
+        <a href="#2.-sign-up--form-sign_up.ejs">2. Sign Up: form/sign_up.ejs</a>
+      </div>
+      <div class="heading h3">
+        <a href="#processes-form-get-requests-">Processes form get requests:</a>
+      </div>
+      <div class="heading h3">
+        <a href="#displays-users">Displays Users</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>index.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>GET home page.</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/users&#39;</span><span class="p">);</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="renders-the-login-home-page--index.ejs">
+  <h2>
+    <a href="#renders-the-login-home-page--index.ejs" class="pilcrow">&#182;</a>
+    Renders the Login/Home Page: index.ejs
+  </h2>
+</div>
+
+
+<p>The Home Page is a simple login portal for users. It serves two purposes: </p>
+
+<blockquote>
+  <ol>
+  <li>Allow members who have already signed up to log on</li>
+  <li>Allow people who want to sign up to create an account.</li>
+  </ol>
+</blockquote>
+  </div>
+  <div class="body"><p>As of now, when clicked, the sign in button will redirect to pages/front</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">index</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Warble&#39;</span> <span class="p">})</span>
+<span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="renders-the-user-specific-pages-">
+  <h2>
+    <a href="#renders-the-user-specific-pages-" class="pilcrow">&#182;</a>
+    Renders the user specific pages:
+  </h2>
+</div>
+
+
+<blockquote>
+  <p>All pages are linked to header.ejs and footer.ejs which includes starting tages for the file (html, head, body etc.) and closing tags. </p>
+</blockquote>
+  </div>
+  <div class="body">
+<div class="pilwrap" id="1.-front-page--pages-front.ejs">
+  <h3>
+    <a href="#1.-front-page--pages-front.ejs" class="pilcrow">&#182;</a>
+    1. Front Page: pages/front.ejs
+  </h3>
+</div>
+
+
+<p>Displays and allows users to create status updates aka "warbles" and to upload files</p>
+
+
+<div class="pilwrap" id="2.-discover--pages-discover.ejs">
+  <h3>
+    <a href="#2.-discover--pages-discover.ejs" class="pilcrow">&#182;</a>
+    2. Discover: pages/discover.ejs
+  </h3>
+</div>
+
+
+<p>Displays search results. Users can search people or warbles. </p>
+
+
+<div class="pilwrap" id="3.-profile--pages-profile.ejs">
+  <h3>
+    <a href="#3.-profile--pages-profile.ejs" class="pilcrow">&#182;</a>
+    3. Profile: pages/profile.ejs
+  </h3>
+</div>
+
+
+<p>Shows users their information and their warbles</p>
+
+
+<div class="pilwrap" id="4.-at-me--pages-at_me.ejs">
+  <h3>
+    <a href="#4.-at-me--pages-at_me.ejs" class="pilcrow">&#182;</a>
+    4. At Me: pages/at_me.ejs
+  </h3>
+</div>
+
+
+<p>Displays all messages and references to a specific user</p>
+
+
+<div class="pilwrap" id="5.-about--pages-about.ejs">
+  <h3>
+    <a href="#5.-about--pages-about.ejs" class="pilcrow">&#182;</a>
+    5. About: pages/about.ejs
+  </h3>
+</div>
+
+
+<p>An introdction to the web application project. </p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">pages</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;pages/&#39;</span><span class="o">+</span><span class="nx">id</span><span class="p">,</span>
+             <span class="p">{</span> <span class="nx">layout</span><span class="o">:</span> <span class="s1">&#39;pages/layout&#39;</span><span class="p">,</span>
+               <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;pages - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+               <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span> <span class="p">});</span>
+<span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="renders-the-forget-password-ans-sign_up-pages-">
+  <h2>
+    <a href="#renders-the-forget-password-ans-sign_up-pages-" class="pilcrow">&#182;</a>
+    Renders the forget password ans sign_up pages:
+  </h2>
+</div>
+
+
+
+<div class="pilwrap" id="1.-forget-password--form-forget_password.ejs">
+  <h3>
+    <a href="#1.-forget-password--form-forget_password.ejs" class="pilcrow">&#182;</a>
+    1. Forget Password: form/forget_password.ejs
+  </h3>
+</div>
+
+
+<p>A form that asks a user for their username/email. </p>
+  </div>
+  <div class="body">
+<div class="pilwrap" id="2.-sign-up--form-sign_up.ejs">
+  <h3>
+    <a href="#2.-sign-up--form-sign_up.ejs" class="pilcrow">&#182;</a>
+    2. Sign Up: form/sign_up.ejs
+  </h3>
+</div>
+
+
+<p>A form that asks a user for information in order to create an account.</p>
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+               <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                 <span class="nx">users</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="processes-form-get-requests-">
+  <h3>
+    <a href="#processes-form-get-requests-" class="pilcrow">&#182;</a>
+    Processes form get requests:
+  </h3>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span>   <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">validateUser</span><span class="p">(</span><span class="nx">user</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">users</span><span class="p">.</span><span class="nx">addUser</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+    <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;Congrats! Your Account has been created!!&#39;</span><span class="p">,</span>
+                   <span class="nx">users</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">smap</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;fname&#39;</span><span class="o">:</span> <span class="s1">&#39;First Name&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;lname&#39;</span><span class="o">:</span> <span class="s1">&#39;Last Name&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;pass&#39;</span> <span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="s1">&#39;Missing information:&lt;br&gt;&#39;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">&amp;&amp;</span>
+          <span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="nx">smap</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; is required! &lt;br/&gt;&#39;</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">msg</span><span class="o">:</span> <span class="nx">m</span><span class="p">,</span>
+                   <span class="nx">users</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">user</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">fname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">fname</span><span class="p">,</span>
+      <span class="nx">lname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">lname</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+      <span class="nx">pass</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">pass</span><span class="p">,</span>
+      <span class="nx">newu</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">newu</span><span class="p">,</span>
+      <span class="nx">sex</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">sex</span><span class="p">,</span>
+      <span class="nx">month</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">month</span><span class="p">,</span>
+      <span class="nx">day</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">day</span><span class="p">,</span>
+      <span class="nx">year</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">fname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">fname</span><span class="p">,</span>
+      <span class="nx">lname</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">lname</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+      <span class="nx">pass</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">pass</span><span class="p">,</span>
+      <span class="nx">sex</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">sex</span><span class="p">,</span>
+      <span class="nx">month</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">month</span><span class="p">,</span>
+      <span class="nx">day</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">day</span><span class="p">,</span>
+      <span class="nx">year</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">user</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="displays-users">
+  <h3>
+    <a href="#displays-users" class="pilcrow">&#182;</a>
+    Displays Users
+  </h3>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">function</span> <span class="nx">genUserList</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">users</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">([],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span> <span class="nx">userInfo</span> <span class="o">+</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">;</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>
