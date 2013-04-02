@@ -1,0 +1,114 @@
+<% include header %>
+<div id="header">
+<!-- Top Navigation Bar -->
+
+<button type="button" class="active">
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="front">Front</a>
+</button>
+
+<button type="button">
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="discover">Discover</a>
+</button>
+
+<button type="button">
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="me">At Me</a>
+</button>
+
+<button type="button">
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
+</button>
+
+<button type="button">
+<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/logout">Logout</a>
+</button>
+</div>
+<div id="bar"></div>
+<br>
+
+<!-- Using a table to create a dynamically fluid webpage -->
+<table cellspacing="0" cellpadding="0" id="main_size" align="center">
+  <td valign="top" width="180px">
+     <div id="black">
+        <div class="Warble" align="center">Hello <%= username %></div>
+      </div>
+            
+      <div id="black">
+          <h1 class="Warble"><center>Online Users</center></h1>
+          <div style="padding:5px">
+          <font color="#b2b2b2">
+              <% for(var userid in users) { %>
+            - <%= users[userid].username %><br>
+            <% } %>
+          </font>
+          </div>
+
+      </div>
+    </td>
+    <td width="10px"></td>
+    <td>
+      <table width="100%"><tr>
+        <td valign="top">
+          <div id="content">
+
+            <!--JavaScript for Status Updates-->
+            <script type="text/javascript" src="javascript/update.js" /> </script>
+
+            <!-- Status Update and Document Upload Form -->
+            <form>
+                <center>
+                    <!-- Textarea for Status Updates-->
+                    <textarea rows="1" name="update" id="update"
+                    type="text">Isn't it delightful?</textarea>
+                </center>
+
+                <table width="97%" align="center">
+                    <td>
+                        <!-- Upload files button and display message -->
+                        <input type="submit" value="Upload"> <a class="text">no files yet...</a></input>
+                    </td>
+                    <td align="right">
+                        <!-- Status Update Confirmation Button -->
+                        <input type="submit" value="Warble!"></input>
+                    </td>
+                </table>
+            </form>
+
+        </td>
+        </div>
+
+        </tr>
+        </table><br>
+        <table width="100%" align="center"><tr>
+            
+            <td valign="top"><div id="content">
+                <!-- List of status updates -->
+                <h1>Warbles</h1>
+                <hr>
+
+                    <table width="100%" valign="top"><td><b>Xian Chen</b> <font size="2">on 3/5/13 at 9:15 pm</font><br>
+                    Changing headers and footers! Download?<br>
+                    <font size=2><u>Attached</u>: <i>files.zip</i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                    <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
+
+
+                    <table width="100%" valign="top"><td><b>Ryan</b><font size="2"> on 3/5/13 at 8:02 pm</font><br>
+                    Sign_up page ready</td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                    <a href="">Warble</a></font></td></table><hr>
+
+                    <table width="100%" valign="top"><td><b>Xian Chen</b> <font size="2">on 3/3/13 at 6:20 pm</font><br>
+                    Discover and Front pages are up!</td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                    <a href="">Warble</a></font></td></table><hr>
+
+                    <table width="100%" valign="top"><td><b>Xian Chen</b> <font size="2">on 3/3/13 at 4:13 pm</font><br>
+                    Warbles are going to look something like this...</td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                    <a href="">Warble</a></font></td></table><hr>
+                    updates...
+                    </div>
+                
+            </td>
+        </tr>
+
+</table>
+</td></table>
+
+<% include footer %>
