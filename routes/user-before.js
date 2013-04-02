@@ -40,7 +40,7 @@ exports.auth = function(req, res) {
 // ## logout
 // Does nothing!
 exports.logout = function(req, res) {
-  res.redirect('/user/login');
+  res.redirect('/');
 };
 
 // ## main
@@ -76,6 +76,31 @@ exports.my_profile = function (req, res) {
   res.render ('my_profile', { title : 'My Profile',
                               username : user.username });
 }
+
+exports.followers = function (req, res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('followers', { title : 'Followers',
+                              username : user.username });
+}
+
+exports.following = function (req, res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('following', { title : 'Following',
+                              username : user.username });
+}
+
+exports.my_profile = function (req, res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('my_profile', { title : 'My Profile',
+                              username : user.username });
+}
+
 exports.form = function (req, res) {
   var id = req.params.id;
   genUserList(function (ul) {

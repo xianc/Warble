@@ -78,7 +78,7 @@ exports.logout = function(req, res) {
   }
 
   delete req.session.user;
-  res.redirect('/user/login');
+  res.redirect('/');
 };
 
 // ## main
@@ -119,6 +119,22 @@ exports.my_profile = function (req, res) {
   // reset authmessage.
   authmessage = undefined;
   res.render ('my_profile', { title : 'My Profile',
+                              username : user.username });
+}
+
+exports.followers = function (req, res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('followers', { title : 'Followers',
+                              username : user.username });
+}
+
+exports.following = function (req, res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render ('following', { title : 'Following',
                               username : user.username });
 }
 
