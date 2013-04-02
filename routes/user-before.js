@@ -15,6 +15,11 @@ exports.login = function(req, res){
                         message : message });
 };
 
+exports.about = function (req, res) {
+  res.render('about', { title  : 'About'});
+}
+
+
 // ## auth
 // Performs **basic** user authentication.
 exports.auth = function(req, res) {
