@@ -42,12 +42,9 @@ app.get ('/user/discover', user.discover);
 app.get ('/user/me',      user.me);
 app.get ('/user/my_profile', user.my_profile);
 app.get('/user/front',   user.main);
-<<<<<<< HEAD
+app.get('/user/about',   user.about);
 app.get('/user/followers', user.followers);
 app.get('/user/following', user.following);
-=======
-app.get('/user/about',   user.about);
->>>>>>> 308ea8bf63b3aad6da6c8166d3b6a62c751bce6f
 
 app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
