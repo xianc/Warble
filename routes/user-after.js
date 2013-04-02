@@ -135,23 +135,27 @@ exports.main = function(req, res) {
     res.redirect('/user/login');
   }
   else {
-    var user = online[userid];
+    var users = online[userid];
     res.render('main', { title   : 'User main',
                          message : 'Login Successful',
                          users : online,
-                         username : user.username,
-                         password : user.password });
+                         username : users.username,
+                         password : users.password });
   }
 };
 
 exports.online = function(req, res) {
-  res.render('online', { title : 'Users Online',
+  var users = online[userid];
+  res.render('online', { title : 'user Online',
                          users : online });
 };
 
+
 exports.discover = function (req,res) {
+  var content = user.tolist();
   res.render('discover', { title  : 'Discover',
-                            users : online });
+                            users : online,
+                            allusers : content});
 }
 
 exports.me = function (req, res) {
@@ -165,43 +169,42 @@ exports.my_profile = function (req, res) {
     res.redirect('/user/login');
   }
   else {
-    var user = online[userid];
+    var users = online[userid];
   res.render ('my_profile', { title : 'My Profile',
-                              username : user.username });
+                              username : users.username });
   }
 }
 
 exports.form = function (req, res) {
   var id = req.params.id;
   genUserList(function (ul) {
-    res.render('/user/form/' + id,
+    res.render('form/' + id,
                { title: 'form - ' + id,
                  id: id,
                  msg: '',
-                 users: ul });
+                 user: ul });
   });
 };
 
 //###Processes form get requests:
 exports.process = function (req, res) {
   var id   = req.params.id;
-  var user = userData(req);
+  var auser = userData(req);
 
-  if (users.validateUser(user)) {
-    users.addUser(user);
+  if (user.validateUser(auser)) {
+    user.addUser(auser);
     genUserList(function (ul) {
-      res.render('/user/form/' + id,
+      res.render('form/' + id,
                  { title: 'form - ' + id,
                    id: id,
                    msg: 'Congrats! Your Account has been created!!',
-                   users: ul });
+                   user: ul });
     });
   }
   else {
     var smap = {
-      'fname': 'First Name',
-      'lname': 'Last Name',
-      'pass' : 'Password',
+      'username': 'Username',
+      'password' : 'Password',
     };
     var m = 'Missing information:<br>';
     for (p in smap) {
@@ -211,11 +214,58 @@ exports.process = function (req, res) {
       }
     }
     genUserList(function (ul) {
-      res.render('/user/form/' + id,
+      res.render('form/' + id,
                  { title: 'form - ' + id,
                    id: id,
                    msg: m,
-                   users: ul });
+                   user: ul });
     });
   }
 };
+
+function userData(req) {
+  var auser;
+  if (req.method === 'GET') {
+    auser = {
+      //fname: req.query.fname,
+      //lname: req.query.lname,
+      //email: req.query.email,
+      username: req.query.username,
+      password : req.query.password,
+      uid : req.query.uid,
+      //sex  : req.query.sex,
+      //month : req.query.month,
+      //day : req.query.day,
+      //year : req.query.year,
+    };
+  }
+  else {
+    auser = {
+      //fname: req.body.fname,
+      //lname: req.body.lname,
+      //email: req.body.email,
+      username : req.body.username,
+      password : req.body.password,
+      //sex  : req.body.sex,
+      //month: req.body.month,
+      //day  : req.body.day,
+      //year : req.body.year,
+    };
+  }
+  
+  return auser;
+}
+
+//###Displays user
+function genUserList(callback) {
+  var i;
+  user.getUserInfo([], function (list) {
+    var u = '<ul>';
+    for (i = 0; i < list.length; i++ ) {
+      var userInfo = list[i];
+      u += '<li>' + userInfo + '</li>';
+    }
+    u += '</ul>';
+    callback(u);
+  });
+}

@@ -71,12 +71,10 @@ exports.my_profile = function (req, res) {
   res.render ('my_profile', { title : 'My Profile',
                               username : user.username });
 }
-
-
 exports.form = function (req, res) {
   var id = req.params.id;
   genUserList(function (ul) {
-    res.render('/user/form/' + id,
+    res.render('form/' + id,
                { title: 'form - ' + id,
                  id: id,
                  msg: '',
@@ -92,7 +90,7 @@ exports.process = function (req, res) {
   if (users.validateUser(user)) {
     users.addUser(user);
     genUserList(function (ul) {
-      res.render('/user/form/' + id,
+      res.render('form/' + id,
                  { title: 'form - ' + id,
                    id: id,
                    msg: 'Congrats! Your Account has been created!!',
@@ -113,7 +111,7 @@ exports.process = function (req, res) {
       }
     }
     genUserList(function (ul) {
-      res.render('/user/form/' + id,
+      res.render('form/' + id,
                  { title: 'form - ' + id,
                    id: id,
                    msg: m,
@@ -121,3 +119,48 @@ exports.process = function (req, res) {
     });
   }
 };
+
+function userData(req) {
+  var user;
+  if (req.method === 'GET') {
+    user = {
+      fname: req.query.fname,
+      lname: req.query.lname,
+      email: req.query.email,
+      pass : req.query.pass,
+      newu : req.query.newu,
+      sex  : req.query.sex,
+      month : req.query.month,
+      day : req.query.day,
+      year : req.query.year,
+    };
+  }
+  else {
+    user = {
+      fname: req.body.fname,
+      lname: req.body.lname,
+      email: req.body.email,
+      pass : req.body.pass,
+      sex  : req.body.sex,
+      month: req.body.month,
+      day  : req.body.day,
+      year : req.body.year,
+    };
+  }
+  
+  return user;
+}
+
+//###Displays Users
+function genUserList(callback) {
+  var i;
+  users.getUserInfo([], function (list) {
+    var u = '<ul>';
+    for (i = 0; i < list.length; i++ ) {
+      var userInfo = list[i];
+      u += '<li>' + userInfo + '</li>';
+    }
+    u += '</ul>';
+    callback(u);
+  });
+}
