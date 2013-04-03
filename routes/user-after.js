@@ -140,7 +140,8 @@ exports.main = function(req, res) {
                          message : 'Login Successful',
                          users : online,
                          username : users.username,
-                         password : users.password });
+                         password : users.password 
+                        });
   }
 };
 
@@ -149,6 +150,12 @@ exports.online = function(req, res) {
   res.render('online', { title : 'user Online',
                          users : online });
 };
+exports.warbles = function(req, res) {
+  var warbles = warbles[userid];
+  res.render('online', { title : 'user Online',
+                         users : online });
+};
+
 
 
 exports.discover = function (req,res) {
