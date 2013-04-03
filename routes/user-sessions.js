@@ -163,13 +163,31 @@ exports.following = function (req, res) {
 
 
 
+
+exports.form = function (req, res) {
+  var id = req.params.id;
+  genWarbleList(function (ul) {
+    res.render('/' + id,
+               { title: 'form - ' + id,
+                 id: id,
+                 msg: '',
+                 userlib: ul });
+  });
+};
+
+
 //###Processes form get requests:
 exports.process = function (req, res) {
   var id   = req.params.id;
   var aWarble = warbleData(req);
 
   userlib.addWarble(aWarble);
-
+ /* genWarbleList(function (ul) {
+      res.render('form/' + id,
+                 { title: 'form - ' + id,
+                   id: id,
+                   msg: 'Congrats! Your Account has been created!!',
+                   userlib: ul });*/
 
 };
 
@@ -196,3 +214,18 @@ function warbleData(req) {
   
   return aWarble;
 }
+
+//###Displays user
+/*function genWarbleList(callback) {
+  var i;
+  user.getWarbleInfo([], function (list) {
+  var u = '<ul>';
+    for (i = 0; i < list.length; i++ ) {
+      var warbleInfo = list[i];
+      u += '<li>' + warbleInfo + '</li>';
+    }
+    u += '</ul>';
+    callback(u);
+  });
+}*/
+

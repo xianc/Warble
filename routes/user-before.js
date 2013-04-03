@@ -6,8 +6,7 @@ var authmessage;
 
 // # User Server-Side Routes
 
-// ## login
-// Provides a user login view.
+// ## Login Page
 exports.login = function(req, res){
   var message = authmessage || '';  // capture a message if it exists.
   authmessage = undefined;          // reset authmessage.
@@ -15,6 +14,7 @@ exports.login = function(req, res){
                         message : message });
 };
 
+// ## About Page
 exports.about = function (req, res) {
   res.render('about', { title  : 'About'});
 }
