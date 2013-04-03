@@ -32,27 +32,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.use(express.bodyParser({uploadDir:'/uploads'}));
 
-var path = require('path'),
-    fs = require('fs'),
-// ...
-app.post('/upload', function (req, res) {
-    var tempPath = req.files.file.path,
-        targetPath = path.resolve('./uploads/image.png');
-    if (path.extname(req.files.file.name).toLowerCase() === '.png') {
-        fs.rename(tempPath, targetPath, function(err) {
-            if (err) throw err;
-            console.log("Upload completed!");
-        });
-    } else {
-        fs.unlink(tempPath, function () {
-            if (err) throw err;
-            console.error("Only .png files are allowed!");
-        }
-    }
-    // ...
-});
 
 
 
@@ -75,9 +55,7 @@ app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
 app.post('/form/process/:id', user.process);
 
-app.get('/image.png', function (req, res) {
-    res.sendfile(path.resolve('./uploads/image.png'));
-}); 
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
