@@ -92,8 +92,8 @@ exports.main = function(req, res) {
                        message : 'Login Successful',
                          users : online,
                          username : user.username,
-                         password : user.password });
-  }
+                         password : user.password }
+                         warble : userlib.getTweetdb()});
 };
 
 exports.online = function(req, res) {

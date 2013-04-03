@@ -89,6 +89,10 @@
                 <h1>Warbles</h1>
                 <hr>
 
+                  <% for(var i = warble.length-1 ; i >= 0; i--) { %>
+                <li><%= warble[i].message %></li>
+                  <% } %>
+
                     <table width="100%" valign="top"><td><b>Xian Chen</b> <font size="2">on 3/5/13 at 9:15 pm</font><br>
                     Changing headers and footers! Download?<br>
                     <font size=2><u>Attached</u>: <i>files.zip</i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>

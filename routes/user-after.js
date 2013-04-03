@@ -140,7 +140,8 @@ exports.main = function(req, res) {
                          message : 'Login Successful',
                          users : online,
                          username : users.username,
-                         password : users.password 
+                         password : users.password, 
+                         warble : user.getTweetdb()
                         });
   }
 };
