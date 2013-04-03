@@ -167,7 +167,17 @@ exports.discover = function (req,res) {
 }
 
 exports.me = function (req, res) {
-  res.render('me', { title  : 'At Me'});
+  var userid = req.cookies.userid;
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    var users = online[userid];
+  res.render('me', { title  : 'At Me',
+                    username : users.username,
+                    warble : user.getWarbledb()  });
+}
 }
 
 exports.about = function (req, res) {

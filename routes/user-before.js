@@ -69,7 +69,12 @@ exports.discover = function (req,res) {
 }
 
 exports.me = function (req, res) {
-  res.render('me', { title  : 'At Me'});
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render('me', { title  : 'At Me',
+                    username : users.username,
+                    warble : user.getWarbledb()});
 }
 
 exports.upload = function (req, res) {
