@@ -188,7 +188,10 @@ exports.my_profile = function (req, res) {
     var users = online[userid];
   res.render ('my_profile', { title : 'My Profile',
                               username : users.username,
-                              warble : user.getWarbledb()  });
+                              warble : user.getWarbledb(),
+							  follower : user.getFollowerdb(),
+							  following : user.getFollowingdb()
+							  });
   }
 }
 
@@ -202,7 +205,8 @@ exports.followers = function (req, res) {
     var users = online[userid];
   res.render ('followers', { title : 'Followers',
                               username : users.username,
-							  follower : user.getFollowerdb()
+							  follower : user.getFollowerdb(),
+							  following : user.getFollowingdb()
 							});
   }
 }
@@ -216,7 +220,10 @@ exports.following = function (req, res) {
   else {
     var users = online[userid];
   res.render ('following', { title : 'Following',
-                              username : users.username });
+                              username : users.username,
+							  following : user.getFollowingdb(),
+							  follower : user.getFollowerdb()
+							});
   }
 }
 

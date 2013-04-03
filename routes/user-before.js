@@ -90,7 +90,8 @@ exports.followers = function (req, res) {
   authmessage = undefined;
   res.render ('followers', { title : 'Followers',
                               username : user.username,
-							  follower : userlib.getFollowerdb()   
+							  follower : user.getFollowerdb(),
+							  following : user.getFollowingdb()
 							});
 }
 
@@ -99,7 +100,10 @@ exports.following = function (req, res) {
   // reset authmessage.
   authmessage = undefined;
   res.render ('following', { title : 'Following',
-                              username : user.username });
+                              username : user.username,
+							  following : user.getFollowingdb(),
+							  follower : user.getFollowerdb()
+							});
 }
 
 exports.my_profile = function (req, res) {
@@ -108,7 +112,10 @@ exports.my_profile = function (req, res) {
   authmessage = undefined;
   res.render ('my_profile', { title : 'My Profile',
                               username : user.username,
-                              warble : userlib.getWarbledb() });
+                              warble : user.getWarbledb(),
+							  follower : user.getFollowerdb(),
+							  following : user.getFollowingdb()
+							  });
 }
 
 exports.form = function (req, res) {
