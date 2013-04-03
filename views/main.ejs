@@ -50,11 +50,12 @@
         <td valign="top">
           <div id="content">
 
-            <!--JavaScript for Status Updates-->
+            <!--JavaScript for Status Updates
             <script type="text/javascript" src="javascript/update.js" /> </script>
             <script type="text/javascript" src="lib/warbles/upload.js"></script>
-            <!-- Status Update and Document Upload Form -->
-            <form>
+            Status Update and Document Upload Form -->
+
+            <form method="get" id="main" action="/user/process">
                 <center>
                     <!-- Textarea for Status Updates-->
                     <textarea rows="1" name="update" id="update"
@@ -65,9 +66,9 @@
                     <td>
                         <!-- Upload files button and display message -->
                         <!--input type="file" id= "file" accept="image/*"--><!--/input-->
-                        <form method="post" enctype="multipart/form-data" action="/upload">
+                        <!--<form method="post" enctype="multipart/form-data" action="/upload">-->
                         <input type="file" name="file" accept="image/*">
-                        </form>
+                        <!--</form>-->
 
                     </td>
                     <td align="right">

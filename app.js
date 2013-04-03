@@ -50,6 +50,7 @@ app.get('user/upload', user.upload);
 app.get('/user/followers', user.followers);
 app.get('/user/following', user.following);
 app.get('/user/about',   user.about);
+app.get('/user/process', user.main);
 
 app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);

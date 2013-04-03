@@ -94,7 +94,7 @@ exports.main = function(req, res) {
                          username : user.username,
                          password : user.password,
                          warble : userlib.getWarbledb(),
-                         addwarble : userlib.addWarble(),
+                         //addwarble : userlib.addWarble(),
 						             follower: userlib.getFollowerdb()
 						 });
 };
@@ -156,8 +156,43 @@ exports.following = function (req, res) {
   authmessage = undefined;
   res.render ('following', { title : 'Following',
                               username : userlib.username,
-							  following : userlib.getFollowingdb(),
-							  follower : userlib.getFollowerdb()
+							               following : userlib.getFollowingdb(),
+							               follower : userlib.getFollowerdb()
 							});
 }
 
+
+
+//###Processes form get requests:
+exports.process = function (req, res) {
+  var id   = req.params.id;
+  var aWarble = warbleData(req);
+
+  userlib.addWarble(aWarble);
+
+
+};
+
+function warbleData(req) {
+  var aWarble;
+  if (req.method === 'GET') {
+      aWarble = {
+      username: ' ',
+      date : ' ',
+      message : req.query.update,
+      attachment:' ',
+      atUser:' '
+    };
+  }
+  else {
+    aWarble = {
+      username: ' ',
+      date : ' ',
+      username : req.body.update,
+      attachment:' ',
+      atUser:' '
+    };
+  }
+  
+  return aWarble;
+}
