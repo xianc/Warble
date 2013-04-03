@@ -94,7 +94,8 @@ exports.main = function(req, res) {
                          username : user.username,
                          password : user.password,
                          warble : userlib.getWarbledb(),
-						 follower: userlib.getFollowerdb()
+                         addwarble : userlib.addWarble(),
+						             follower: userlib.getFollowerdb()
 						 });
 };
 
