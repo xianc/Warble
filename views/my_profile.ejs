@@ -53,12 +53,26 @@
                     <!--Number of people the user follows-->      
                     <b>Following</b>
                     </td><td>
-                    <a href="following"><i><font size="2">120</font></i></a></td>
+                    <a href="following"><i><font size="2">
+					<% var k = 0 %>
+					<% for(var i = following.length-1; i >= 0; i--){
+						if(following[i].follower == username){ %>
+							<% k = k + 1 %>
+					<% }} %>
+					<%= k %>
+					</font></i></a></td>
                     </tr><tr><td>
                     <!--Number of people following user--> 
                     <b>Followers</b>
                     </td><td>
-                    <a href="followers"><font size="2"><i>80</i></font></a></td></tr></table>
+                    <a href="followers"><font size="2"><i>
+					<% var k = 0 %>
+					<% for(var i = follower.length-1; i >= 0; i--){
+						if(follower[i].followed == username){ %>
+							<% k = k + 1 %>
+					<% }} %>
+					<%= k %>
+					</i></font></a></td></tr></table>
                     <hr width="80%">
                 <table width="80%" valign="top"><tr><td>
                 <!--User's birthday--> 
