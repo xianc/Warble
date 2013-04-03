@@ -141,7 +141,12 @@ exports.main = function(req, res) {
                          users : online,
                          username : users.username,
                          password : users.password, 
+<<<<<<< HEAD
                          warble : user.addTweet()
+=======
+                         warble : user.getWarbledb(),
+						 follower : user.getFollowerdb()
+>>>>>>> c650519c158f06ddc9fe12f5c7acffe99cde738f
                         });
   }
 };
@@ -199,7 +204,9 @@ exports.followers = function (req, res) {
   else {
     var users = online[userid];
   res.render ('followers', { title : 'Followers',
-                              username : users.username });
+                              username : users.username,
+							  follower : user.getFollowerdb()
+							});
   }
 }
 

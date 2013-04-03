@@ -92,8 +92,10 @@ exports.main = function(req, res) {
                        message : 'Login Successful',
                          users : online,
                          username : user.username,
-                         password : user.password }
-                         warble : userlib.getWarbledb()});
+                         password : user.password,
+                         warble : userlib.getWarbledb(),
+						 follower: userlib.getFollowerdb()
+						 });
 };
 
 exports.online = function(req, res) {
@@ -133,7 +135,9 @@ exports.followers = function (req, res) {
   // reset authmessage.
   authmessage = undefined;
   res.render ('followers', { title : 'Followers',
-                              username : user.username });
+                              username : user.username,
+							  follower : userlib.getFollowerdb() 
+						   });
 }
 
 exports.following = function (req, res) {
