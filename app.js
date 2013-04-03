@@ -32,6 +32,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+
+
+
+
 app.get('/', user.login);
 app.get ('/user/login' , user.login);
 app.post('/user/auth'  , user.auth);
@@ -42,6 +46,7 @@ app.get ('/user/discover', user.discover);
 app.get ('/user/me',      user.me);
 app.get ('/user/my_profile', user.my_profile);
 app.get('/user/front',   user.main);
+app.get('user/upload', user.upload);
 app.get('/user/followers', user.followers);
 app.get('/user/following', user.following);
 app.get('/user/about',   user.about);
@@ -50,12 +55,7 @@ app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
 app.post('/form/process/:id', user.process);
 
-app.get('/testy', function(req, res){
-  res.send('<form method="post" action="/testy" enctype="multipart/form-data">'
-           + '<p>Image: <input type="file" name="test" /></p>'
-           + '<p><input type="submit" value="Upload" /></p>'
-           + '</form>');
-});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
