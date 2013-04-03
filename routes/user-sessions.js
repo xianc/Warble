@@ -126,7 +126,8 @@ exports.my_profile = function (req, res) {
   // reset authmessage.
   authmessage = undefined;
   res.render ('my_profile', { title : 'My Profile',
-                              username : user.username });
+                              username : user.username,
+                              warble : user.getWarbledb()  });
 }
 
 exports.followers = function (req, res) {

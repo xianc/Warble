@@ -87,24 +87,23 @@
                 <!-- makes a bullet list -->
 
 					<!--Latest Warbles by user-->  
-                    <table width="100%" valign="top"><td><b>Hridya Turlapati</b> <font size="2">on 3/5/13 at 9:15 pm</font><br>
-                    The latest version of Warble<br>
-                    <font size=2><u>Attached</u>: <i>Warble.zip</i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
 
 
-                    <table width="100%" valign="top"><td><b>Hridya Turlapati</b><font size="2"> on 3/5/13 at 8:02 pm</font><br>
-                    Sign_up page ready</td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a></font></td></table><hr>
 
-                    <table width="100%" valign="top"><td><b>Hridya Turlapati</b> <font size="2">on 3/3/13 at 6:20 pm</font><br>
-                    Profile page is up and running!</td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a></font></td></table><hr>
+            <% for(var i = warble.length-1 ; i >= 0; i--) { 
+            if (warble[i].username == username) { %>
+                  <table width="100%" valign="top"><td><b>
+                  <%= warble[i].username %>
+                  </b> <font size="2">on 
+                  <%= warble[i].date %>
+                  </font><br>
+                  <%= warble[i].message %>
+                  <br><font size=2><u>Attached</u>: <i>
+                  <%= warble[i].attachment %>
+                  </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                  <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
+                  <% } } %>
 
-                    <table width="100%" valign="top"><td><b>Hridya Turlapati</b> <font size="2">on 3/3/13 at 4:13 pm</font><br>
-                    Warbles are going to look something like this...</td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a></font></td></table><hr>
-                    <a href=""><center>More...</center></a>
                  </div>
              </td>
         </tr>

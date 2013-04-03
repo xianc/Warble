@@ -35,6 +35,20 @@
         <div id="default">
            <h3><font size="5pt">@Me</font></h3>
                 <hr>
+
+
+                 <% for(var i = warble.length-1 ; i >= 0; i--) { %>
+                  <table width="100%" valign="top"><td><b>
+                  <%= warble[i].username %>
+                  </b> <font size="2">on 
+                  <%= warble[i].date %>
+                  </font><br>
+                  <%= warble[i].message %>
+                  <br><font size=2><u>Attached</u>: <i>
+                  <%= warble[i].attachment %>
+                  </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                  <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
+                  <% } %>
                 	<!-- First Post -->
                     <table width="100%" valign="top"><td>
                     <a href= ""><b>Eric Smith</b></a> <font size="2">on 3/7/13 at 9:25 am </font><b>@<u>Hridya Turlapati</b></u><br>

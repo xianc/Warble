@@ -187,7 +187,8 @@ exports.my_profile = function (req, res) {
   else {
     var users = online[userid];
   res.render ('my_profile', { title : 'My Profile',
-                              username : users.username });
+                              username : users.username,
+                              warble : user.getWarbledb()  });
   }
 }
 
