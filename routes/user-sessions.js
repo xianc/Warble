@@ -114,6 +114,10 @@ exports.me = function (req, res) {
   res.render('me', { title  : 'At Me'});
 }
 
+exports.upload = function (req, res) {
+  res.render('upload', { title  : 'Upload'});
+}
+
 exports.my_profile = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.

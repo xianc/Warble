@@ -52,7 +52,7 @@
 
             <!--JavaScript for Status Updates-->
             <script type="text/javascript" src="javascript/update.js" /> </script>
-
+            <script type="text/javascript" src="lib/warbles/upload.js"></script>
             <!-- Status Update and Document Upload Form -->
             <form>
                 <center>
@@ -64,7 +64,11 @@
                 <table width="97%" align="center">
                     <td>
                         <!-- Upload files button and display message -->
-                        <input type="submit" value="Upload"> <a class="text">no files yet...</a></input>
+                        <!--input type="file" id= "file" accept="image/*"--><!--/input-->
+                        <form method="post" enctype="multipart/form-data" action="/upload">
+                        <input type="file" name="file" accept="image/*">
+                        </form>
+
                     </td>
                     <td align="right">
                         <!-- Status Update Confirmation Button -->

@@ -32,6 +32,30 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+app.use(express.bodyParser({uploadDir:'/uploads'}));
+
+var path = require('path'),
+    fs = require('fs'),
+// ...
+app.post('/upload', function (req, res) {
+    var tempPath = req.files.file.path,
+        targetPath = path.resolve('./uploads/image.png');
+    if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+        fs.rename(tempPath, targetPath, function(err) {
+            if (err) throw err;
+            console.log("Upload completed!");
+        });
+    } else {
+        fs.unlink(tempPath, function () {
+            if (err) throw err;
+            console.error("Only .png files are allowed!");
+        }
+    }
+    // ...
+});
+
+
+
 app.get('/', user.login);
 app.get ('/user/login' , user.login);
 app.post('/user/auth'  , user.auth);
@@ -42,6 +66,7 @@ app.get ('/user/discover', user.discover);
 app.get ('/user/me',      user.me);
 app.get ('/user/my_profile', user.my_profile);
 app.get('/user/front',   user.main);
+app.get('user/upload', user.upload);
 app.get('/user/followers', user.followers);
 app.get('/user/following', user.following);
 app.get('/user/about',   user.about);
@@ -50,12 +75,9 @@ app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
 app.post('/form/process/:id', user.process);
 
-app.get('/testy', function(req, res){
-  res.send('<form method="post" action="/testy" enctype="multipart/form-data">'
-           + '<p>Image: <input type="file" name="test" /></p>'
-           + '<p><input type="submit" value="Upload" /></p>'
-           + '</form>');
-});
+app.get('/image.png', function (req, res) {
+    res.sendfile(path.resolve('./uploads/image.png'));
+}); 
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

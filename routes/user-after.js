@@ -166,6 +166,10 @@ exports.about = function (req, res) {
   res.render('about', { title  : 'About'});
 }
 
+exports.upload = function (req, res) {
+  res.render('upload', { title  : 'Upload'});
+}
+
 exports.my_profile = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
