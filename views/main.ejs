@@ -90,27 +90,19 @@
                 <hr>
 
                   <% for(var i = warble.length-1 ; i >= 0; i--) { %>
-                <li><%= warble[i].message %></li>
+                  <table width="100%" valign="top"><td><b>
+                  <%= warble[i].username %>
+                  </b> <font size="2">on 
+                  <%= warble[i].date %>
+                  </font><br>
+                  <%= warble[i].message %>
+                  <br><font size=2><u>Attached</u>: <i>
+                  <%= warble[i].attachment %>
+                  </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                  <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
                   <% } %>
 
-                    <table width="100%" valign="top"><td><b>Xian Chen</b> <font size="2">on 3/5/13 at 9:15 pm</font><br>
-                    Changing headers and footers! Download?<br>
-                    <font size=2><u>Attached</u>: <i>files.zip</i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
-
-
-                    <table width="100%" valign="top"><td><b>Ryan</b><font size="2"> on 3/5/13 at 8:02 pm</font><br>
-                    Sign_up page ready</td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a></font></td></table><hr>
-
-                    <table width="100%" valign="top"><td><b>Xian Chen</b> <font size="2">on 3/3/13 at 6:20 pm</font><br>
-                    Discover and Front pages are up!</td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a></font></td></table><hr>
-
-                    <table width="100%" valign="top"><td><b>Xian Chen</b> <font size="2">on 3/3/13 at 4:13 pm</font><br>
-                    Warbles are going to look something like this...</td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a></font></td></table><hr>
-                    updates...
+                   
                     </div>
                 
             </td>

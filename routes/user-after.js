@@ -141,7 +141,7 @@ exports.main = function(req, res) {
                          users : online,
                          username : users.username,
                          password : users.password, 
-                         warble : user.getTweetdb()
+                         warble : user.getWarbledb()
                         });
   }
 };

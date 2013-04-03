@@ -93,7 +93,7 @@ exports.main = function(req, res) {
                          users : online,
                          username : user.username,
                          password : user.password }
-                         warble : userlib.getTweetdb()});
+                         warble : userlib.getWarbledb()});
 };
 
 exports.online = function(req, res) {
