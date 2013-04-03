@@ -36,8 +36,8 @@
            <h3><font size="5pt">@Me</font></h3>
                 <hr>
 
-
-                 <% for(var i = warble.length-1 ; i >= 0; i--) { %>
+                <% for(var i = warble.length-1 ; i >= 0; i--) { 
+                if (warble[i].atUser == username) { %>
                   <table width="100%" valign="top"><td><b>
                   <%= warble[i].username %>
                   </b> <font size="2">on 
@@ -48,32 +48,9 @@
                   <%= warble[i].attachment %>
                   </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
                   <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
-                  <% } %>
-                	<!-- First Post -->
-                    <table width="100%" valign="top"><td>
-                    <a href= ""><b>Eric Smith</b></a> <font size="2">on 3/7/13 at 9:25 am </font><b>@<u>Hridya Turlapati</b></u><br>
-                    The document you needed for class<br>
-                    <font size=2><u>Attached</u>: <i>alltheanswers.zip</i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
-                    <!-- Second Post -->
-                    <table width="100%" valign="top"><td>
-                    <a href=""><b>Eric Smith</b></a> <font size="2">on 3/7/13 at 9:25 am </font><b>@<u>Hridya Turlapati</u></b><br>
-                    more doggie pics!<br>
-                    <font size=2><u>Attached</u>: <i>pups.jpg</i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
-                    <!-- Third Post -->
-                    <table width="100%" valign="top"><td><a href=""><b>Xian Chen</b></a> <font size="2">on 3/3/13 at 6:20 pm 	</font><b>@<u>Hridya Turlapati</u></b><br>
-                    review for our midterm<br>
-                    <font size=2><u>Attached</u>: <i>alltheanswers.zip</i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a><br>
-                    <a href="">Download</a><br>
-                    <a href="">Follow</a></font></td></table><hr>
-                    <!-- Fourth Post -->
-                    <table width="100%" valign="top"><td><a href=""><b>Xian Chen</b></a> <font size="2">on 3/3/13 at 4:13 pm </font></font><b>@<u>Hridya Turlapati</u></b><br>
-                    Hey its Xian...Follow me!</td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                    <a href="">Warble</a><br>
-                    <a href="">Follow</a></font></td></table><hr>
-                    <a href=""><center>see earlier...</center></a>
+                  <% } } %>
+
+
                     </div>
                     </td>
         </tr>
