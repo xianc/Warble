@@ -103,7 +103,8 @@ exports.online = function(req, res) {
 
 exports.discover = function (req,res) {
   res.render('discover', { title  : 'Discover',
-                            users : online });
+                            users : online,
+                            allUsers : userlib.getUserdb()});
 }
 exports.about = function (req, res) {
   res.render('about', { title  : 'About'});

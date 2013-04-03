@@ -61,6 +61,21 @@
             <% } %>
 
           </div>
+          </div>
+          <br>
+
+          <div id="content"width="100%">
+          <h1 class="Warble"><center>New Users</center></h1>
+          <div class="text"><hr></div>
+          <div style="padding:5px; filter:alpha(opacity=.7); opacity:.7;" >
+        <ul>
+        <% for(var i = 0 ; i < allUsers.length; i++) { %>
+          <li><%= allUsers[i].username %></li>
+        <% } %>
+        </ul>
+        </div>
+        </div>
+          
 
  		</td>
 

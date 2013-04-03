@@ -152,10 +152,9 @@ exports.online = function(req, res) {
 
 
 exports.discover = function (req,res) {
-  var content = user.tolist();
   res.render('discover', { title  : 'Discover',
                             users : online,
-                            allusers : content});
+                            allUsers : user.getUserdb()});
 }
 
 exports.me = function (req, res) {
@@ -290,11 +289,12 @@ function userData(req) {
   return auser;
 }
 
+
 //###Displays user
 function genUserList(callback) {
   var i;
   user.getUserInfo([], function (list) {
-    var u = '<ul>';
+  var u = '<ul>';
     for (i = 0; i < list.length; i++ ) {
       var userInfo = list[i];
       u += '<li>' + userInfo + '</li>';

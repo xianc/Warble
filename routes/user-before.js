@@ -185,10 +185,11 @@ function userData(req) {
   return user;
 }
 
+
 //###Displays Users
 function genUserList(callback) {
   var i;
-  users.getUserInfo([], function (list) {
+  user.getUserInfo([], function (list) {
     var u = '<ul>';
     for (i = 0; i < list.length; i++ ) {
       var userInfo = list[i];
