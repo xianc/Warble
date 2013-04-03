@@ -141,7 +141,8 @@ exports.main = function(req, res) {
                          users : online,
                          username : users.username,
                          password : users.password, 
-                         warble : user.getWarbledb()
+                         warble : user.getWarbledb(),
+						 follower : user.getFollowerdb()
                         });
   }
 };
@@ -199,7 +200,9 @@ exports.followers = function (req, res) {
   else {
     var users = online[userid];
   res.render ('followers', { title : 'Followers',
-                              username : users.username });
+                              username : users.username,
+							  follower : user.getFollowerdb()
+							});
   }
 }
 
