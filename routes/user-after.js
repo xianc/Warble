@@ -141,7 +141,7 @@ exports.main = function(req, res) {
                          users : online,
                          username : users.username,
                          password : users.password, 
-                         warble : user.getWarbledb()
+                         warble : user.addTweet()
                         });
   }
 };
@@ -186,8 +186,7 @@ exports.my_profile = function (req, res) {
   else {
     var users = online[userid];
   res.render ('my_profile', { title : 'My Profile',
-                              username : users.username,
-                              warble : user.getWarbledb()  });
+                              username : users.username });
   }
 }
 
