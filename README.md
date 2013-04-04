@@ -45,8 +45,32 @@ The current version of the Warble web app works best on the Chrome and Safari we
 >####About
 >- The About page gives an introduction to the web application project
 
+
 ##Test Files
 The following are test files. 
 >-chat.ejs: This file is a test of submitting and displaying a message dynamically on screen. It is used to help create the "tweet"/"warble" in user/main. You can view this test page by going to localhost:3000/chat
 >-online.ejs: This file is a test to display all users from the user database. It is used to display the 5 newest users in discover.ejs
 >-front.ejs: A skeleton. This page was what is now main.js. 
+
+##Project Assignment 03
+Here is a list of the files and the additions we made:
+###In Views
+>- app.js: added new routes
+>- style.css: uploaded Warble Font
+>- login.ejs: checks user database to validate user login
+>- main.ejs: include new features (Warbles, online users, greets the user currently logged in, lists the username of online users)
+>- discover.ejs: included warbles from warbledb, current users that are online, list of the five newest users,
+>- me.ejs: filteres warbles that are 'at' the user that is currently logged in
+>- my_profile: added a link to a list of followers and following users as well as warbles. This page also displays a count of followers, followings and warbles. The user's warbles are listed in the content box on the right by filtering through warbledb for the current user's username
+>- logout: added feature to logg the user out
+>- chat.ejs: displays a chat like feature that dynamically updates the "tweet" section
+
+###In Routes
+>- user-after, user-before, user-sessions: replaced index.js to render pages
+
+###In lib/user
+>-user.js: Added warbles, followers, following, and several other methods
+
+###In node_modules
+>-added connect-flash, and formidabble (has not been used)
+
