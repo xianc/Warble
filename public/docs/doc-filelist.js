@@ -1,1 +1,1 @@
-var tree={"files":["chat.js","user.js"]};
+var tree={"files":["user-after.js","user-before.js","user-sessions.js"]};

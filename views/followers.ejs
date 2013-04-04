@@ -14,7 +14,7 @@
 </button>
 
 <button type="button" class="active">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="profile">My Profile</a>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
 </button>
 
 <button type="button">
@@ -39,11 +39,18 @@
             </div>
 
             <div id="content">
-     	        <table width="80%" valign="top"><tr><td>
-     	         <!--Number of warbles by user-->
+                <table width="80%" valign="top"><tr><td>
+                 <!--Number of warbles by user-->
                     <b>Warbles</b>
                     </td><td>
-                    <a href=""><i><font size="2">1000</font></i></a>
+                    <a href=""><i><font size="2">
+                    <% var k = 0 %>
+          <% for(var i = warble.length-1; i >= 0; i--){
+            if(warble[i].username == username){ %>
+              <% k = k + 1 %>
+          <% }} %>
+          <%= k %>
+          </font></i></a>
                     </tr><tr><td>
                      <!--Number of uploads by user-->    
                     <b>Uploads</b>

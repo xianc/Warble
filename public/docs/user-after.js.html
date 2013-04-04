@@ -764,8 +764,8 @@ displays Warbles by that user</p>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;my_profile&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;My Profile&#39;</span><span class="p">,</span>
                               <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
                               <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
-                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
-                <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
                 <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -799,8 +799,9 @@ corresponding to followers</p>
     <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;followers&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Followers&#39;</span><span class="p">,</span>
                               <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
-                <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
               <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -834,8 +835,9 @@ corresponding to following</p>
     <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;following&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Following&#39;</span><span class="p">,</span>
                               <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">(),</span>
-                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                             <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">(),</span>
+                             <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
               <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">}</span>

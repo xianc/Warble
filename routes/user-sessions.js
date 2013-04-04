@@ -185,8 +185,8 @@ exports.my_profile = function (req, res) {
   res.render ('my_profile', { title : 'My Profile',
                               username : userlib.username,
                               warble : userlib.getWarbledb(),
-							  follower : userlib.getFollowerdb(),
-							  following : userlib.getFollowingdb()
+              							  follower : userlib.getFollowerdb(),
+              							  following : userlib.getFollowingdb()
 							  });
 }
 
@@ -198,8 +198,9 @@ exports.followers = function (req, res) {
   authmessage = undefined;
   res.render ('followers', { title : 'Followers',
                               username : userlib.username,
-							  follower : userlib.getFollowerdb(),
-							  following : userlib.getFollowingdb()
+                              warble : userlib.getWarbledb(),
+              							  follower : userlib.getFollowerdb(),
+              							  following : userlib.getFollowingdb()
 						   });
 }
 
@@ -211,6 +212,7 @@ exports.following = function (req, res) {
   authmessage = undefined;
   res.render ('following', { title : 'Following',
                               username : userlib.username,
+                              warble : userlib.getWarbledb(),
 							               following : userlib.getFollowingdb(),
 							               follower : userlib.getFollowerdb()
 							});
