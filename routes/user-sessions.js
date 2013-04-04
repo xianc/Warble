@@ -187,7 +187,7 @@ exports.following = function (req, res) {
 
 
 
-// ## Renders form 
+// Renders form 
 exports.form = function (req, res) {
   var id = req.params.id;
   genWarbleList(function (ul) {
@@ -200,7 +200,7 @@ exports.form = function (req, res) {
 };
 
 
-//###Processes form get requests:
+//Processes form get requests:
 exports.process = function (req, res) {
   var id   = req.params.id;
   var aWarble = warbleData(req);
@@ -209,7 +209,7 @@ exports.process = function (req, res) {
 
 };
 
-//###Puts together the warbleData use to add warbles to the warble database
+//Puts together the warbleData use to add warbles to the warble database
 function warbleData(req) {
   var aWarble;
   if (req.method === 'GET') {

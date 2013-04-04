@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "C:\\Users\\rbecker\\Warble\\\\user-after.js", defaultSidebar = true;
+    var relativeDir = "", thisFile = "Users/xianchen/Warble//user-after.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -193,7 +193,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre></pre></div>
+        <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/user&#39;</span><span class="p">);</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -206,7 +209,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">userids</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -219,7 +225,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">online</span> <span class="o">=</span> <span class="p">{};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -232,7 +242,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="kd">function</span> <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -254,7 +268,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -276,7 +294,12 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -298,7 +321,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">value</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -311,7 +337,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">clearCookie</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -324,7 +353,13 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -337,7 +372,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -352,7 +390,10 @@
 
 <p>Provides a user login view.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">login</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -365,7 +406,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">authmessage</span> <span class="o">=</span> <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -378,7 +423,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">userid</span>  <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -427,7 +476,13 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/main&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -440,7 +495,14 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User Login&#39;</span><span class="p">,</span>
+                          <span class="nx">message</span> <span class="o">:</span> <span class="nx">authmessage</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -462,7 +524,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">auth</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -475,7 +540,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -488,7 +557,13 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/main&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -501,7 +576,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="kd">var</span> <span class="nx">username</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -514,7 +593,11 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">user</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -536,7 +619,13 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -567,7 +656,14 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">userid</span> <span class="o">=</span> <span class="o">++</span><span class="nx">userids</span><span class="p">;</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">,</span>
+                   <span class="nx">userid</span><span class="o">+</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                   <span class="p">{</span> <span class="nx">maxAge</span> <span class="o">:</span> <span class="mi">900000</span> <span class="p">});</span> <span class="c1">// 15 minutes</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -580,7 +676,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -593,7 +692,15 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/main&#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -615,7 +722,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">logout</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -628,7 +738,17 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">clearCookie</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">);</span>
+    <span class="k">delete</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -650,7 +770,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -663,7 +786,27 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User main&#39;</span><span class="p">,</span>
+                         <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
+                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
+                         <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                         <span class="nx">password</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> 
+                         <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                         <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
+                        <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -676,7 +819,21 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">online</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;user Online&#39;</span><span class="p">,</span>
+                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span> <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">warbles</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">warbles</span> <span class="o">=</span> <span class="nx">warbles</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;user Online&#39;</span><span class="p">,</span>
+                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span> <span class="p">});</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -689,7 +846,14 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">discover</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;discover&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;Discover&#39;</span><span class="p">,</span>
+                            <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
+                            <span class="nx">allUsers</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">()});</span>
+<span class="p">}</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -702,7 +866,22 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">me</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;At Me&#39;</span><span class="p">,</span>
+                    <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                    <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">()</span>  <span class="p">});</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -715,7 +894,12 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">about</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">});</span>
+<span class="p">}</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -728,7 +912,12 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">upload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;upload&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;Upload&#39;</span><span class="p">});</span>
+<span class="p">}</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -741,7 +930,25 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">my_profile</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;my_profile&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;My Profile&#39;</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+                <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -754,7 +961,24 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">followers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;followers&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Followers&#39;</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+              <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -767,7 +991,24 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">following</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;following&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Following&#39;</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">(),</span>
+                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
+              <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -780,7 +1021,20 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+               <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                 <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -793,7 +1047,44 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span>   <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">auser</span> <span class="o">=</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">validateUser</span><span class="p">(</span><span class="nx">auser</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">user</span><span class="p">.</span><span class="nx">addUser</span><span class="p">(</span><span class="nx">auser</span><span class="p">);</span>
+    <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;Congrats! Your Account has been created!!&#39;</span><span class="p">,</span>
+                   <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">smap</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;Username&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="s1">&#39;Missing information:&lt;br&gt;&#39;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">&amp;&amp;</span>
+          <span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">m</span> <span class="o">+=</span> <span class="nx">smap</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; is required! &lt;br/&gt;&#39;</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">msg</span><span class="o">:</span> <span class="nx">m</span><span class="p">,</span>
+                   <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -806,7 +1097,13 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">function</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">auser</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">auser</span> <span class="o">=</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -818,7 +1115,12 @@
 lname: req.query.lname,
 email: req.query.email,</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">username</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+      <span class="nx">password</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+      <span class="nx">uid</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">uid</span><span class="p">,</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -831,7 +1133,14 @@ month : req.query.month,
 day : req.query.day,
 year : req.query.year,</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="err">##</span> <span class="nx">registers</span> <span class="nx">user</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">auser</span> <span class="o">=</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -843,7 +1152,11 @@ year : req.query.year,</p>
 lname: req.body.lname,
 email: req.body.email,</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="nx">username</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+      <span class="nx">password</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -856,7 +1169,16 @@ month: req.body.month,
 day  : req.body.day,
 year : req.body.year,</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">auser</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -869,7 +1191,20 @@ year : req.body.year,</p>
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">function</span> <span class="nx">genUserList</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">user</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">([],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span> <span class="nx">userInfo</span> <span class="o">+</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">;</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
         </td>
       </tr>
   </tbody>

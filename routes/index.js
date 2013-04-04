@@ -1,4 +1,6 @@
-//#This file is no longer being used!!
+//#NOTE: This file was for Assignment 2 and is no longer being used
+//
+
 
 /*
  * GET home page.
