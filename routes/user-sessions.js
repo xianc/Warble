@@ -92,29 +92,6 @@ Also known as the Front Page. This page:
 */
 exports.main = function(req, res) {
 
-  function warbleData(req) {
-  var aWarble;
-  if (req.method === 'GET') {
-      aWarble = {
-      username: ' ',
-      date : ' ',
-      message : req.query.update,
-      attachment:' ',
-      atUser:' '
-    };
-  }
-  else {
-    aWarble = {
-      username: ' ',
-      date : ' ',
-      username : req.body.update,
-      attachment:' ',
-      atUser:' '
-    };
-  }
-  
-  return aWarble;
-}
 
   // TDR: added session support
   var message = authmessage || { username : 'nobody', password : 'nopass' };
