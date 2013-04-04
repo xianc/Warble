@@ -145,10 +145,11 @@ exports.my_profile = function (req, res) {
 
 //Processes form get requests:
 exports.addWarb = function (req, res) {
+  console.log('Adding Warbles:');
   var aWarble = {
       username  : ' ',
       database  : ' ',
-      messages  : req.query.update,
+      messages  : req.body.update,
       attachment: ' ',
       atUser    : ' ',
     };
@@ -158,6 +159,23 @@ exports.addWarb = function (req, res) {
     user.addWarble(aWarble);
 
 };
+
+exports.chat = function(req, res){
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+
+  res.render('chat', { title   : 'User main',
+                       message : 'Login Successful',
+                       username : message.username,
+                       password : message.password,
+                       warble : userlib.getWarbledb(),
+             follower : userlib.getFollowerdb() 
+             });
+
+ // res.render('chat', { title: 'Chat Client' });
+};
+
 
 //## User Pages
 //This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.

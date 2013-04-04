@@ -4,6 +4,7 @@
  */
 var express = require('express')
   , user  = require('./routes')
+  , chat = require('./chat')
   , http  = require('http')
   , path  = require('path')
   // TDR: Include flash middleware:
@@ -53,6 +54,10 @@ app.get('/user/about',   user.about);
 app.get('/user/:username', user.wuser);
 
 app.post('/user/addWarb', user.main);
+
+app.get('/chat', user.chat);
+app.post('/post', chat.post);
+app.post('/check', chat.check);
 
 
 app.get('/form/:id', user.form);

@@ -1,21 +1,27 @@
 <% include header %>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript"
+    		src="/javascripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript"
+    		src="/javascripts/chat-client.js"></script>
 <div id="header">
 <!-- Top Navigation Bar -->
 
 <button type="button" class="active">
-<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="front">Front</a>
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/chat">Front</a>
 </button>
 
 <button type="button">
-<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="discover">Discover</a>
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/discover">Discover</a>
 </button>
 
 <button type="button">
-<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="me">At Me</a>
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/me">At Me</a>
 </button>
 
 <button type="button">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/my_profile">My Profile</a>
 </button>
 
 <button type="button">
@@ -49,34 +55,19 @@
       <table width="100%"><tr>
         <td valign="top">
           <div id="content">
+           
+    
 
-            <!--JavaScript for Status Updates
-            <script type="text/javascript" src="javascript/update.js" /> </script>
-            <script type="text/javascript" src="lib/warbles/upload.js"></script>
-            Status Update and Document Upload Form -->
-
-
-
-            <form method="post" id="main" action="addWarb">
-                <center>
-                <Textarea for Status Updates
-                    <textarea rows="1" name="update" id="update"
-                    type="text">Isn't it delightful?</textarea>
-                </center>
-
-                <table width="97%" align="center">
+    <input type="text" id="size">
+    <table width="97%" align="center">
                     <td>
-                        <!-- Upload files button and display message -->
-                        <!--input type="file" id= "file" accept="image/*"--><!--/input-->
-                        <!--<form method="post" enctype="multipart/form-data" action="/upload">-->
-                        <input type="file" name="file" accept="image/*">
-                        <!--</form>-->
-
-                    </td>
+     <input type="file" name="file" accept="image/*">
+     </td>
                     <td align="right">
-                        <!-- Status Update Confirmation Button -->
-                        <input type="submit" value="Warble!"></input>
-                    </td>
+    <button>Warble</button>
+    <!--<input type="submit" value="Warble!"></input>-->
+   
+      </td>
                 </table>
             </form>
 
@@ -85,7 +76,7 @@
 
         </tr>
         </table><br>
-		
+    
         <table width="100%" align="center"><tr>
             
             <td valign="top"><div id="content">
@@ -93,9 +84,11 @@
                 <h1>Warbles</h1>
                 <hr>
 
+                 <ul id="chat">
+      <!-- Fill in with the posts from server. -->
+                </ul>
 
-
-                  <% for(var i = warble.length-1 ; i >= 0; i--) { %>
+             <% for(var i = warble.length-1 ; i >= 0; i--) { %>
                   <table width="100%" valign="top"><td><b>
                   <a href="<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
