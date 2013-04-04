@@ -27,17 +27,41 @@
       <div class="heading h2">
         <a href="#user-server-side-routes">User Server-Side Routes</a>
       </div>
-      <div class="heading h3">
-        <a href="#login">login</a>
+      <div class="heading h2">
+        <a href="#login-page">Login Page</a>
       </div>
-      <div class="heading h3">
-        <a href="#auth">auth</a>
+      <div class="heading h2">
+        <a href="#login-authentification">Login Authentification</a>
       </div>
       <div class="heading h3">
         <a href="#logout">logout</a>
       </div>
-      <div class="heading h3">
-        <a href="#main">main</a>
+      <div class="heading h2">
+        <a href="#main-page">Main Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#online-page">Online Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#discover-page">Discover Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#at-me-page">At Me Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#about-page">About Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#upload-function">Upload Function</a>
+      </div>
+      <div class="heading h2">
+        <a href="#my-profile-page">My Profile Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#followers-page">Followers Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#following-page">Following Page</a>
       </div>
       <div class="heading h2">
         <a href="#registers-user">registers user</a>
@@ -61,7 +85,18 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/user&#39;</span><span class="p">);</span>
+        <td class="code highlight"><div class="highlight"><pre></pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Requiring the user library</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/user&#39;</span><span class="p">);</span>
 
 
 </pre></div>
@@ -70,7 +105,7 @@
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
 </div>
 <p>Records the user logged in</p>
         </td>
@@ -83,7 +118,7 @@
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
 </div>
 <p>Records all users that are logged in in a "database"</p>
         </td>
@@ -114,7 +149,7 @@
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
 </div>
 <p>If <code>value</code> is not undefined we are <em>setting</em> a flash
 value (i.e., setting a cookie).</p>
@@ -129,7 +164,7 @@ value (i.e., setting a cookie).</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
 </div>
 <p>We return the <code>value</code> to be consistent with the
 alternative call - to retrieve the value.</p>
@@ -145,7 +180,7 @@ alternative call - to retrieve the value.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
 </div>
 <p>Grab the <code>value</code> from the cookies sent along with
 the request.</p>
@@ -159,7 +194,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
 </div>
 <p>Clear the cookie in the response.</p>
         </td>
@@ -172,7 +207,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
 </div>
 <p>Return the <code>value</code>.</p>
         </td>
@@ -203,15 +238,15 @@ the request.</p>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="login">
-  <h3>
-    <a href="#login" class="pilcrow">&#182;</a>
-    login
-  </h3>
+<div class="pilwrap" id="login-page">
+  <h2>
+    <a href="#login-page" class="pilcrow">&#182;</a>
+    Login Page
+  </h2>
 </div>
 
 
-<p>Provides a user login view.</p>
+<p>A username and password is entered and is checked with the databae using auth</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">login</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
@@ -222,7 +257,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
 </div>
 <p>Grab any messages being sent to use from redirect.</p>
         </td>
@@ -236,7 +271,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
 </div>
 <p>TDR: redirect if logged in:</p>
         </td>
@@ -250,10 +285,10 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
 </div>
-<p>TDR: If the user is already logged in - we redirect to the
-main application view. We must check both that the <code>userid</code>
+<p>If the user is already logged in - they are redirected to the
+main/front page of Warble. We must check both that the <code>userid</code>
 and the <code>online[userid]</code> are undefined. The reason is that
 the cookie may still be stored on the client even if the
 server has been restarted.</p>
@@ -270,7 +305,7 @@ server has been restarted.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
+  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
 </div>
 <p>Render the login view if this is a new login.</p>
         </td>
@@ -286,15 +321,16 @@ server has been restarted.</p>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="auth">
-  <h3>
-    <a href="#auth" class="pilcrow">&#182;</a>
-    auth
-  </h3>
+<div class="pilwrap" id="login-authentification">
+  <h2>
+    <a href="#login-authentification" class="pilcrow">&#182;</a>
+    Login Authentification
+  </h2>
 </div>
 
 
-<p>Performs <strong>basic</strong> user authentication.</p>
+<p>Performs <strong>basic</strong> user authentication.
+Looks at username and password and tries to find a match in userdb </p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">auth</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -305,7 +341,7 @@ server has been restarted.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-17" id="section-17">&#182;</a>
+  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
 </div>
 <p>TDR: redirect if logged in:</p>
         </td>
@@ -319,7 +355,7 @@ server has been restarted.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
+  <a class="pilcrow" href="#section-19" id="section-19">&#182;</a>
 </div>
 <p>TDR: do the check as described in the <code>exports.login</code> function.</p>
         </td>
@@ -335,7 +371,7 @@ server has been restarted.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-19" id="section-19">&#182;</a>
+  <a class="pilcrow" href="#section-20" id="section-20">&#182;</a>
 </div>
 <p>Pull the values from the form.</p>
         </td>
@@ -349,7 +385,7 @@ server has been restarted.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-20" id="section-20">&#182;</a>
+  <a class="pilcrow" href="#section-21" id="section-21">&#182;</a>
 </div>
 <p>Perform the user lookup.</p>
         </td>
@@ -363,7 +399,7 @@ server has been restarted.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-21" id="section-21">&#182;</a>
+  <a class="pilcrow" href="#section-22" id="section-22">&#182;</a>
 </div>
 <p>If there is an error we "flash" a message to the
 redirected route <code>/user/login</code>.</p>
@@ -380,7 +416,7 @@ redirected route <code>/user/login</code>.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-22" id="section-22">&#182;</a>
+  <a class="pilcrow" href="#section-23" id="section-23">&#182;</a>
 </div>
 <p>TDR: use cookie to record stateful connection. Here
 we record the generated userid as a cookie to be
@@ -399,7 +435,7 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-23" id="section-23">&#182;</a>
+  <a class="pilcrow" href="#section-24" id="section-24">&#182;</a>
 </div>
 <p>Store the user in our in memory database.</p>
         </td>
@@ -412,7 +448,7 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-24" id="section-24">&#182;</a>
+  <a class="pilcrow" href="#section-25" id="section-25">&#182;</a>
 </div>
 <p>Redirect to main.</p>
         </td>
@@ -448,7 +484,7 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-26" id="section-26">&#182;</a>
+  <a class="pilcrow" href="#section-27" id="section-27">&#182;</a>
 </div>
 <p>TDR: handle cookies</p>
         </td>
@@ -466,16 +502,30 @@ passed back and forth between client and server.</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap" id="main">
-  <h3>
-    <a href="#main" class="pilcrow">&#182;</a>
-    main
-  </h3>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="main-page">
+  <h2>
+    <a href="#main-page" class="pilcrow">&#182;</a>
+    Main Page
+  </h2>
 </div>
 
 
-<p>The main user view.</p>
+<p>Also known as the Front Page. This page: </p>
+
+<blockquote>
+  <ol>
+  <li>Greets the user that is signed in. </li>
+  <li>Displays the name of online users</li>
+  <li>Allow users to "tweet" (warbles)</li>
+  <li>Displays recent tweets/warbles</li>
+  </ol>
+</blockquote>
+  </div>
+  <div class="body">
+  </div>
+</div>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -486,7 +536,7 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-28" id="section-28">&#182;</a>
+  <a class="pilcrow" href="#section-29" id="section-29">&#182;</a>
 </div>
 <p>TDR: added cookie support</p>
         </td>
@@ -515,9 +565,14 @@ passed back and forth between client and server.</p>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-29" id="section-29">&#182;</a>
+<div class="pilwrap" id="online-page">
+  <h2>
+    <a href="#online-page" class="pilcrow">&#182;</a>
+    Online Page
+  </h2>
 </div>
+
+
 <p>shows the other users online at a point in time</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
@@ -539,10 +594,16 @@ passed back and forth between client and server.</p>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-30" id="section-30">&#182;</a>
+<div class="pilwrap" id="discover-page">
+  <h2>
+    <a href="#discover-page" class="pilcrow">&#182;</a>
+    Discover Page
+  </h2>
 </div>
-<p>lets users discover other users or Warbles</p>
+
+
+<p>Lists the users online as well as the 5 most recent entries 
+in the user database. This page also displays Warbles from the Warble Databse</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">discover</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -552,15 +613,22 @@ passed back and forth between client and server.</p>
                             <span class="nx">allUsers</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">()});</span>
 <span class="p">}</span>
 
+
+
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-31" id="section-31">&#182;</a>
+<div class="pilwrap" id="at-me-page">
+  <h2>
+    <a href="#at-me-page" class="pilcrow">&#182;</a>
+    At Me Page
+  </h2>
 </div>
-<p>shows Warbles at a user</p>
+
+
+<p>Displays Warbles at the user that is logged in. </p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">me</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -577,45 +645,68 @@ passed back and forth between client and server.</p>
 <span class="p">}</span>
 <span class="p">}</span>
 
+
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-32" id="section-32">&#182;</a>
+<div class="pilwrap" id="about-page">
+  <h2>
+    <a href="#about-page" class="pilcrow">&#182;</a>
+    About Page
+  </h2>
 </div>
-<p>renders about page</p>
+
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">about</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">});</span>
 <span class="p">}</span>
 
+
 </pre></div>
         </td>
       </tr>
       <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-33" id="section-33">&#182;</a>
+        <td class="docs"><div class="dox">
+  <div class="summary">
+<div class="pilwrap" id="upload-function">
+  <h2>
+    <a href="#upload-function" class="pilcrow">&#182;</a>
+    Upload Function
+  </h2>
 </div>
-<p>allows for uploads</p>
+
+
+<p>This function is currently commented out and does nothing
+exports.upload = function (req, res) {
+res.render('upload', { title  : 'Upload'});
+}</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">upload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;upload&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;Upload&#39;</span><span class="p">});</span>
-<span class="p">}</span>
+
 
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-34" id="section-34">&#182;</a>
+<div class="pilwrap" id="my-profile-page">
+  <h2>
+    <a href="#my-profile-page" class="pilcrow">&#182;</a>
+    My Profile Page
+  </h2>
 </div>
-<p>allows for users and warbles to be displayed on profile page</p>
+
+
+<p>This page display user information like: the number of Warbles and 
+followers they have and the number of people they follow. It also 
+displays Warbles by that user</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">my_profile</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -635,15 +726,23 @@ passed back and forth between client and server.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 
+
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-35" id="section-35">&#182;</a>
+<div class="pilwrap" id="followers-page">
+  <h2>
+    <a href="#followers-page" class="pilcrow">&#182;</a>
+    Followers Page
+  </h2>
 </div>
-<p>gets the users following the logged in Warbler</p>
+
+
+<p>Displays the followers of the user currently logged in. 
+Is accessed via a user profile and clicking on the number
+corresponding to followers</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">followers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -662,15 +761,23 @@ passed back and forth between client and server.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 
+
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-36" id="section-36">&#182;</a>
+<div class="pilwrap" id="following-page">
+  <h2>
+    <a href="#following-page" class="pilcrow">&#182;</a>
+    Following Page
+  </h2>
 </div>
-<p>gets the users a Warbler is following</p>
+
+
+<p>Displays the who the logged in user is following
+Is accessed via a user profile and clicking on the number
+corresponding to following</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">following</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -695,9 +802,9 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-37" id="section-37">&#182;</a>
+  <a class="pilcrow" href="#section-38" id="section-38">&#182;</a>
 </div>
-<p>creates user list</p>
+<p>is a form for signup</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -718,9 +825,9 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-38" id="section-38">&#182;</a>
+  <a class="pilcrow" href="#section-39" id="section-39">&#182;</a>
 </div>
-<p>Processes form get requests:</p>
+<p>Processes form get requests: for sign up</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -765,9 +872,10 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-39" id="section-39">&#182;</a>
+  <a class="pilcrow" href="#section-40" id="section-40">&#182;</a>
 </div>
-<p>checks for user</p>
+<p>Renders userData. Currently the commented out paramaters are not yet implemented
+but will be in the future</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">function</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
@@ -781,7 +889,7 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-40" id="section-40">&#182;</a>
+  <a class="pilcrow" href="#section-41" id="section-41">&#182;</a>
 </div>
 <p>fname: req.query.fname,
 lname: req.query.lname,
@@ -798,7 +906,7 @@ email: req.query.email,</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-41" id="section-41">&#182;</a>
+  <a class="pilcrow" href="#section-42" id="section-42">&#182;</a>
 </div>
 <p>sex  : req.query.sex,
 month : req.query.month,
@@ -832,7 +940,7 @@ year : req.query.year,</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-43" id="section-43">&#182;</a>
+  <a class="pilcrow" href="#section-44" id="section-44">&#182;</a>
 </div>
 <p>fname: req.body.fname,
 lname: req.body.lname,
@@ -848,7 +956,7 @@ email: req.body.email,</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-44" id="section-44">&#182;</a>
+  <a class="pilcrow" href="#section-45" id="section-45">&#182;</a>
 </div>
 <p>sex  : req.body.sex,
 month: req.body.month,
@@ -870,7 +978,7 @@ year : req.body.year,</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-45" id="section-45">&#182;</a>
+  <a class="pilcrow" href="#section-46" id="section-46">&#182;</a>
 </div>
 <p>Displays user</p>
         </td>
@@ -897,7 +1005,7 @@ year : req.body.year,</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-46" id="section-46">&#182;</a>
+  <a class="pilcrow" href="#section-47" id="section-47">&#182;</a>
 </div>
 <p>Processes form get requests:</p>
         </td>
@@ -907,18 +1015,29 @@ year : req.body.year,</p>
       <span class="nx">username</span>  <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
       <span class="nx">database</span>  <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
       <span class="nx">messages</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span>
-      <span class="nx">attachment</span><span class="o</pre></div>
+      <span class="nx">attachment</span><span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">atUser</span>    <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-47" id="section-47">&#182;</a>
+  <a class="pilcrow" href="#section-48" id="section-48">&#182;</a>
 </div>
 <p>var warble = user.getWarbledb();
 warble.push(aWarble);</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">user</span><span class="p">.</span><span class="nx">addWarble</span><span class="p">(</span><span class="nx">aWarble</span><span class="p">);</span>
+
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -933,7 +1052,21 @@ warble.push(aWarble);</p>
 
 <p>This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.)</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">wuser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">get_user</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span> <span class="c1">// This method searches for user in the user database</span>
+
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;wuser&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Profile+ &#39;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+                <span class="p">});</span>
+
+    
+<span class="p">};</span>
+</pre></div>
         </td>
       </tr>
   </tbody>

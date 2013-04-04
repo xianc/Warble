@@ -1,4 +1,6 @@
 // # user-after.js
+
+// Requiring the user library
 var user = require('../lib/user');
 
 // Records the user logged in
@@ -30,8 +32,8 @@ function flash(req, res, name, value) {
 
 // ## User Server-Side Routes
 
-// ### login
-// Provides a user login view.
+// ## Login Page
+// A username and password is entered and is checked with the databae using auth
 exports.login = function(req, res){
   // Grab any messages being sent to use from redirect.
   var authmessage = flash(req, res, 'auth') || '';
@@ -39,8 +41,8 @@ exports.login = function(req, res){
   // TDR: redirect if logged in:
   var userid  = req.cookies.userid;
 
-  // TDR: If the user is already logged in - we redirect to the
-  // main application view. We must check both that the `userid`
+  // If the user is already logged in - they are redirected to the
+  // main/front page of Warble. We must check both that the `userid`
   // and the `online[userid]` are undefined. The reason is that
   // the cookie may still be stored on the client even if the
   // server has been restarted.
@@ -54,8 +56,9 @@ exports.login = function(req, res){
   }
 };
 
-// ### auth
+// ## Login Authentification
 // Performs **basic** user authentication.
+// Looks at username and password and tries to find a match in userdb 
 exports.auth = function(req, res) {
   // TDR: redirect if logged in:
   var userid = req.cookies.userid;
@@ -106,8 +109,13 @@ exports.logout = function(req, res) {
   res.redirect('/');
 };
 
-// ### main
-// The main user view.
+/* ## Main Page
+Also known as the Front Page. This page: 
+> 1. Greets the user that is signed in. 
+> 2. Displays the name of online users
+> 3. Allow users to "tweet" (warbles)
+> 4. Displays recent tweets/warbles
+*/
 exports.main = function(req, res) {
   // TDR: added cookie support
   var userid = req.cookies.userid;
@@ -128,6 +136,7 @@ exports.main = function(req, res) {
   }
 };
 
+// ## Online Page
 // shows the other users online at a point in time
 exports.online = function(req, res) {
   var users = online[userid];
@@ -141,14 +150,19 @@ exports.warbles = function(req, res) {
                          users : online });
 };
 
-// lets users discover other users or Warbles
+//## Discover Page
+//Lists the users online as well as the 5 most recent entries 
+//in the user database. This page also displays Warbles from the Warble Databse
 exports.discover = function (req,res) {
   res.render('discover', { title  : 'Discover',
                             users : online,
                             warble : user.getWarbledb(),
                             allUsers : user.getUserdb()});
 }
-// shows Warbles at a user
+
+
+// ## At Me Page
+// Displays Warbles at the user that is logged in. 
 exports.me = function (req, res) {
   var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -162,15 +176,23 @@ exports.me = function (req, res) {
                     warble : user.getWarbledb()  });
 }
 }
-// renders about page
+
+// ## About Page
 exports.about = function (req, res) {
   res.render('about', { title  : 'About'});
 }
-// allows for uploads
+
+/* ## Upload Function
+This function is currently commented out and does nothing
 exports.upload = function (req, res) {
   res.render('upload', { title  : 'Upload'});
 }
-// allows for users and warbles to be displayed on profile page
+*/
+
+// ## My Profile Page
+// This page display user information like: the number of Warbles and 
+//followers they have and the number of people they follow. It also 
+//displays Warbles by that user
 exports.my_profile = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -187,7 +209,11 @@ exports.my_profile = function (req, res) {
 							  });
   }
 }
-// gets the users following the logged in Warbler
+
+// ## Followers Page
+// Displays the followers of the user currently logged in. 
+// Is accessed via a user profile and clicking on the number
+// corresponding to followers
 exports.followers = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -203,7 +229,11 @@ exports.followers = function (req, res) {
 							});
   }
 }
-// gets the users a Warbler is following
+
+// ## Following Page
+// Displays the who the logged in user is following
+// Is accessed via a user profile and clicking on the number
+// corresponding to following
 exports.following = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -219,7 +249,7 @@ exports.following = function (req, res) {
 							});
   }
 }
-// creates user list
+// is a form for signup
 exports.form = function (req, res) {
   var id = req.params.id;
   genUserList(function (ul) {
@@ -231,7 +261,7 @@ exports.form = function (req, res) {
   });
 };
 
-// Processes form get requests:
+// Processes form get requests: for sign up
 exports.process = function (req, res) {
   var id   = req.params.id;
   var auser = userData(req);
@@ -267,7 +297,8 @@ exports.process = function (req, res) {
     });
   }
 };
-// checks for user
+// Renders userData. Currently the commented out paramaters are not yet implemented
+// but will be in the future
 function userData(req) {
   var auser;
   if (req.method === 'GET') {
