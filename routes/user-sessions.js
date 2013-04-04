@@ -1,3 +1,4 @@
+// Requiring the user library
 var userlib = require('../lib/user');
 
 // A logged in "database":
@@ -29,8 +30,9 @@ exports.login = function(req, res){
   }
 };
 
-// ## auth
+// ## Login Authentification
 // Performs **basic** user authentication.
+// Looks at username and password and tries to find a match in userdb 
 exports.auth = function(req, res) {
   // TDR: redirect if logged in:
   var user = req.session.user;
@@ -63,8 +65,8 @@ exports.auth = function(req, res) {
 };
 
 
-// ## logout
-// Deletes user info & session - then redirects to login.
+// ## Logout Page
+// redirects to login page
 exports.logout = function(req, res) {
   var user = req.session.user;
   if (user === undefined || online[user.uid] === undefined) {
@@ -81,8 +83,13 @@ exports.logout = function(req, res) {
   res.redirect('/');
 };
 
-// ## main
-// The main user view.
+/* ## Main Page
+Also known as the Front Page. This page: 
+> 1. Greets the user that is signed in. 
+> 2. Displays the name of online users
+> 3. Allow users to "tweet" (warbles)
+> 4. Displays recent tweets/warbles
+*/
 exports.main = function(req, res) {
   // TDR: added session support
   var message = authmessage || { username : 'nobody', password : 'nopass' };
@@ -99,21 +106,28 @@ exports.main = function(req, res) {
 						 });
 };
 
+//## Online Page
+//A page that renders online users. Is a test function for discover
 exports.online = function(req, res) {
   res.render('online', { title : 'Users Online',
                          users : online });
 };
 
+//## Discover Page
+//Lists the users online as well as the 5 most recent entries in the user database. This page also displays Warbles from the Warble Databse
 exports.discover = function (req,res) {
   res.render('discover', { title  : 'Discover',
                             users : online,
                             allUsers : userlib.getUserdb()});
 }
+
+// ## About Page
 exports.about = function (req, res) {
   res.render('about', { title  : 'About'});
 }
 
-
+// ## At Me Page
+// Displays Warbles at the user that is logged in. 
 exports.me = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -123,10 +137,16 @@ exports.me = function (req, res) {
                     warble : userlib.getWarbledb()});
 }
 
+/* ## Upload Function
+This function is currently commented out and does nothing
 exports.upload = function (req, res) {
   res.render('upload', { title  : 'Upload'});
 }
+*/
 
+
+// ## My Profile Page
+// This page display user information like: the number of Warbles and followers they have and the number of people they follow. It also displays Warbles by that user
 exports.my_profile = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -139,6 +159,8 @@ exports.my_profile = function (req, res) {
 							  });
 }
 
+// ## Followers Page
+// Displays the followers of the user currently logged in
 exports.followers = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -150,6 +172,8 @@ exports.followers = function (req, res) {
 						   });
 }
 
+// ## Following Page
+// Displays the users that the current logged in user is following
 exports.following = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -163,7 +187,7 @@ exports.following = function (req, res) {
 
 
 
-
+// Renders form 
 exports.form = function (req, res) {
   var id = req.params.id;
   genWarbleList(function (ul) {
@@ -176,21 +200,16 @@ exports.form = function (req, res) {
 };
 
 
-//###Processes form get requests:
+//Processes form get requests:
 exports.process = function (req, res) {
   var id   = req.params.id;
   var aWarble = warbleData(req);
 
   userlib.addWarble(aWarble);
- /* genWarbleList(function (ul) {
-      res.render('form/' + id,
-                 { title: 'form - ' + id,
-                   id: id,
-                   msg: 'Congrats! Your Account has been created!!',
-                   userlib: ul });*/
 
 };
 
+//Puts together the warbleData use to add warbles to the warble database
 function warbleData(req) {
   var aWarble;
   if (req.method === 'GET') {
@@ -214,18 +233,3 @@ function warbleData(req) {
   
   return aWarble;
 }
-
-//###Displays user
-/*function genWarbleList(callback) {
-  var i;
-  user.getWarbleInfo([], function (list) {
-  var u = '<ul>';
-    for (i = 0; i < list.length; i++ ) {
-      var warbleInfo = list[i];
-      u += '<li>' + warbleInfo + '</li>';
-    }
-    u += '</ul>';
-    callback(u);
-  });
-}*/
-

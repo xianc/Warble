@@ -97,11 +97,12 @@
             
     	<td valign="top"><div id="default">
            <div class="Warble" align="center" style="padding-top:8px"><font size="5pt"><b><%= username %>'s Followers</b></font></div>
-							<% for(var i = follower.length-1; i >= 0; i--){
-								if(follower[i].followed == username){ %>
-							<%= follower[i].follower %>
-							<br>
-							<% }} %>
+				<hr>
+						<% for(var i = follower.length-1; i >= 0; i--){
+							if(follower[i].followed == username){ %>
+						<%= follower[i].follower %>
+						<br>
+						<% }} %>
 					</div>
              </td>
         </tr>

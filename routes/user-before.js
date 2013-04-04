@@ -1,3 +1,4 @@
+// Requiring the user library
 var user = require('../lib/user');
 
 // We use this to communicate messages between redirects. Because
@@ -7,6 +8,7 @@ var authmessage;
 // # User Server-Side Routes
 
 // ## Login Page
+// A username and password is entered and is checked with the databae using auth
 exports.login = function(req, res){
   var message = authmessage || '';  // capture a message if it exists.
   authmessage = undefined;          // reset authmessage.
@@ -20,8 +22,9 @@ exports.about = function (req, res) {
 }
 
 
-// ## auth
+// ## Login Authentification
 // Performs **basic** user authentication.
+// Looks at username and password and tries to find a match in userdb 
 exports.auth = function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
@@ -37,14 +40,19 @@ exports.auth = function(req, res) {
   });
 };
 
-// ## logout
-// Does nothing!
+// ## Logout Page
+// redirects to login page
 exports.logout = function(req, res) {
   res.redirect('/');
 };
 
-// ## main
-// The main user view.
+/* ## Main Page
+Also known as the Front Page. This page: 
+> 1. Greets the user that is signed in. 
+> 2. Displays the name of online users
+> 3. Allow users to "tweet" (warbles)
+> 4. Displays recent tweets/warbles
+*/
 exports.main = function(req, res) {
   // capture the user object or create a default.
   var message = authmessage || { username : 'nobody', password : 'nopass' };
@@ -59,15 +67,21 @@ exports.main = function(req, res) {
 					   });
 };
 
+// ## Online Page
+
 exports.online = function(req, res) {
   // A stub function we fill in `user-after.js`.
   res.send('You are the only one online!');
 };
 
+// ## Discover Page
+// A stub function we fill in `user-after.js`.
 exports.discover = function (req,res) {
-  res.send('You are the only one online!');
+  res.send('Nothing Here');
 }
 
+// ## At Me Page
+// Displays Warbles at the user that is logged in. 
 exports.me = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -77,18 +91,17 @@ exports.me = function (req, res) {
                     warble : user.getWarbledb()});
 }
 
+/* ## Upload Function
+This function is currently commented out and does nothing
 exports.upload = function (req, res) {
   res.render('upload', { title  : 'Upload'});
 }
+*/
 
-exports.my_profile = function (req, res) {
-  var message = authmessage || { username : 'nobody', password : 'nopass' };
-  // reset authmessage.
-  authmessage = undefined;
-  res.render ('my_profile', { title : 'My Profile',
-                              username : user.username });
-}
 
+
+// ## Followers Page
+// Displays the followers of the user currently logged in
 exports.followers = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -100,6 +113,8 @@ exports.followers = function (req, res) {
 							});
 }
 
+// ## Following Page
+// Displays the users that the current logged in user is following
 exports.following = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -111,6 +126,8 @@ exports.following = function (req, res) {
 							});
 }
 
+// ## My Profile Page
+// This page display user information like: the number of Warbles and followers they have and the number of people they follow. It also displays Warbles by that user
 exports.my_profile = function (req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -118,102 +135,8 @@ exports.my_profile = function (req, res) {
   res.render ('my_profile', { title : 'My Profile',
                               username : user.username,
                               warble : user.getWarbledb(),
-							  follower : user.getFollowerdb(),
-							  following : user.getFollowingdb()
+							                follower : user.getFollowerdb(),
+							                following : user.getFollowingdb()
 							  });
 }
 
-exports.form = function (req, res) {
-  var id = req.params.id;
-  genUserList(function (ul) {
-    res.render('form/' + id,
-               { title: 'form - ' + id,
-                 id: id,
-                 msg: '',
-                 users: ul });
-  });
-};
-
-//###Processes form get requests:
-exports.process = function (req, res) {
-  var id   = req.params.id;
-  var user = userData(req);
-
-  if (users.validateUser(user)) {
-    users.addUser(user);
-    genUserList(function (ul) {
-      res.render('form/' + id,
-                 { title: 'form - ' + id,
-                   id: id,
-                   msg: 'Congrats! Your Account has been created!!',
-                   users: ul });
-    });
-  }
-  else {
-    var smap = {
-      'fname': 'First Name',
-      'lname': 'Last Name',
-      'pass' : 'Password',
-    };
-    var m = 'Missing information:<br>';
-    for (p in smap) {
-      if (user[p] === '' &&
-          p in smap) {
-        m += smap[p] + ' is required! <br/>';
-      }
-    }
-    genUserList(function (ul) {
-      res.render('form/' + id,
-                 { title: 'form - ' + id,
-                   id: id,
-                   msg: m,
-                   users: ul });
-    });
-  }
-};
-
-function userData(req) {
-  var user;
-  if (req.method === 'GET') {
-    user = {
-      fname: req.query.fname,
-      lname: req.query.lname,
-      email: req.query.email,
-      pass : req.query.pass,
-      newu : req.query.newu,
-      sex  : req.query.sex,
-      month : req.query.month,
-      day : req.query.day,
-      year : req.query.year,
-    };
-  }
-  else {
-    user = {
-      fname: req.body.fname,
-      lname: req.body.lname,
-      email: req.body.email,
-      pass : req.body.pass,
-      sex  : req.body.sex,
-      month: req.body.month,
-      day  : req.body.day,
-      year : req.body.year,
-    };
-  }
-  
-  return user;
-}
-
-
-//###Displays Users
-function genUserList(callback) {
-  var i;
-  user.getUserInfo([], function (list) {
-    var u = '<ul>';
-    for (i = 0; i < list.length; i++ ) {
-      var userInfo = list[i];
-      u += '<li>' + userInfo + '</li>';
-    }
-    u += '</ul>';
-    callback(u);
-  });
-}

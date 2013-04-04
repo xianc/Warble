@@ -1,32 +1,13 @@
+// # user-after.js
 var user = require('../lib/user');
 
-// Records the logged in user:
+// Records the user logged in
 var userids = 0;
-// A logged in "database":
+// Records all users that are logged in in a "database"
 var online = {};
 
-//
-// The `flash` function is used to pass a message between
-// request and response. This is specifically used to help
-// pass messages as part of the redirect. For example, to
-// pass a `message` with a value `v` to a redirected URL we
-// would invoke `flash` before the redirect like so:
-//
-//    flash(req, res, 'message', 'this is my message');
-//    res.redirect('/user/main');
-//
-// To receive the message in the redirected route we would
-// invoke `flash` like so:
-//
-//    var message_value = flash(req, res, 'message');
-//
-// This is implemented using *cookies*. We create a cookie
-// named `name` with the value `value`. This cookie is
-// passed to the client and sent as part of the subsequent
-// request as part of the redirect. We then delete the
-// cookie when the redirect request is received back on
-// the server-side.
-//
+// ### Flash
+
 function flash(req, res, name, value) {
   // If `value` is not undefined we are *setting* a flash
   // value (i.e., setting a cookie).
@@ -47,9 +28,9 @@ function flash(req, res, name, value) {
   }
 }
 
-// # User Server-Side Routes
+// ## User Server-Side Routes
 
-// ## login
+// ### login
 // Provides a user login view.
 exports.login = function(req, res){
   // Grab any messages being sent to use from redirect.
@@ -73,7 +54,7 @@ exports.login = function(req, res){
   }
 };
 
-// ## auth
+// ### auth
 // Performs **basic** user authentication.
 exports.auth = function(req, res) {
   // TDR: redirect if logged in:
@@ -113,7 +94,7 @@ exports.auth = function(req, res) {
   }
 };
 
-// ## logout
+// ### logout
 // Deletes user info & cookies - then redirects to login.
 exports.logout = function(req, res) {
   // TDR: handle cookies
@@ -125,7 +106,7 @@ exports.logout = function(req, res) {
   res.redirect('/');
 };
 
-// ## main
+// ### main
 // The main user view.
 exports.main = function(req, res) {
   // TDR: added cookie support
@@ -147,25 +128,26 @@ exports.main = function(req, res) {
   }
 };
 
+// shows the other users online at a point in time
 exports.online = function(req, res) {
   var users = online[userid];
   res.render('online', { title : 'user Online',
                          users : online });
 };
+
 exports.warbles = function(req, res) {
   var warbles = warbles[userid];
   res.render('online', { title : 'user Online',
                          users : online });
 };
 
-
-
+// lets users discover other users or Warbles
 exports.discover = function (req,res) {
   res.render('discover', { title  : 'Discover',
                             users : online,
                             allUsers : user.getUserdb()});
 }
-
+// shows Warbles at a user
 exports.me = function (req, res) {
   var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -179,15 +161,15 @@ exports.me = function (req, res) {
                     warble : user.getWarbledb()  });
 }
 }
-
+// renders about page
 exports.about = function (req, res) {
   res.render('about', { title  : 'About'});
 }
-
+// allows for uploads
 exports.upload = function (req, res) {
   res.render('upload', { title  : 'Upload'});
 }
-
+// allows for users and warbles to be displayed on profile page
 exports.my_profile = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -204,7 +186,7 @@ exports.my_profile = function (req, res) {
 							  });
   }
 }
-
+// gets the users following the logged in Warbler
 exports.followers = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -220,7 +202,7 @@ exports.followers = function (req, res) {
 							});
   }
 }
-
+// gets the users a Warbler is following
 exports.following = function (req, res) {
    var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -236,7 +218,7 @@ exports.following = function (req, res) {
 							});
   }
 }
-
+// creates user list
 exports.form = function (req, res) {
   var id = req.params.id;
   genUserList(function (ul) {
@@ -248,7 +230,7 @@ exports.form = function (req, res) {
   });
 };
 
-//###Processes form get requests:
+// Processes form get requests:
 exports.process = function (req, res) {
   var id   = req.params.id;
   var auser = userData(req);
@@ -284,7 +266,7 @@ exports.process = function (req, res) {
     });
   }
 };
-
+// checks for user
 function userData(req) {
   var auser;
   if (req.method === 'GET') {
@@ -301,6 +283,7 @@ function userData(req) {
       //year : req.query.year,
     };
   }
+  ## registers user
   else {
     auser = {
       //fname: req.body.fname,
@@ -319,7 +302,7 @@ function userData(req) {
 }
 
 
-//###Displays user
+// Displays user
 function genUserList(callback) {
   var i;
   user.getUserInfo([], function (list) {
