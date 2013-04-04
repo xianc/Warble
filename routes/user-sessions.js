@@ -188,16 +188,6 @@ exports.following = function (req, res) {
 }
 
 
-exports.wuser = function (req, res) {
-    var u = req.params.user;
-    var c = userlib.get_user(u);
-    if (c) {
-        res.send('<h3>User: ' + 
-                 c.username  +'</h3>');
-    } else {
-        res.send('<h3>Unknown user: ' + u + '</h3>');
-    }
-};
 
 
 //Processes form get requests:
@@ -238,3 +228,25 @@ function warbleData(req) {
   
   return aWarble;
 }
+
+
+exports.wuser = function (req, res) {
+    var u = req.params.username;
+    var c = user.get_user(u);
+
+    /*if (c) {
+        res.send('<h3>User: ' + 
+                 c.username  +'</h3>');
+    } else {
+        res.send('<h3>Unknown user: ' + u + '</h3>');
+    }*/
+
+    res.render ('my_profile', { title : 'Profile+ ' + c.username,
+                              username : c.username,
+                              warble : user.getWarbledb(),
+                              follower : user.getFollowerdb(),
+                              following : user.getFollowingdb()
+                });
+
+    
+};
