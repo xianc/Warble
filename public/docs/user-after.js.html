@@ -42,6 +42,9 @@
       <div class="heading h2">
         <a href="#registers-user">registers user</a>
       </div>
+      <div class="heading h2">
+        <a href="#user-pages">User Pages</a>
+      </div>
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -545,6 +548,7 @@ passed back and forth between client and server.</p>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">discover</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;discover&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;Discover&#39;</span><span class="p">,</span>
                             <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
+                            <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
                             <span class="nx">allUsers</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">()});</span>
 <span class="p">}</span>
 
@@ -883,7 +887,53 @@ year : req.body.year,</p>
     <span class="nx">callback</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span>
   <span class="p">});</span>
 <span class="p">}</span>
+
+
+
+
 </pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-46" id="section-46">&#182;</a>
+</div>
+<p>Processes form get requests:</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">addWarb</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">aWarble</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">username</span>  <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">database</span>  <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">messages</span>  <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span>
+      <span class="nx">attachment</span><span class="o</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-47" id="section-47">&#182;</a>
+</div>
+<p>var warble = user.getWarbledb();
+warble.push(aWarble);</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="user-pages">
+  <h2>
+    <a href="#user-pages" class="pilcrow">&#182;</a>
+    User Pages
+  </h2>
+</div>
+
+
+<p>This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.)</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
   </tbody>

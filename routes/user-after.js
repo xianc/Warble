@@ -145,6 +145,7 @@ exports.warbles = function(req, res) {
 exports.discover = function (req,res) {
   res.render('discover', { title  : 'Discover',
                             users : online,
+                            warble : user.getWarbledb(),
                             allUsers : user.getUserdb()});
 }
 // shows Warbles at a user
@@ -321,11 +322,11 @@ function genUserList(callback) {
 //Processes form get requests:
 exports.addWarb = function (req, res) {
   var aWarble = {
-      username: ' ',
-      date : ' ',
-      message : req.query.update,
-      attachment:' ',
-      atUser:' '
+      username  : ' ',
+      database  : ' ',
+      messages  : req.query.update,
+      attachment: ' ',
+      atUser    : ' ',
     };
 
     //var warble = user.getWarbledb();

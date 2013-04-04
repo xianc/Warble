@@ -146,11 +146,11 @@ exports.my_profile = function (req, res) {
 //Processes form get requests:
 exports.addWarb = function (req, res) {
   var aWarble = {
-      username: ' ',
-      date : ' ',
-      message : req.query.update,
-      attachment:' ',
-      atUser:' '
+      username  : ' ',
+      database  : ' ',
+      messages  : req.query.update,
+      attachment: ' ',
+      atUser    : ' ',
     };
 
     //var warble = user.getWarbledb();

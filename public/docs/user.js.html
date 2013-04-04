@@ -33,13 +33,13 @@
       <div class="heading h1">
         <a href="#4.following">4.Following</a>
       </div>
-      <div class="heading h2">
+      <div class="heading h1">
         <a href="#users-">Users:</a>
       </div>
-      <div class="heading h2">
+      <div class="heading h1">
         <a href="#warbles-">Warbles:</a>
       </div>
-      <div class="heading h2">
+      <div class="heading h1">
         <a href="#follower-">Follower:</a>
       </div>
       <div class="heading h1">
@@ -62,6 +62,9 @@
       </div>
       <div class="heading h1">
         <a href="#getwarbleinfo--">getWarbleInfo()</a>
+      </div>
+      <div class="heading h1">
+        <a href="#find-a-user-and-return-it">Find a user and return it</a>
       </div>
       <div class="heading h1">
         <a href="#fetch-database-functions">Fetch Database Functions</a>
@@ -130,10 +133,10 @@ The...</p>
       <tr>
         <td class="docs">
 <div class="pilwrap" id="users-">
-  <h2>
+  <h1>
     <a href="#users-" class="pilcrow">&#182;</a>
     Users:
-  </h2>
+  </h1>
 </div>
 
 
@@ -156,10 +159,10 @@ They contain many fields: </p>
       <tr>
         <td class="docs">
 <div class="pilwrap" id="warbles-">
-  <h2>
+  <h1>
     <a href="#warbles-" class="pilcrow">&#182;</a>
     Warbles:
-  </h2>
+  </h1>
 </div>
 
 
@@ -193,10 +196,10 @@ They contain many fields: </p>
       <tr>
         <td class="docs">
 <div class="pilwrap" id="follower-">
-  <h2>
+  <h1>
     <a href="#follower-" class="pilcrow">&#182;</a>
     Follower:
-  </h2>
+  </h1>
 </div>
 
 
@@ -237,6 +240,7 @@ These methods deal with setting up the follower/following relationship:</p>
 <span class="p">};</span>
 
 
+
 </pre></div>
         </td>
       </tr>
@@ -254,7 +258,18 @@ These methods deal with setting up the follower/following relationship:</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">addWarble</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">addWarble</span><span class="p">(</span><span class="nx">warbleData</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">warbleData</span><span class="p">.</span><span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>warbleData.date = new Date();</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">warbledb</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">warbleData</span><span class="p">);</span>
 <span class="p">};</span>
 
@@ -335,8 +350,8 @@ These methods deal with setting up the follower/following relationship:</p>
   <span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="s1">&#39;Xian&#39;</span><span class="p">,</span> <span class="s1">&#39;4/3/13 at 2:28pm&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello. This is a test&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">),</span>
   <span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="s1">&#39;Eric&#39;</span><span class="p">,</span> <span class="s1">&#39;4/3/13 at 4:50pm&#39;</span><span class="p">,</span> <span class="s1">&#39;Immah Here&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;Xian&#39;</span><span class="p">),</span>
   <span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="s1">&#39;Xian&#39;</span><span class="p">,</span> <span class="s1">&#39;4/3/13 at 5:06pm&#39;</span><span class="p">,</span> <span class="s1">&#39;Hehe filtering werks&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">),</span>
-  <span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;4/3/13 at 5:30pm&#39;</span><span class="p">,</span> <span class="s1">&#39;Followeeerrrsss!!!!&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;Xian&#39;</span><span class="p">)</span>
-
+  <span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;4/3/13 at 5:30pm&#39;</span><span class="p">,</span> <span class="s1">&#39;Followeeerrrsss!!!!&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;Xian&#39;</span><span class="p">),</span>
+  <span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="s1">&#39;Xian&#39;</span><span class="p">,</span> <span class="s1">&#39;4/3/13 at 11:07pm&#39;</span><span class="p">,</span> <span class="s1">&#39;user profiles are up! phew!! &#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryan&#39;</span><span class="p">)</span>
 <span class="p">];</span>
 
 <span class="kd">var</span> <span class="nx">followerdb</span> <span class="o">=</span> <span class="p">[</span> <span class="c1">//#Fake Follower database. Stored in an Array.</span>
@@ -377,7 +392,7 @@ These methods deal with setting up the follower/following relationship:</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
 </div>
 <p>exports.addWarbles = function addWarble(user, warble){
    for (var i = userdb.length - 1; i >= 0; i--) {
@@ -451,7 +466,7 @@ is a populated array of strings containing each user's information.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
 </div>
 <p>validateUser()
 Validates a user. It returns <code>true</code> if the user is valid; 
@@ -461,6 +476,35 @@ Validates a user. It returns <code>true</code> if the user is valid;
 <span class="nx">exports</span><span class="p">.</span><span class="nx">validateUser</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">validateUser</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span> <span class="o">&amp;&amp;</span>
            <span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">userdb</span> <span class="o">=</span> <span class="nx">userdb</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="find-a-user-and-return-it">
+  <h1>
+    <a href="#find-a-user-and-return-it" class="pilcrow">&#182;</a>
+    Find a user and return it
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">get_user</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">userdb</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">userdb</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">username</span> <span class="o">===</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">c</span> <span class="o">=</span> <span class="nx">userdb</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">c</span><span class="p">;</span>
 <span class="p">};</span>
 
 
@@ -488,6 +532,9 @@ Validates a user. It returns <code>true</code> if the user is valid;
   <span class="k">return</span> <span class="nx">warbledb</span><span class="p">;</span>
 <span class="p">}</span>
 
+<span class="nx">exports</span><span class="p">.</span><span class="nx">getUsername</span><span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">){</span>
+  <span class="k">return</span> <span class="nx">userdb</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">username</span><span class="p">;</span>
+<span class="p">}</span>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getFollowerdb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
   <span class="k">return</span> <span class="nx">followerdb</span><span class="p">;</span>
 <span class="p">}</span>
@@ -503,7 +550,7 @@ Validates a user. It returns <code>true</code> if the user is valid;
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
+  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
 </div>
 <p>User Lookup function</p>
         </td>

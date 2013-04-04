@@ -95,7 +95,7 @@
 
                   <% for(var i = warble.length-1 ; i >= 0; i--) { %>
                   <table width="100%" valign="top"><td><b>
-                  <%= warble[i].username %>
+                  <a href="<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
                   <%= warble[i].date %>
                   </font><br>
