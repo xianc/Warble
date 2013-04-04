@@ -1,3 +1,4 @@
+//var user = require('../lib/user');
 // A ChatClient object for communicating
 // with the chat server.
 function ChatClient(config) {
@@ -58,6 +59,7 @@ ChatClient.prototype = {
 				var li   = $('<li>');
 				var date = new Date(that.posts[i].date);
 				li.html(date.toDateString() + ': ' + that.posts[i].text);
+				//user.addWarbs(that.post[i].text);
 				//var li = that.post[i].text;
 				that.view.append(li);
 			}

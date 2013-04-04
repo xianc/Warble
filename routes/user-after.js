@@ -91,7 +91,7 @@ exports.auth = function(req, res) {
         // Store the user in our in memory database.
         online[userid] = user;
         // Redirect to main.
-        res.redirect('/chat');
+        res.redirect('/user/main');
       }
     });
   }
@@ -119,12 +119,31 @@ Also known as the Front Page. This page:
 exports.main = function(req, res) {
   // TDR: added cookie support
   var userid = req.cookies.userid;
+
+    
+
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
   }
   else {
     var users = online[userid];
+
+    var aWarble = {
+      username  : users.username,
+      date  : new Date(),
+      messages  : req.body.update,
+      attachment: ' ',
+      atUser    : ' ',
+    };
+    //var warble = user.getWarbledb();
+    //warble.push(aWarble);
+    //userlib.addWarble(aWarble);
+    if (req.method === 'POST') {
+      console.log('Adding Warbles:');
+      user.addWarbs(users.username, new Date(), req.body.update);
+    }
+
     res.render('main', { title   : 'User main',
                          message : 'Login Successful',
                          users : online,
@@ -134,6 +153,8 @@ exports.main = function(req, res) {
 						             follower : user.getFollowerdb()
                         });
   }
+
+
 };
 
 // ## Online Page
@@ -363,7 +384,8 @@ exports.addWarb = function (req, res) {
 
     //var warble = user.getWarbledb();
     //warble.push(aWarble);
-    user.addWarble(aWarble);
+    //user.addWarble(aWarble);
+    user.addWarbs(req.body.update);
 
 };
 

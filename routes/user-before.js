@@ -156,7 +156,8 @@ exports.addWarb = function (req, res) {
 
     //var warble = user.getWarbledb();
     //warble.push(aWarble);
-    user.addWarble(aWarble);
+    //user.addWarble(aWarble);
+    user.addWarbs(req.body.update);
 
 };
 

@@ -91,21 +91,44 @@ Also known as the Front Page. This page:
 > 4. Displays recent tweets/warbles
 */
 exports.main = function(req, res) {
+  // TDR: added cookie support
+  var userid = req.cookies.userid;
 
+    
 
-  // TDR: added session support
-  var message = authmessage || { username : 'nobody', password : 'nopass' };
-  // reset authmessage.
-  authmessage = undefined;
-  res.render('main', { title   : 'User Main',
-                       message : 'Login Successful',
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    var users = online[userid];
+    console.log('Adding Warbles:');
+
+    var aWarble = {
+      username  : users.username,
+      date  : new Date(),
+      messages  : req.body.update,
+      attachment: ' ',
+      atUser    : ' ',
+    };
+    //var warble = user.getWarbledb();
+    //warble.push(aWarble);
+    //userlib.addWarble(aWarble);
+    if (req.method === 'POST') {
+      userlib.addWarbs(users.username, new Date(), req.body.update);
+    }
+
+    res.render('main', { title   : 'User main',
+                         message : 'Login Successful',
                          users : online,
-                         username : user.username,
-                         password : user.password,
+                         username : users.username,
+                         password : users.password, 
                          warble : userlib.getWarbledb(),
-                         //addwarble : userlib.addWarble(),
-						             follower: userlib.getFollowerdb()
-						 });
+                         follower : userlib.getFollowerdb()
+                        });
+  }
+
+
 };
 
 //## Online Page
@@ -207,7 +230,8 @@ exports.addWarb = function (req, res) {
 
     //var warble = user.getWarbledb();
     //warble.push(aWarble);
-    user.addWarble(aWarble);
+    //userlib.addWarble(aWarble);
+    userlib.addWarbs(req.body.update);
 
 };
 

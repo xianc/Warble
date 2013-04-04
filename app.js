@@ -52,9 +52,12 @@ app.get('/user/followers', user.followers);
 app.get('/user/following', user.following);
 app.get('/user/about',   user.about);
 app.get('/user/:username', user.wuser);
+app.post('/user/main', user.main);
 
-app.post('/user/addWarb', user.main);
+//app.post('/user/addWarb', user.main);
 
+//#Chat Test
+//The below is a test for dynamically updated statuses
 app.get('/chat', user.chat);
 app.post('/post', chat.post);
 app.post('/check', chat.check);
