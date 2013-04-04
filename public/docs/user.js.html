@@ -245,7 +245,8 @@ These methods deal with setting up the follower/following relationship:</p>
         </td>
       </tr>
       <tr>
-        <td class="docs">
+        <td class="docs"><div class="dox">
+  <div class="summary">
 <div class="pilwrap" id="addwarble--">
   <h1>
     <a href="#addwarble--" class="pilcrow">&#182;</a>
@@ -254,24 +255,17 @@ These methods deal with setting up the follower/following relationship:</p>
 </div>
 
 
-<p>Method allows for adding of a warble object to the Warble Database Array</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">addWarble</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">addWarble</span><span class="p">(</span><span class="nx">warbleData</span><span class="p">)</span> <span class="p">{</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+<p>An attempt to add warbles to warble db. Is currently replaced by @addWarb
+exports.addWarble = function addWarble(warbleData) {
+//warbleData.date = new Date();
+warbledb.push(warbleData);
+};  </p>
+  </div>
+  <div class="body">
+  </div>
 </div>
-<p>warbleData.date = new Date();</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-    <span class="nx">warbledb</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">warbleData</span><span class="p">);</span>
-<span class="p">};</span>
 
 
 </pre></div>
@@ -392,7 +386,7 @@ These methods deal with setting up the follower/following relationship:</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
 </div>
 <p>exports.addWarbles = function addWarble(user, warble){
    for (var i = userdb.length - 1; i >= 0; i--) {
@@ -466,7 +460,7 @@ is a populated array of strings containing each user's information.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
+  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
 </div>
 <p>validateUser()
 Validates a user. It returns <code>true</code> if the user is valid; 
@@ -526,6 +520,23 @@ Validates a user. It returns <code>true</code> if the user is valid;
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getUserdb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
   <span class="k">return</span> <span class="nx">userdb</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17">&#182;</a>
+</div>
+<p>Add warbles to warble db!</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">addWarbs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">date</span><span class="p">,</span> <span class="nx">warb</span><span class="p">){</span>
+  <span class="nx">warbledb</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">date</span><span class="p">,</span> <span class="nx">warb</span> <span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">));</span>
 <span class="p">}</span>
 
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getWarbledb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>

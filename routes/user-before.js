@@ -143,23 +143,6 @@ exports.my_profile = function (req, res) {
 
 
 
-//Processes form get requests:
-exports.addWarb = function (req, res) {
-  console.log('Adding Warbles:');
-  var aWarble = {
-      username  : ' ',
-      database  : ' ',
-      messages  : req.body.update,
-      attachment: ' ',
-      atUser    : ' ',
-    };
-
-    //var warble = user.getWarbledb();
-    //warble.push(aWarble);
-    //user.addWarble(aWarble);
-    user.addWarbs(req.body.update);
-
-};
 
 exports.chat = function(req, res){
   var message = authmessage || { username : 'nobody', password : 'nopass' };

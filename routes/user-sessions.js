@@ -103,7 +103,9 @@ exports.main = function(req, res) {
   else {
     var users = online[userid];
     console.log('Adding Warbles:');
-
+    //This part of the code adds Warbles! It currently does not 
+    //implement the "attachment" or "at user" feature but it does add
+    //warbles to warbledb
     var aWarble = {
       username  : users.username,
       date  : new Date(),
@@ -217,23 +219,7 @@ exports.following = function (req, res) {
 
 
 
-//Processes form get requests:
-exports.addWarb = function (req, res) {
-  console.log('Adding Warbles:');
-  var aWarble = {
-      username  : ' ',
-      database  : ' ',
-      messages  : req.body.update,
-      attachment: ' ',
-      atUser    : ' ',
-    };
 
-    //var warble = user.getWarbledb();
-    //warble.push(aWarble);
-    //userlib.addWarble(aWarble);
-    userlib.addWarbs(req.body.update);
-
-};
 
 exports.chat = function(req, res){
 

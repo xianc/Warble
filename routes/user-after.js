@@ -120,8 +120,6 @@ exports.main = function(req, res) {
   // TDR: added cookie support
   var userid = req.cookies.userid;
 
-    
-
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
@@ -129,6 +127,9 @@ exports.main = function(req, res) {
   else {
     var users = online[userid];
 
+    //This part of the code adds Warbles! It currently does not 
+    //implement the "attachment" or "at user" feature but it does add
+    //warbles to warbledb
     var aWarble = {
       username  : users.username,
       date  : new Date(),
@@ -370,24 +371,6 @@ function genUserList(callback) {
 }
 
 
-
-//Processes form get requests:
-exports.addWarb = function (req, res) {
-  console.log('Adding Warbles:');
-  var aWarble = {
-      username  : ' ',
-      database  : ' ',
-      messages  : req.body.update,
-      attachment: ' ',
-      atUser    : ' ',
-    };
-
-    //var warble = user.getWarbledb();
-    //warble.push(aWarble);
-    //user.addWarble(aWarble);
-    user.addWarbs(req.body.update);
-
-};
 
 exports.chat = function(req, res){
   var userid = req.cookies.userid;
