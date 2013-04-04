@@ -328,22 +328,19 @@ exports.addWarb = function (req, res) {
       atUser:' '
     };
 
-  user.addWarble(aWarble);
+    //var warble = user.getWarbledb();
+    //warble.push(aWarble);
+    user.addWarble(aWarble);
 
 };
 
+//## User Pages
+//This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.)
 exports.wuser = function (req, res) {
     var u = req.params.username;
-    var c = user.get_user(u);
+    var c = user.get_user(u); // This method searches for user in the user database
 
-    /*if (c) {
-        res.send('<h3>User: ' + 
-                 c.username  +'</h3>');
-    } else {
-        res.send('<h3>Unknown user: ' + u + '</h3>');
-    }*/
-
-    res.render ('my_profile', { title : 'Profile+ ' + c.username,
+    res.render ('wuser', { title : 'Profile+ ' + c.username,
                               username : c.username,
                               warble : user.getWarbledb(),
                               follower : user.getFollowerdb(),
