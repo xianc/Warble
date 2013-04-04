@@ -46,11 +46,14 @@ app.get ('/user/discover', user.discover);
 app.get ('/user/me',      user.me);
 app.get ('/user/my_profile', user.my_profile);
 app.get('/user/front',   user.main);
-app.get('user/upload', user.upload);
+app.get('/user/upload', user.upload);
 app.get('/user/followers', user.followers);
 app.get('/user/following', user.following);
 app.get('/user/about',   user.about);
-app.get('/user/process', user.main);
+app.get('/user/:username', user.wuser);
+
+app.post('/user/addWarb', user.main);
+
 
 app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);

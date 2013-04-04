@@ -91,6 +91,31 @@ Also known as the Front Page. This page:
 > 4. Displays recent tweets/warbles
 */
 exports.main = function(req, res) {
+
+  function warbleData(req) {
+  var aWarble;
+  if (req.method === 'GET') {
+      aWarble = {
+      username: ' ',
+      date : ' ',
+      message : req.query.update,
+      attachment:' ',
+      atUser:' '
+    };
+  }
+  else {
+    aWarble = {
+      username: ' ',
+      date : ' ',
+      username : req.body.update,
+      attachment:' ',
+      atUser:' '
+    };
+  }
+  
+  return aWarble;
+}
+
   // TDR: added session support
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
@@ -186,26 +211,29 @@ exports.following = function (req, res) {
 }
 
 
-
-// Renders form 
-exports.form = function (req, res) {
-  var id = req.params.id;
-  genWarbleList(function (ul) {
-    res.render('/' + id,
-               { title: 'form - ' + id,
-                 id: id,
-                 msg: '',
-                 userlib: ul });
-  });
+exports.wuser = function (req, res) {
+    var u = req.params.user;
+    var c = userlib.get_user(u);
+    if (c) {
+        res.send('<h3>User: ' + 
+                 c.username  +'</h3>');
+    } else {
+        res.send('<h3>Unknown user: ' + u + '</h3>');
+    }
 };
 
 
 //Processes form get requests:
-exports.process = function (req, res) {
-  var id   = req.params.id;
-  var aWarble = warbleData(req);
+exports.addWarb = function (req, res) {
+  var aWarble = {
+      username: ' ',
+      date : ' ',
+      message : req.body.update,
+      attachment:' ',
+      atUser:' '
+    };
 
-  userlib.addWarble(aWarble);
+  userlib.warbledb.push(aWarble);
 
 };
 

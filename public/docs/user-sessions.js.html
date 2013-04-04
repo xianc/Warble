@@ -57,15 +57,6 @@
       <div class="heading h2">
         <a href="#following-page">Following Page</a>
       </div>
-      <div class="heading h2">
-        <a href="#renders-form">Renders form</a>
-      </div>
-      <div class="heading h3">
-        <a href="#processes-form-get-requests-">Processes form get requests:</a>
-      </div>
-      <div class="heading h3">
-        <a href="#puts-together-the-warbledata-use-to-add-warbles-to-the-warble-database">Puts together the warbleData use to add warbles to the warble database</a>
-      </div>
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -393,6 +384,31 @@ redirected route <code>/user/login</code>.</p>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
 
+  <span class="kd">function</span> <span class="nx">warbleData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">aWarble</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">aWarble</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">date</span> <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">message</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span>
+      <span class="nx">attachment</span><span class="o">:</span><span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">atUser</span><span class="o">:</span><span class="s1">&#39; &#39;</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">aWarble</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">date</span> <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">username</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span>
+      <span class="nx">attachment</span><span class="o">:</span><span class="s1">&#39; &#39;</span><span class="p">,</span>
+      <span class="nx">atUser</span><span class="o">:</span><span class="s1">&#39; &#39;</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">aWarble</span><span class="p">;</span>
+<span class="p">}</span>
+
+
 </pre></div>
         </td>
       </tr>
@@ -688,25 +704,10 @@ res.render('upload', { title  : 'Upload'});
 
 
 
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="renders-form">
-  <h2>
-    <a href="#renders-form" class="pilcrow">&#182;</a>
-    Renders form
-  </h2>
-</div>
-
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-  <span class="nx">genWarbleList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+  <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;/users/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
                <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
                  <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
                  <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -715,22 +716,18 @@ res.render('upload', { title  : 'Upload'});
 <span class="p">};</span>
 
 
-
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="processes-form-get-requests-">
-  <h3>
-    <a href="#processes-form-get-requests-" class="pilcrow">&#182;</a>
-    Processes form get requests:
-  </h3>
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-34" id="section-34">&#182;</a>
 </div>
-
+<p>Processes form get requests:</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">processes</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">id</span>   <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">aWarble</span> <span class="o">=</span> <span class="nx">warbleData</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
 
@@ -744,13 +741,10 @@ res.render('upload', { title  : 'Upload'});
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="puts-together-the-warbledata-use-to-add-warbles-to-the-warble-database">
-  <h3>
-    <a href="#puts-together-the-warbledata-use-to-add-warbles-to-the-warble-database" class="pilcrow">&#182;</a>
-    Puts together the warbleData use to add warbles to the warble database
-  </h3>
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-35" id="section-35">&#182;</a>
 </div>
-
+<p>Puts together the warbleData use to add warbles to the warble database</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">function</span> <span class="nx">warbleData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
@@ -775,6 +769,19 @@ res.render('upload', { title  : 'Upload'});
   <span class="p">}</span>
   
   <span class="k">return</span> <span class="nx">aWarble</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">unction</span> <span class="nx">genWarbleList</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbleInfo</span><span class="p">([],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">warbleInfo</span> <span class="o">=</span> <span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span> <span class="nx">warbleInfo</span> <span class="o">+</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">;</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span>
+  <span class="p">});</span>
 <span class="p">}</span>
 </pre></div>
         </td>

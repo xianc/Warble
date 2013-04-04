@@ -58,6 +58,7 @@ exports.main = function(req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
   authmessage = undefined;
+
   res.render('main', { title   : 'User main',
                        message : 'Login Successful',
                        username : message.username,
@@ -140,3 +141,29 @@ exports.my_profile = function (req, res) {
 							  });
 }
 
+
+
+//Processes form get requests:
+exports.addWarb = function (req, res) {
+  var aWarble = {
+      username: ' ',
+      date : ' ',
+      message : req.query.update,
+      attachment:' ',
+      atUser:' '
+    };
+
+  user.addWarble(aWarble);
+
+};
+
+exports.wuser = function (req, res) {
+    var u = req.params.user;
+    var c = user.get_user(u);
+    if (c) {
+        res.send('<h3>User: ' + 
+                 c.username  +'</h3>');
+    } else {
+        res.send('<h3>Unknown user: ' + u + '</h3>');
+    }
+};

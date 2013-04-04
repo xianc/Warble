@@ -283,7 +283,7 @@ function userData(req) {
       //year : req.query.year,
     };
   }
-  ## registers user
+  //## registers user
   else {
     auser = {
       //fname: req.body.fname,
@@ -315,3 +315,30 @@ function genUserList(callback) {
     callback(u);
   });
 }
+
+
+
+//Processes form get requests:
+exports.addWarb = function (req, res) {
+  var aWarble = {
+      username: ' ',
+      date : ' ',
+      message : req.query.update,
+      attachment:' ',
+      atUser:' '
+    };
+
+  user.addWarble(aWarble);
+
+};
+
+exports.wuser = function (req, res) {
+    var u = req.params.username;
+    var c = user.get_user(u);
+    if (c) {
+        res.send('<h3>User: ' + 
+                 c.username  +'</h3>');
+    } else {
+        res.send('<h3>Unknown user: ' + u + '</h3>');
+    }
+};

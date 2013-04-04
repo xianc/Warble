@@ -1,12 +1,12 @@
 // Examples of Manipulation
 $(function () {
-    var textarea = $('form > textarea[name=update]');
+    var input = $('form > input[type=text]');
 
-    var add = $('form > input[value=Warble!]');
+    var add = $('form > input[value=Add]');
     add.bind('click', function (e) {
-        var v = textarea.val();
+        var v = input.val();
         if (v) {
-            list_add(textarea.val();
+            list_add(input.val());
             bind_li();
         }
         return false;
@@ -14,9 +14,15 @@ $(function () {
 
     var del = $('form > input[value=Delete]');
     del.bind('click', function (e) {
-        var v = textarea.val();
+        var v = input.val();
         if (v)
-            list_delete(textarea.value;
+            list_delete(input.val());
+        return false;
+    });
+
+    var rot = $('form > input[value=Rotate]');
+    rot.bind('click', function (e) {
+        list_move_bottom();
         return false;
     });
 
@@ -43,6 +49,11 @@ function list_add(html) {
     $('ul#list').append(li);
 }
 
+// Example 3: Move Bottom to Top of List
+function list_move_bottom() {
+    var last = $('ul#list :last-child');
+    $('ul#list').prepend(last);
+}
 
 // Example 4: Delete Elements from List
 function list_delete(text) {
