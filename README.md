@@ -20,13 +20,15 @@ https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 
 5). AT THE LOGIN SCREEN USE CREDIENTIALS:
   Username: Tim
-   Password: warble
+  Password: warble
 
 ##Our Files:
 
->####Index page
+>####Login page
 >- The index page (home page) is also the login page. We currently have a few usernames set up. The names and passwords exist in the users database in the user.js file and are fair game to sign in with. Otherwise create a username on the sign-up form.
 >- To view how the "sign up" page and "forget password page", click their correspondiong links before the sign in form. 
+>- You can use (username, password): (Tim, warble) or any of these other credentials (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies)
+>- Note: Username and Password are case-sensitive
 
 >####Sign Up Page
 >- The sign up page is a form that asks users for information. Currently, when information is enetered and the "sign up" button is clicked, a new user is created in an database array. Users are redirected back to the login screen where they can use their created username to sign in.
