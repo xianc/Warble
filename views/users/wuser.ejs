@@ -52,7 +52,7 @@
             </form>
             <% } %>
             <%if (me == username){ %>
-              <a href="my_profile">My Profile</a>
+              <a href="/user/my_profile">My Profile</a>
             <%} %>
 
 
@@ -64,7 +64,7 @@
      	         <!--Number of warbles by user-->
                     <b>Warbles</b>
                     </td><td>
-                    <a href="/user/<%= username %>"><i><font size="2">
+                    <a href="/users/<%= username %>"><i><font size="2">
                     <% var k = 0 %>
           <% for(var i = warble.length-1; i >= 0; i--){
             if(warble[i].username == username){ %>
