@@ -23,7 +23,7 @@ The current version of the Warble web app works best on the Chrome and Safari we
 >####Forget Password Page
 >- The forget password page is a one entry form that asks a user for their username or e-mail address. Currently it is not yet implemented
 
->####Front Page #TO EDIT
+>####Main Page #TO EDIT
 >- After a user is logged in (for in this case, the sign in button is clicked), he/she will be redirected to the front page. The front page displays recent updates from people whom the user follows as well as a status update box ("Warble" box). From the front page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar. 
 
 >####Discover #TO EDIT
@@ -42,6 +42,9 @@ The current version of the Warble web app works best on the Chrome and Safari we
 
 >#### Following #TO EDIT
 >- ...
+
+>#### User Pages (user/:wuser)
+>- This page is the skeleton of all user pages. It takes information from routes to generate a user specific page. On this page you are able to follow a user, if you have not already done so. If you are already following a user, instead of a "FOLLOW" button, text is displayed that the user is already if your following list. 
 
 >####About
 >- The About page gives an introduction to the web application project

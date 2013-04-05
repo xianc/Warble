@@ -389,10 +389,18 @@ exports.chat = function(req, res){
 //## User Pages
 //This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.)
 exports.wuser = function (req, res) {
+  var userid = req.cookies.userid;
+  var users = online[userid];
     var u = req.params.username;
     var c = user.get_user(u); // This method searches for user in the user database
 
+    if (req.method === 'POST') {
+      console.log('Adding to Followers:');
+      user.addToFollow (users.username, c.username);
+    }
+
     res.render ('wuser', { title : 'Profile+ ' + c.username,
+                              me : users.username,
                               username : c.username,
                               warble : user.getWarbledb(),
                               follower : user.getFollowerdb(),
