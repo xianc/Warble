@@ -391,14 +391,15 @@ exports.wuser = function (req, res) {
   var userid = req.cookies.userid;
   var users = online[userid];
   var u = req.params.username;
-   var c = user.get_user(u); // This method searches for user in the user database
+  var c = user.get_user(u); // This method searches for user in the user database
 
-    if (req.method === 'POST') {
+
+  if (req.method === 'POST') {
       console.log('Adding to Followers:');
       user.addToFollow (users.username, c.username);  // This adds the following and followed to the following database
     }
 
-    res.render ('wuser', { title : 'Profile+ ' + c.username,
+    res.render ('users/wuser' , { title : 'Profile+ ' + c.username,
                               me : users.username,  // username of user viewing the page
                               username : c.username, // username of the user page being viewed
                               warble : user.getWarbledb(), // access the warbles database

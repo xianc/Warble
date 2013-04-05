@@ -2,19 +2,19 @@
 <div id="header">
 <!-- Top Navigation Bar -->
 <button type="button">
-<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="main">Front</a>
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/main">Front</a>
 </button>
 
 <button type="button">
-<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="discover">Discover</a>
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/discover">Discover</a>
 </button>
 
 <button type="button" >
-<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="me">At Me</a>
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/me">At Me</a>
 </button>
 
 <button type="button" class="active">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/my_profile">My Profile</a>
 </button>
 
 <button type="button">
@@ -48,7 +48,7 @@
             <% }} %>
             <% if (added==0 && me!=username) { %>
             <form method="post" id="<%= username %>" action="<%= username %>">
-            <center><input type="submit" value="FOLLOW"></input>
+            <center><input type="submit" username="<%= username %>" value="FOLLOW"></input>
             </form>
             <% } %>
             <%if (me == username){ %>

@@ -37,7 +37,7 @@
           <div style="padding:5px">
           <font color="#b2b2b2">
               <% for(var userid in users) { %>
-            - <a href="<%= users[userid].username %>"><font style="color:WHITE; filter:alpha(opacity=.7);
+            - <a href="/users/<%= users[userid].username %>"><font style="color:WHITE; filter:alpha(opacity=.7);
   opacity:.7;"><%= users[userid].username %></font></a><br>
             <% } %>
           </font>
@@ -60,8 +60,6 @@
             <script type="text/javascript" src="lib/warbles/upload.js"></script>
             Status Update and Document Upload Form -->
 
-            <script type="text/javascript" src="/javascripts/jquery-1.8.2.min.js"></script>
-            <script type="text/javascript" src="/javascripts/warble-client.js"></script>
 
 
             <form method="post" id="main" action="main">
@@ -92,7 +90,7 @@
 
         </tr>
         </table><br>
-		
+    
         <table width="100%" align="center"><tr>
             
             <td valign="top"><div id="content">
@@ -104,7 +102,7 @@
 
                   <% for(var i = warble.length-1 ; i >= 0; i--) { %>
                   <table width="100%" valign="top"><td><b>
-                  <a href="<%= warble[i].username %>"><%= warble[i].username %></a>
+                  <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
                   <%= warble[i].date %>
                   </font><br>
