@@ -3,7 +3,7 @@
 <!-- Top Navigation Bar -->
 
 <button type="button" class="active">
-<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="front">Front</a>
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="main">Front</a>
 </button>
 
 <button type="button">
@@ -37,12 +37,17 @@
           <div style="padding:5px">
           <font color="#b2b2b2">
               <% for(var userid in users) { %>
-            - <%= users[userid].username %><br>
+            - <a href="/users/<%= users[userid].username %>"><font style="color:WHITE; filter:alpha(opacity=.7);
+  opacity:.7;"><%= users[userid].username %></font></a><br>
             <% } %>
           </font>
           </div>
-
       </div>
+    
+      <div id="content">
+        <div class="Warble" align="center"><a href="/chat">Realtime Chat</a></div>
+      </div>
+
     </td>
     <td width="10px"></td>
     <td>
@@ -55,9 +60,11 @@
             <script type="text/javascript" src="lib/warbles/upload.js"></script>
             Status Update and Document Upload Form -->
 
-            <form method="get" id="main" action="process">
+
+
+            <form method="post" id="main" action="main">
                 <center>
-                    <!-- Textarea for Status Updates-->
+                <Textarea for Status Updates
                     <textarea rows="1" name="update" id="update"
                     type="text">Isn't it delightful?</textarea>
                 </center>
@@ -67,7 +74,7 @@
                         <!-- Upload files button and display message -->
                         <!--input type="file" id= "file" accept="image/*"--><!--/input-->
                         <!--<form method="post" enctype="multipart/form-data" action="/upload">-->
-                        <input type="file" name="file" accept="image/*">
+                        <input type="file" name="file">
                         <!--</form>-->
 
                     </td>
@@ -83,7 +90,7 @@
 
         </tr>
         </table><br>
-		
+    
         <table width="100%" align="center"><tr>
             
             <td valign="top"><div id="content">
@@ -91,9 +98,11 @@
                 <h1>Warbles</h1>
                 <hr>
 
+
+
                   <% for(var i = warble.length-1 ; i >= 0; i--) { %>
                   <table width="100%" valign="top"><td><b>
-                  <%= warble[i].username %>
+                  <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
                   <%= warble[i].date %>
                   </font><br>
@@ -101,7 +110,7 @@
                   <br><font size=2><u>Attached</u>: <i>
                   <%= warble[i].attachment %>
                   </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                  <a href="">Warble</a><br><a href="front" onClick = warble.splice (i, 1);>Delete</a><br><a href="">Download</a></font></td></table><hr>
+                  <a href="">Warble</a><br><!--<a href="front" onClick = warble.splice (i, 1);>Delete</a><br>--><a href="">Download</a></font></td></table><hr>
                   <% } %>
 
                    

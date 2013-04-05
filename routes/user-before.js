@@ -58,6 +58,7 @@ exports.main = function(req, res) {
   var message = authmessage || { username : 'nobody', password : 'nopass' };
   // reset authmessage.
   authmessage = undefined;
+
   res.render('main', { title   : 'User main',
                        message : 'Login Successful',
                        username : message.username,
@@ -140,3 +141,38 @@ exports.my_profile = function (req, res) {
 							  });
 }
 
+
+
+
+exports.chat = function(req, res){
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+
+  res.render('chat', { title   : 'User main',
+                       message : 'Login Successful',
+                       username : message.username,
+                       password : message.password,
+                       warble : userlib.getWarbledb(),
+             follower : userlib.getFollowerdb() 
+             });
+
+ // res.render('chat', { title: 'Chat Client' });
+};
+
+
+//## User Pages
+//This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.
+exports.wuser = function (req, res) {
+    var u = req.params.username;
+    var c = user.get_user(u); // This method searches for user in the user database
+
+    res.render ('wuser', { title : 'Profile+ ' + c.username,
+                              username : c.username,
+                              warble : user.getWarbledb(),
+                              follower : user.getFollowerdb(),
+                              following : user.getFollowingdb()
+                });
+
+    
+};

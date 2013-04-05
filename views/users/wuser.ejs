@@ -1,0 +1,155 @@
+<% include header %>
+<div id="header">
+<!-- Top Navigation Bar -->
+<button type="button">
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/main">Front</a>
+</button>
+
+<button type="button">
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/discover">Discover</a>
+</button>
+
+<button type="button" >
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/me">At Me</a>
+</button>
+
+<button type="button" class="active">
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/my_profile">My Profile</a>
+</button>
+
+<button type="button">
+<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/logout">Logout</a>
+</button>
+</div>
+<div id="bar"></div>
+<br>
+
+<table cellspacing="0" cellpadding="0" id="main_size"  align="center">
+    <tr>
+        <!--Creates a box with the basic info of the user -->
+        <td valign="top" width="220px" align="center">
+
+            <div id="black">
+    	       <!--Display picture of the user-->
+    	      <img src="/images/profile_ex.jpg" alt="some_text" width="90%" height="42%"> 
+    	      <!--User's name and/or handle-->
+     	      <div class="Warble" align="center"><font size="5pt"><%= username %><font></div>
+              <font size="2"><i><a href=""><font color=white>edit</font></a></i></font>
+
+            </div>
+          
+            <div id="content">
+            <% 
+            var added=0;
+            for(var i = following.length-1; i >= 0; i--){
+              if (following[i].follower == me && following[i].followed==username){ 
+                added=1; %>
+               You are a follower!
+            <% }} %>
+            <% if (added==0 && me!=username) { %>
+            <form method="post" id="<%= username %>" action="<%= username %>">
+            <center><input type="submit" username="<%= username %>" value="FOLLOW"></input>
+            </form>
+            <% } %>
+            <%if (me == username){ %>
+              <a href="/user/my_profile">My Profile</a>
+            <%} %>
+
+
+
+            </div>
+
+            <div id="content">
+     	        <table width="80%" valign="top"><tr><td>
+     	         <!--Number of warbles by user-->
+                    <b>Warbles</b>
+                    </td><td>
+                    <a href="/users/<%= username %>"><i><font size="2">
+                    <% var k = 0 %>
+          <% for(var i = warble.length-1; i >= 0; i--){
+            if(warble[i].username == username){ %>
+              <% k = k + 1 %>
+          <% }} %>
+          <%= k %>
+          </font></i></a>
+                    </tr><tr><td>
+                     <!--Number of uploads by user-->    
+                    <b>Uploads</b>
+                    </td><td>
+                    <a href=""><i><font size="2">472</font></i></a></td>
+                    </tr><tr><td>
+                    <!--Number of people the user follows-->      
+                    <b>Following</b>
+                    </td><td>
+                    <i><font size="2">
+					<% var k = 0 %>
+					<% for(var i = following.length-1; i >= 0; i--){
+						if(following[i].follower == username){ %>
+							<% k = k + 1 %>
+					<% }} %>
+					<%= k %>
+					</font></i></td>
+                    </tr><tr><td>
+                    <!--Number of people following user--> 
+                    <b>Followers</b>
+                    </td><td>
+                    <font size="2"><i>
+					<% var k = 0 %>
+					<% for(var i = follower.length-1; i >= 0; i--){
+						if(follower[i].followed == username){ %>
+							<% k = k + 1 %>
+					<% }} %>
+					<%= k %>
+					</i></font></td></tr></table>
+                    <hr width="80%">
+                <table width="80%" valign="top"><tr><td>
+                <!--User's birthday--> 
+                    <b>Birthday</b>
+                    </td><td width="80px"><font size="2">
+                    <a href=""><i>Nov 04</i></a><br>
+                    </font></td></table><hr width="80%">
+                <!--A quote and/or description by the user-->      
+                <b><i>"You can have it all. Just not all at once"</i></b>
+                 
+
+     	      
+            </div>
+            <br>
+    
+
+ 		</td>
+        
+            
+            <td width="15px"></td>
+            
+            
+    	<td valign="top"><div id="default">
+           <div class="Warble" align="center" style="padding-top:8px"><font size="5pt"><b><%= username %>'s Warbles</b></font></div>
+                <hr>
+                <!-- makes a bullet list -->
+
+					<!--Latest Warbles by user-->  
+
+
+
+            <% for(var i = warble.length-1 ; i >= 0; i--) { 
+            if (warble[i].username == username) { %>
+                  <table width="100%" valign="top"><td><b>
+                  <%= warble[i].username %>
+                  </b> <font size="2">on 
+                  <%= warble[i].date %>
+                  </font><br>
+                  <%= warble[i].message %>
+                  <br><font size=2><u>Attached</u>: <i>
+                  <%= warble[i].attachment %>
+                  </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                  <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
+                  <% } } %>
+
+                 </div>
+             </td>
+        </tr>
+
+</table>
+
+<% include footer %>

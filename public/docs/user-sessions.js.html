@@ -58,13 +58,7 @@
         <a href="#following-page">Following Page</a>
       </div>
       <div class="heading h2">
-        <a href="#renders-form">Renders form</a>
-      </div>
-      <div class="heading h3">
-        <a href="#processes-form-get-requests-">Processes form get requests:</a>
-      </div>
-      <div class="heading h3">
-        <a href="#puts-together-the-warbledata-use-to-add-warbles-to-the-warble-database">Puts together the warbleData use to add warbles to the warble database</a>
+        <a href="#user-pages">User Pages</a>
       </div>
     </div>
   </div>
@@ -401,10 +395,19 @@ redirected route <code>/user/login</code>.</p>
 <div class="pilwrap">
   <a class="pilcrow" href="#section-19" id="section-19">&#182;</a>
 </div>
-<p>TDR: added session support</p>
+<p>TDR: added cookie support</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-  <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">authmessage</span> <span class="o">||</span> <span class="p">{</span> <span class="nx">username</span> <span class="o">:</span> <span class="s1">&#39;nobody&#39;</span><span class="p">,</span> <span class="nx">password</span> <span class="o">:</span> <span class="s1">&#39;nopass&#39;</span> <span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Adding Warbles:&#39;</span><span class="p">);</span>
 
 </pre></div>
         </td>
@@ -414,30 +417,27 @@ redirected route <code>/user/login</code>.</p>
 <div class="pilwrap">
   <a class="pilcrow" href="#section-20" id="section-20">&#182;</a>
 </div>
-<p>reset authmessage.</p>
+<p>This part of the code adds Warbles! It currently does not 
+implement the "attachment" or "at user" feature but it does add
+warbles to warbledb</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-  <span class="nx">authmessage</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User Main&#39;</span><span class="p">,</span>
-                       <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
-                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
-                         <span class="nx">username</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                         <span class="nx">password</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
-                         <span class="nx">warble</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
 
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-21" id="section-21">&#182;</a>
-</div>
-<p>addwarble : userlib.addWarble(),</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-                         <span class="nx">follower</span><span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
-             <span class="p">});</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">userlib</span><span class="p">.</span><span class="nx">addWarbs</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">update</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User main&#39;</span><span class="p">,</span>
+                         <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
+                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
+                         <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                         <span class="nx">password</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> 
+                         <span class="nx">warble</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                         <span class="nx">follower</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
+                        <span class="p">});</span>
+  <span class="p">}</span>
+
+
 <span class="p">};</span>
 
 
@@ -480,9 +480,24 @@ redirected route <code>/user/login</code>.</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">discover</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">authmessage</span> <span class="o">||</span> <span class="p">{</span> <span class="nx">username</span> <span class="o">:</span> <span class="s1">&#39;nobody&#39;</span><span class="p">,</span> <span class="nx">password</span> <span class="o">:</span> <span class="s1">&#39;nopass&#39;</span> <span class="p">};</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-23" id="section-23">&#182;</a>
+</div>
+<p>reset authmessage.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">authmessage</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;discover&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;Discover&#39;</span><span class="p">,</span>
                             <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
-                            <span class="nx">allUsers</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">()});</span>
+                            <span class="nx">allUsers</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">(),</span>
+                            <span class="nx">warble</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),});</span>
 <span class="p">}</span>
 
 
@@ -603,8 +618,8 @@ res.render('upload', { title  : 'Upload'});
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;my_profile&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;My Profile&#39;</span><span class="p">,</span>
                               <span class="nx">username</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
                               <span class="nx">warble</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
-                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
-                <span class="nx">following</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
                 <span class="p">});</span>
 <span class="p">}</span>
 
@@ -642,8 +657,9 @@ res.render('upload', { title  : 'Upload'});
   <span class="nx">authmessage</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;followers&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Followers&#39;</span><span class="p">,</span>
                               <span class="nx">username</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                <span class="nx">follower</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
-                <span class="nx">following</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
                <span class="p">});</span>
 <span class="p">}</span>
 
@@ -681,6 +697,7 @@ res.render('upload', { title  : 'Upload'});
   <span class="nx">authmessage</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;following&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Following&#39;</span><span class="p">,</span>
                               <span class="nx">username</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">(),</span>
                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
               <span class="p">});</span>
@@ -689,93 +706,89 @@ res.render('upload', { title  : 'Upload'});
 
 
 
+
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">chat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+
+   <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">authmessage</span> <span class="o">||</span> <span class="p">{</span> <span class="nx">username</span> <span class="o">:</span> <span class="s1">&#39;nobody&#39;</span><span class="p">,</span> <span class="nx">password</span> <span class="o">:</span> <span class="s1">&#39;nopass&#39;</span> <span class="p">};</span>
+
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="renders-form">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-34" id="section-34">&#182;</a>
+</div>
+<p>reset authmessage.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">authmessage</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User Main&#39;</span><span class="p">,</span>
+                       <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
+                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
+                         <span class="nx">username</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                         <span class="nx">password</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+                         <span class="nx">warble</span> <span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-35" id="section-35">&#182;</a>
+</div>
+<p>addwarble : userlib.addWarble(),</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+                         <span class="nx">follower</span><span class="o">:</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span>
+             <span class="p">});</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-36" id="section-36">&#182;</a>
+</div>
+<p>res.render('chat', { title: 'Chat Client' });</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="user-pages">
   <h2>
-    <a href="#renders-form" class="pilcrow">&#182;</a>
-    Renders form
+    <a href="#user-pages" class="pilcrow">&#182;</a>
+    User Pages
   </h2>
 </div>
 
+
+<p>This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.)</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-  <span class="nx">genWarbleList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-               <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-                 <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
-                 <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-                 <span class="nx">userlib</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
-  <span class="p">});</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">wuser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">get_user</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span> <span class="c1">// This method searches for user in the user database</span>
+
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;wuser&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Profile+ &#39;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span>
+                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span>
+                <span class="p">});</span>
+
+    
 <span class="p">};</span>
-
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="processes-form-get-requests-">
-  <h3>
-    <a href="#processes-form-get-requests-" class="pilcrow">&#182;</a>
-    Processes form get requests:
-  </h3>
-</div>
-
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">id</span>   <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">aWarble</span> <span class="o">=</span> <span class="nx">warbleData</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
-
-  <span class="nx">userlib</span><span class="p">.</span><span class="nx">addWarble</span><span class="p">(</span><span class="nx">aWarble</span><span class="p">);</span>
-
-<span class="p">};</span>
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="puts-together-the-warbledata-use-to-add-warbles-to-the-warble-database">
-  <h3>
-    <a href="#puts-together-the-warbledata-use-to-add-warbles-to-the-warble-database" class="pilcrow">&#182;</a>
-    Puts together the warbleData use to add warbles to the warble database
-  </h3>
-</div>
-
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">function</span> <span class="nx">warbleData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">aWarble</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">aWarble</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
-      <span class="nx">date</span> <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
-      <span class="nx">message</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span>
-      <span class="nx">attachment</span><span class="o">:</span><span class="s1">&#39; &#39;</span><span class="p">,</span>
-      <span class="nx">atUser</span><span class="o">:</span><span class="s1">&#39; &#39;</span>
-    <span class="p">};</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">aWarble</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
-      <span class="nx">date</span> <span class="o">:</span> <span class="s1">&#39; &#39;</span><span class="p">,</span>
-      <span class="nx">username</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span>
-      <span class="nx">attachment</span><span class="o">:</span><span class="s1">&#39; &#39;</span><span class="p">,</span>
-      <span class="nx">atUser</span><span class="o">:</span><span class="s1">&#39; &#39;</span>
-    <span class="p">};</span>
-  <span class="p">}</span>
-  
-  <span class="k">return</span> <span class="nx">aWarble</span><span class="p">;</span>
-<span class="p">}</span>
 </pre></div>
         </td>
       </tr>

@@ -8,46 +8,41 @@ The semester project for UMass's CS326 Web Programming course focuses on impleme
 
 ##How to Run Our App:
 
-1.) Download the repository: https://github.com/xianc/Warble
+1. Download the repository: https://github.com/xianc/Warble
 >-If this does not work (which is rare), download the Warble.zip file in the project's directory. 
 
-2.) Read our release document for Project #3
+2. Read our release document for Project #3
 https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 
-3). Run "node app.js" from the command line
+3. Run "node app.js" from the command line
 
-4). The website will be displayed on your browser on: localhost:3000. 
+4. The website will be displayed on your browser on: localhost:3000. 
 
-5). AT THE LOGIN SCREEN USE CREDIENTIALS:
-  Username: Tim
- 	Password: warble
+5. AT THE LOGIN SCREEN USE CREDIENTIALS:
+>-  Username: Tim
+>-  Password: warble
+  
+note: The link to the specification document in the footer (next to About).
 
 ##Our Files:
 
->####Index page
+>####Login page
 >- The index page (home page) is also the login page. We currently have a few usernames set up. The names and passwords exist in the users database in the user.js file and are fair game to sign in with. Otherwise create a username on the sign-up form.
 >- To view how the "sign up" page and "forget password page", click their correspondiong links before the sign in form. 
+>- You can use (username, password): (Tim, warble) or any of these other credentials (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies)
+>- Note: Username and Password are case-sensitive
 
 >####Sign Up Page
->- The sign up page is a form that asks users for information. Currently, when information is enetered and the "sign up" button is clicked, a new user is created in an database array. Users are redirected back to the login screen where they can use their created username to sign in.
+>- The sign up page is a form that asks users for information.If all required information is filled out when the form is submitted, a new user is created and added to the user database in user.js and can be used to login. Otherwise, an error message will be displayed.
 
 >####Forget Password Page
 >- The forget password page is a one entry form that asks a user for their username or e-mail address. This feature is not implemented yet.
 
->####Front Page
->- After a user is logged in (for in this case, the sign in button is clicked), he/she will be redirected to the front page. The front page displays recent updates from people whom the user follows as well as a status update box ("Warble" box). The front page also displayes other online users that are followed by the signed in user. From the front page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar. Clicking on the username section of a user's warble brings you to their profile page.
->- The index page (home page) is also the login page. You may log in with the following (username, password): (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies), OR you can click the "Sign Up" link and create an account and sign in using that. 
-
->####Sign Up Page 
->- The sign up page is a form that asks users for information. When information is enetered and the "sign up" button is clicked, a new user is created in the user database (userdb in lib/user.js). You may use this newly created information to login.
-
->####Forget Password Page
->- The forget password page is a one entry form that asks a user for their username or e-mail address. Currently it is not yet implemented
-
 >####Main Page (user/main)
->- After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar. 
+>- After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar.
+>- The additional feature we are adding to Warble, is the capacity to upload files, in addition to images. At the moment, clicking on "Choose File" button will prompt you to select a file, and display the name of the file. We have yet to implement the actual upload. 
 
->####Discover #TO EDIT
+>####Discover
 >- The discover page displays "Warbles" from other users
 >- The discover page allows a user to enter keyword searches. 
 >- Users can filter searches by "Warbles," "Uploads," and "People"
@@ -57,23 +52,19 @@ https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 >- The At Me page shows other user's "Warbles" that relate to, or is "@" (at) the user
 >- Clicking on the username section of a user's warble brings you to their profile page.
 
->#### At Me #TO EDIT
->- The At Me page shows other user's "Warbles" that are relating or is "@" (at) the user
+>#### My Profile
+>- The Profile page shows the user's member information: Warbles, Followers, Following, and Uploads (uploads have not yet been implemented). The number of followers and following are LINKED. When clicked, a list of the user's followers and a list of useres the current user is following is displayed
+>- The user's most recent Warbles are shown to the right of the above information.
 
+>#### Followers
+>- Displays a list of users who follows the user currently logged in. Users can only view their own followers. 
 
->#### My Profile #TO EDIT
->- The Profile page shows the user's member information (number of Warbles, uploads... etc.) as well as their most recent "Warbles" (Status Updates). 
->- Clicking on the username section of a user's warble brings you to their profile page.
+>#### Following
+>- Displays a list of users who the user currently logged in is followers. Users can only view their own following list. 
 
-
->#### Followers #TO EDIT
->- Followers are now implemented. When on a user's profile page a user can click the follow button underneath 
-
->#### Following #TO EDIT
->- ...
 
 >#### User Pages (user/:wuser)
->- This page is the skeleton of all user pages. It takes information from routes to generate a user specific page. On this page you are able to follow a user, if you have not already done so. If you are already following a user, instead of a "FOLLOW" button, text is displayed that the user is already if your following list. 
+>- This page is the skeleton of all user pages. It takes information from routes to generate a user specific page. On this page you are able to follow a user, if you have not already done so. If you are already following a user, instead of a "FOLLOW" button, text is displayed that the user is already in your following list. If the user is yourself, a "My Account" link will be dispayed. 
 
 >####About
 >- The About page gives an introduction to the web application project
@@ -86,7 +77,6 @@ The following are test files.
 >-online.ejs: This file is a test to display all users from the user database. It is used to display the 5 newest users in discover.ejs
 
 >-front.ejs: A skeleton. This page was what is now main.js. 
-
 
 ##Project Assignment 03
 Here is a list of the files and the additions we made:

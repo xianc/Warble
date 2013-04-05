@@ -91,19 +91,36 @@ Also known as the Front Page. This page:
 > 4. Displays recent tweets/warbles
 */
 exports.main = function(req, res) {
-  // TDR: added session support
-  var message = authmessage || { username : 'nobody', password : 'nopass' };
-  // reset authmessage.
-  authmessage = undefined;
-  res.render('main', { title   : 'User Main',
-                       message : 'Login Successful',
+  // TDR: added cookie support
+  var userid = req.cookies.userid;
+
+  
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    var users = online[userid];
+    console.log('Adding Warbles:');
+    //This part of the code adds Warbles! It currently does not 
+    //implement the "attachment" or "at user" feature but it does add
+    //warbles to warbledb
+
+    if (req.method === 'POST') {
+      userlib.addWarbs(users.username, new Date(), req.body.update);
+    }
+
+    res.render('main', { title   : 'User main',
+                         message : 'Login Successful',
                          users : online,
-                         username : user.username,
-                         password : user.password,
+                         username : users.username,
+                         password : users.password, 
                          warble : userlib.getWarbledb(),
-                         //addwarble : userlib.addWarble(),
-						             follower: userlib.getFollowerdb()
-						 });
+                         follower : userlib.getFollowerdb()
+                        });
+  }
+
+
 };
 
 //## Online Page
@@ -116,9 +133,13 @@ exports.online = function(req, res) {
 //## Discover Page
 //Lists the users online as well as the 5 most recent entries in the user database. This page also displays Warbles from the Warble Databse
 exports.discover = function (req,res) {
+  var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
   res.render('discover', { title  : 'Discover',
                             users : online,
-                            allUsers : userlib.getUserdb()});
+                            allUsers : userlib.getUserdb(),
+                            warble : userlib.getWarbledb(),});
 }
 
 // ## About Page
@@ -154,8 +175,8 @@ exports.my_profile = function (req, res) {
   res.render ('my_profile', { title : 'My Profile',
                               username : userlib.username,
                               warble : userlib.getWarbledb(),
-							  follower : userlib.getFollowerdb(),
-							  following : userlib.getFollowingdb()
+              							  follower : userlib.getFollowerdb(),
+              							  following : userlib.getFollowingdb()
 							  });
 }
 
@@ -167,8 +188,9 @@ exports.followers = function (req, res) {
   authmessage = undefined;
   res.render ('followers', { title : 'Followers',
                               username : userlib.username,
-							  follower : userlib.getFollowerdb(),
-							  following : userlib.getFollowingdb()
+                              warble : userlib.getWarbledb(),
+              							  follower : userlib.getFollowerdb(),
+              							  following : userlib.getFollowingdb()
 						   });
 }
 
@@ -180,6 +202,7 @@ exports.following = function (req, res) {
   authmessage = undefined;
   res.render ('following', { title : 'Following',
                               username : userlib.username,
+                              warble : userlib.getWarbledb(),
 							               following : userlib.getFollowingdb(),
 							               follower : userlib.getFollowerdb()
 							});
@@ -187,49 +210,39 @@ exports.following = function (req, res) {
 
 
 
-// Renders form 
-exports.form = function (req, res) {
-  var id = req.params.id;
-  genWarbleList(function (ul) {
-    res.render('/' + id,
-               { title: 'form - ' + id,
-                 id: id,
-                 msg: '',
-                 userlib: ul });
-  });
+
+
+
+exports.chat = function(req, res){
+
+   var message = authmessage || { username : 'nobody', password : 'nopass' };
+  // reset authmessage.
+  authmessage = undefined;
+  res.render('chat', { title   : 'User Main',
+                       message : 'Login Successful',
+                         users : online,
+                         username : user.username,
+                         password : user.password,
+                         warble : userlib.getWarbledb(),
+                         //addwarble : userlib.addWarble(),
+                         follower: userlib.getFollowerdb()
+             });
+
+  //res.render('chat', { title: 'Chat Client' });
 };
 
+//## User Pages
+//This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.)
+exports.wuser = function (req, res) {
+    var u = req.params.username;
+    var c = user.get_user(u); // This method searches for user in the user database
 
-//Processes form get requests:
-exports.process = function (req, res) {
-  var id   = req.params.id;
-  var aWarble = warbleData(req);
+    res.render ('wuser', { title : 'Profile+ ' + c.username,
+                              username : c.username,
+                              warble : user.getWarbledb(),
+                              follower : user.getFollowerdb(),
+                              following : user.getFollowingdb()
+                });
 
-  userlib.addWarble(aWarble);
-
+    
 };
-
-//Puts together the warbleData use to add warbles to the warble database
-function warbleData(req) {
-  var aWarble;
-  if (req.method === 'GET') {
-      aWarble = {
-      username: ' ',
-      date : ' ',
-      message : req.query.update,
-      attachment:' ',
-      atUser:' '
-    };
-  }
-  else {
-    aWarble = {
-      username: ' ',
-      date : ' ',
-      username : req.body.update,
-      attachment:' ',
-      atUser:' '
-    };
-  }
-  
-  return aWarble;
-}
