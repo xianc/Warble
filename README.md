@@ -18,7 +18,7 @@ The current version of the Warble web app works best on the Chrome and Safari we
 > note: The link to the specification document in the footer (next to About).
 
 >####Index page
->- The index page (home page) is also the login page. You may log in with the following (username, password): (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies), OR you can click the "Sign Up" link and create an account and sign in using that. 
+>- The index page (home page) is also the login page. You may log in with the following (username, password): (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies) OR you can use the account set up for you (Tim, warble). Note: Username and Password are case-sensitive. 
 
 >####Sign Up Page 
 >- The sign up page is a form that asks users for information. When information is enetered and the "sign up" button is clicked, a new user is created in the user database (userdb in lib/user.js). You may use this newly created information to login.
