@@ -8,19 +8,19 @@ The semester project for UMass's CS326 Web Programming course focuses on impleme
 
 ##How to Run Our App:
 
-1.) Download the repository: https://github.com/xianc/Warble
+1. Download the repository: https://github.com/xianc/Warble
 >-If this does not work (which is rare), download the Warble.zip file in the project's directory. 
 
-2.) Read our release document for Project #3
+2. Read our release document for Project #3
 https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 
-3). Run "node app.js" from the command line
+3. Run "node app.js" from the command line
 
-4). The website will be displayed on your browser on: localhost:3000. 
+4. The website will be displayed on your browser on: localhost:3000. 
 
-5). AT THE LOGIN SCREEN USE CREDIENTIALS:
-  Username: Tim
-  Password: warble
+5. AT THE LOGIN SCREEN USE CREDIENTIALS:
+>  Username: Tim
+>  Password: warble
   
 note: The link to the specification document in the footer (next to About).
 
@@ -39,7 +39,7 @@ note: The link to the specification document in the footer (next to About).
 >- The forget password page is a one entry form that asks a user for their username or e-mail address. This feature is not implemented yet.
 
 >####Main Page (user/main)
->-After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar.
+>- After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar.
 
 >####Discover
 >- The discover page displays "Warbles" from other users
