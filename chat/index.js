@@ -13,10 +13,12 @@ function Post(text) {
 // into the posts array. The client is expected to send a post
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
+	if (req.method === 'POST') {
 	var text = req.body.text;
 	console.log('received post: ' + text);
 	posts.push(new Post(text));
 	res.json({ status: 'OK'});
+}
 };
 
 // The check function is used to check how many new posts are

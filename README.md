@@ -9,10 +9,13 @@ The current version of the Warble web app works best on the Chrome and Safari we
 ##How to run files
 
 1. Download the repository: https://github.com/xianc/Warble
+> If this does not work (which is rare), download the Warble.zip file in the project's directory. 
 
 2. Run: node app.js
 
-3. The website will be displayed on the browser on: localhost:3000. There is a link to the requirements document in the footer (next to the About link).
+3. The website will be displayed on the browser on: localhost:3000. 
+
+> note: The link to the specification document in the footer (next to About).
 
 >####Index page
 >- The index page (home page) is also the login page. You may log in with the following (username, password): (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies), OR you can click the "Sign Up" link and create an account and sign in using that. 
@@ -23,8 +26,8 @@ The current version of the Warble web app works best on the Chrome and Safari we
 >####Forget Password Page
 >- The forget password page is a one entry form that asks a user for their username or e-mail address. Currently it is not yet implemented
 
->####Main Page #TO EDIT
->- After a user is logged in (for in this case, the sign in button is clicked), he/she will be redirected to the front page. The front page displays recent updates from people whom the user follows as well as a status update box ("Warble" box). From the front page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar. 
+>####Main Page (user/main)
+>- After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar. 
 
 >####Discover #TO EDIT
 >- The discover page displays "Warbles" from other users
