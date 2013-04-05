@@ -18,7 +18,7 @@ exports.post = function (req, res) {
 	console.log('received post: ' + text);
 	posts.push(new Post(text));
 	res.json({ status: 'OK'});
-}
+	}
 };
 
 // The check function is used to check how many new posts are
