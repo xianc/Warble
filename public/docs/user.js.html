@@ -208,7 +208,7 @@ These methods deal with setting up the follower/following relationship:</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">function</span> <span class="nx">Follower</span><span class="p">(</span><span class="nx">followed</span><span class="p">,</span> <span class="nx">follower</span><span class="p">){</span> <span class="c1">//#1. Follower method alows the user to be followed by another user</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">followed</span> <span class="o">=</span> <span class="nx">followed</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">followed</span> <span class="o">=</span> <span class="nx">followed</span><span class="p">;</span> 
   <span class="k">this</span><span class="p">.</span><span class="nx">follower</span> <span class="o">=</span> <span class="nx">follower</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -539,17 +539,82 @@ Validates a user. It returns <code>true</code> if the user is valid;
   <span class="nx">warbledb</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Warble</span> <span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">date</span><span class="p">,</span> <span class="nx">warb</span> <span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">));</span>
 <span class="p">}</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
+</div>
+<p>Updates following database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">addToFollow</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">atuser</span><span class="p">){</span>
+  <span class="nx">followingdb</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Following</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">atuser</span><span class="p">));</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19">&#182;</a>
+</div>
+<p>Gets the warble database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getWarbledb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
   <span class="k">return</span> <span class="nx">warbledb</span><span class="p">;</span>
 <span class="p">}</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-20" id="section-20">&#182;</a>
+</div>
+<p>gets the username from the user database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getUsername</span><span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">){</span>
   <span class="k">return</span> <span class="nx">userdb</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">username</span><span class="p">;</span>
 <span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-21" id="section-21">&#182;</a>
+</div>
+<p>gets the follower database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getFollowerdb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
   <span class="k">return</span> <span class="nx">followerdb</span><span class="p">;</span>
 <span class="p">}</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-22" id="section-22">&#182;</a>
+</div>
+<p>gets the following database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getFollowingdb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
   <span class="k">return</span> <span class="nx">followingdb</span><span class="p">;</span>
 <span class="p">}</span>
@@ -561,7 +626,7 @@ Validates a user. It returns <code>true</code> if the user is valid;
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
+  <a class="pilcrow" href="#section-23" id="section-23">&#182;</a>
 </div>
 <p>User Lookup function</p>
         </td>
@@ -581,6 +646,48 @@ Validates a user. It returns <code>true</code> if the user is valid;
     <span class="p">}</span>
   <span class="p">}</span>
   <span class="nx">cb</span><span class="p">(</span><span class="s1">&#39;user not found&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-24" id="section-24">&#182;</a>
+</div>
+<p>The post function will handle incoming posts and store them
+into the posts array. The client is expected to send a post
+request containing a single object: { text : <value> }.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">post</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">text</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;received post: &#39;</span> <span class="o">+</span> <span class="nx">text</span><span class="p">);</span>
+  <span class="nx">posts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Post</span><span class="p">(</span><span class="nx">text</span><span class="p">));</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;OK&#39;</span><span class="p">});</span>
+<span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-25" id="section-25">&#182;</a>
+</div>
+<p>The check function is used to check how many new posts are
+available given the last post the client has. The client is
+expected to send a post request with a JSON body containing
+a single object: { last : <value> }.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">check</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">last</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">last</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">rest</span> <span class="o">=</span> <span class="nx">posts</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">last</span><span class="p">,</span> <span class="nx">posts</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">rest</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
         </td>

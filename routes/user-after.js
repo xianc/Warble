@@ -156,11 +156,6 @@ exports.online = function(req, res) {
                          users : online });
 };
 
-exports.warbles = function(req, res) {
-  var warbles = warbles[userid];
-  res.render('online', { title : 'user Online',
-                         users : online });
-};
 
 //## Discover Page
 //Lists the users online as well as the 5 most recent entries 
@@ -177,12 +172,13 @@ exports.discover = function (req,res) {
 // Displays Warbles at the user that is logged in. 
 exports.me = function (req, res) {
   var userid = req.cookies.userid;
+  //authenticate login
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
   }
   else {
-    var users = online[userid];
+  var users = online[userid];
   res.render('me', { title  : 'At Me',
                     username : users.username,
                     warble : user.getWarbledb()  });
@@ -207,17 +203,18 @@ exports.upload = function (req, res) {
 //displays Warbles by that user
 exports.my_profile = function (req, res) {
    var userid = req.cookies.userid;
+   //authentification
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
   }
   else {
-    var users = online[userid];
+  var users = online[userid];
   res.render ('my_profile', { title : 'My Profile',
-                              username : users.username,
-                              warble : user.getWarbledb(),
-              							  follower : user.getFollowerdb(),
-              							  following : user.getFollowingdb()
+                              username : users.username, 
+                              warble : user.getWarbledb(), // access the warbles database
+              							  follower : user.getFollowerdb(), //access the followers database
+              							  following : user.getFollowingdb() // access the following database
 							  });
   }
 }
@@ -228,17 +225,18 @@ exports.my_profile = function (req, res) {
 // corresponding to followers
 exports.followers = function (req, res) {
    var userid = req.cookies.userid;
+   //Authentification
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
   }
   else {
-    var users = online[userid];
+  var users = online[userid];
   res.render ('followers', { title : 'Followers',
                               username : users.username,
-                              warble : user.getWarbledb(),
-              							  follower : user.getFollowerdb(),
-              							  following : user.getFollowingdb()
+                              warble : user.getWarbledb(), // access the warbles database
+              							  follower : user.getFollowerdb(), //access the followers database
+              							  following : user.getFollowingdb() // access the following database
 							});
   }
 }
@@ -249,17 +247,18 @@ exports.followers = function (req, res) {
 // corresponding to following
 exports.following = function (req, res) {
    var userid = req.cookies.userid;
+   //Authentification
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
   }
   else {
-    var users = online[userid];
+  var users = online[userid];
   res.render ('following', { title : 'Following',
                               username : users.username,
-                              warble : user.getWarbledb(),
-							               following : user.getFollowingdb(),
-							               follower : user.getFollowerdb()
+                              warble : user.getWarbledb(),// access the warbles database
+							               following : user.getFollowingdb(), // access the following database
+							               follower : user.getFollowerdb()//access the followers database
 							});
   }
 }
@@ -280,6 +279,7 @@ exports.process = function (req, res) {
   var id   = req.params.id;
   var auser = userData(req);
 
+  //Validates and adds new user to the userdatabse
   if (user.validateUser(auser)) {
     user.addUser(auser);
     genUserList(function (ul) {
@@ -290,6 +290,7 @@ exports.process = function (req, res) {
                    user: ul });
     });
   }
+  //If some information is missing, the form will display an error message
   else {
     var smap = {
       'username': 'Username',
@@ -363,7 +364,7 @@ function genUserList(callback) {
 }
 
 
-
+//A chat function used in localhost:3000/chat. A test function for dynamically updated statuses
 exports.chat = function(req, res){
   var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -374,14 +375,12 @@ exports.chat = function(req, res){
     var users = online[userid];
     res.render('chat', { title   : 'User main',
                          message : 'Login Successful',
-                         users : online,
+                         users : online,  // array of users currently online
                          username : users.username,
                          password : users.password, 
-                         warble : user.getWarbledb(),
-                         follower : user.getFollowerdb()
+                         warble : user.getWarbledb(), // access the warbles database
+                         follower : user.getFollowerdb() // access the following database
                         });
-  
-//  res.render('chat', { title: 'Chat Client' });
     }
 };
 
@@ -391,20 +390,20 @@ exports.chat = function(req, res){
 exports.wuser = function (req, res) {
   var userid = req.cookies.userid;
   var users = online[userid];
-    var u = req.params.username;
-    var c = user.get_user(u); // This method searches for user in the user database
+  var u = req.params.username;
+   var c = user.get_user(u); // This method searches for user in the user database
 
     if (req.method === 'POST') {
       console.log('Adding to Followers:');
-      user.addToFollow (users.username, c.username);
+      user.addToFollow (users.username, c.username);  // This adds the following and followed to the following database
     }
 
     res.render ('wuser', { title : 'Profile+ ' + c.username,
-                              me : users.username,
-                              username : c.username,
-                              warble : user.getWarbledb(),
-                              follower : user.getFollowerdb(),
-                              following : user.getFollowingdb()
+                              me : users.username,  // username of user viewing the page
+                              username : c.username, // username of the user page being viewed
+                              warble : user.getWarbledb(), // access the warbles database
+                              follower : user.getFollowerdb(), // access the followers database
+                              following : user.getFollowingdb() // access the following database
                 });
 
 };
