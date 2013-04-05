@@ -19,8 +19,8 @@ https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 4. The website will be displayed on your browser on: localhost:3000. 
 
 5. AT THE LOGIN SCREEN USE CREDIENTIALS:
->  Username: Tim
->  Password: warble
+>-  Username: Tim
+>-  Password: warble
   
 note: The link to the specification document in the footer (next to About).
 
