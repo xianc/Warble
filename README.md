@@ -12,13 +12,13 @@ The current version of the Warble web app works best on the Chrome and Safari we
 
 2. Run: node app.js
 
-3. The website will be displayed on the browser on: localhost:3000
+3. The website will be displayed on the browser on: localhost:3000. There is a link to the requirements document in the footer (next to the About link).
 
 >####Index page
 >- The index page (home page) is also the login page. You may log in with the following (username, password): (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies), OR you can click the "Sign Up" link and create an account and sign in using that. 
 
->####Sign Up Page TO EDIT!!
->- The sign up page is a form that asks users for information. Currently, when information is enetered and the "sign up" button is clicked, a new user is created in an array. 
+>####Sign Up Page 
+>- The sign up page is a form that asks users for information. When information is enetered and the "sign up" button is clicked, a new user is created in the user database (userdb in lib/user.js). You may use this newly created information to login.
 
 >####Forget Password Page
 >- The forget password page is a one entry form that asks a user for their username or e-mail address. Currently it is not yet implemented
@@ -53,12 +53,14 @@ The current version of the Warble web app works best on the Chrome and Safari we
 ##Test Files
 The following are test files. 
 >-chat.ejs: This file is a test of submitting and displaying a message dynamically on screen. It is used to help create the "tweet"/"warble" in user/main. You can view this test page by going to localhost:3000/chat
+
 >-online.ejs: This file is a test to display all users from the user database. It is used to display the 5 newest users in discover.ejs
+
 >-front.ejs: A skeleton. This page was what is now main.js. 
 
 ##Project Assignment 03
 Here is a list of the files and the additions we made:
-###In Views
+####In Views
 >- app.js: added new routes
 >- style.css: uploaded Warble Font
 >- login.ejs: checks user database to validate user login
@@ -69,16 +71,16 @@ Here is a list of the files and the additions we made:
 >- logout: added feature to logg the user out
 >- chat.ejs: displays a chat like feature that dynamically updates the "tweet" section
 
-###In Routes
+####In Routes
 >- user-after, user-before, user-sessions: replaced index.js to render pages
 
-###In lib/user
+####In lib/user
 >-user.js: Added warbles, followers, following, and several other methods
 
-###In node_modules
+####In node_modules
 >-added connect-flash (and formidabble but it has not been implemented
 
-###In Public
+####In Public
 >-javascripts folder: contains the file for the dynamic updating of warbles
 >-TwitterImplementation.pdf: the Requirements doc for Warble. It is linked on every page in the footer.  
 
