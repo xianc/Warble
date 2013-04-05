@@ -4,25 +4,27 @@
 The semester project for UMass's CS326 Web Programming course focuses on implementing <a href="http://twitter.com" target="_blank">Twitter</a>. Our implementation is <b>Warble</b>-- a microblogging web application that allows users to upload files of a certain size. 
 
 ####Current Version
-The current version of the Warble web app works best on the Chrome and Safari web browser.
+>-The current version of the Warble web app works best on the Chrome and Safari web browser.
 
-##How to run files
+##How to Run Our App:
 
-1. Download the repository: https://github.com/xianc/Warble
-> If this does not work (which is rare), download the Warble.zip file in the project's directory. 
+1.) Download the repository: https://github.com/xianc/Warble
+>-If this does not work (which is rare), download the Warble.zip file in the project's directory. 
 
-2. Run: node app.js
+2.) Read our release document for Project #3
+https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 
-3. The website will be displayed on the browser on: localhost:3000. 
+3). Run "node app.js" from the command line
 
-> note: The link to the specification document in the footer (next to About).
+4). The website will be displayed on your browser on: localhost:3000. 
 
-4. AT THE LOGIN SCREEN USE CREDIENTIALS:
- 	Username: Xian
- 	Password: Chocolate
+5). AT THE LOGIN SCREEN USE CREDIENTIALS:
+  Username: Tim
+ 	Password: warble
+
+##Our Files:
 
 >####Index page
-<<<<<<< HEAD
 >- The index page (home page) is also the login page. We currently have a few usernames set up. The names and passwords exist in the users database in the user.js file and are fair game to sign in with. Otherwise create a username on the sign-up form.
 >- To view how the "sign up" page and "forget password page", click their correspondiong links before the sign in form. 
 
@@ -34,7 +36,6 @@ The current version of the Warble web app works best on the Chrome and Safari we
 
 >####Front Page
 >- After a user is logged in (for in this case, the sign in button is clicked), he/she will be redirected to the front page. The front page displays recent updates from people whom the user follows as well as a status update box ("Warble" box). The front page also displayes other online users that are followed by the signed in user. From the front page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar. Clicking on the username section of a user's warble brings you to their profile page.
-=======
 >- The index page (home page) is also the login page. You may log in with the following (username, password): (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies), OR you can click the "Sign Up" link and create an account and sign in using that. 
 
 >####Sign Up Page 
@@ -45,7 +46,6 @@ The current version of the Warble web app works best on the Chrome and Safari we
 
 >####Main Page (user/main)
 >- After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar. 
->>>>>>> 8f27b86aefe50344fa9e3a6303b599d745bcf68c
 
 >####Discover #TO EDIT
 >- The discover page displays "Warbles" from other users
@@ -53,15 +53,13 @@ The current version of the Warble web app works best on the Chrome and Safari we
 >- Users can filter searches by "Warbles," "Uploads," and "People"
 >- Clicking on the username section of a user's warble brings you to their profile page.
 
-<<<<<<< HEAD
 >#### At Me
 >- The At Me page shows other user's "Warbles" that relate to, or is "@" (at) the user
 >- Clicking on the username section of a user's warble brings you to their profile page.
 
-=======
 >#### At Me #TO EDIT
 >- The At Me page shows other user's "Warbles" that are relating or is "@" (at) the user
->>>>>>> 8f27b86aefe50344fa9e3a6303b599d745bcf68c
+
 
 >#### My Profile #TO EDIT
 >- The Profile page shows the user's member information (number of Warbles, uploads... etc.) as well as their most recent "Warbles" (Status Updates). 
@@ -69,7 +67,7 @@ The current version of the Warble web app works best on the Chrome and Safari we
 
 
 >#### Followers #TO EDIT
->- ...
+>- Followers are now implemented. When on a user's profile page a user can click the follow button underneath 
 
 >#### Following #TO EDIT
 >- ...
@@ -88,6 +86,7 @@ The following are test files.
 >-online.ejs: This file is a test to display all users from the user database. It is used to display the 5 newest users in discover.ejs
 
 >-front.ejs: A skeleton. This page was what is now main.js. 
+
 
 ##Project Assignment 03
 Here is a list of the files and the additions we made:
