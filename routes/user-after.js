@@ -130,16 +130,6 @@ exports.main = function(req, res) {
     //This part of the code adds Warbles! It currently does not 
     //implement the "attachment" or "at user" feature but it does add
     //warbles to warbledb
-    var aWarble = {
-      username  : users.username,
-      date  : new Date(),
-      messages  : req.body.update,
-      attachment: ' ',
-      atUser    : ' ',
-    };
-    //var warble = user.getWarbledb();
-    //warble.push(aWarble);
-    //userlib.addWarble(aWarble);
     if (req.method === 'POST') {
       console.log('Adding Warbles:');
       user.addWarbs(users.username, new Date(), req.body.update);

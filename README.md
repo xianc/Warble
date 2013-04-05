@@ -37,9 +37,10 @@ The current version of the Warble web app works best on the Chrome and Safari we
 >#### My Profile #TO EDIT
 >- The Profile page shows the user's member information (number of Warbles, uploads... etc.) as well as their most recent "Warbles" (Status Updates). 
 
->##### Followers #TO EDIT
+>#### Followers #TO EDIT
 >- ...
->##### Following #TO EDIT
+
+>#### Following #TO EDIT
 >- ...
 
 >####About
@@ -72,5 +73,10 @@ Here is a list of the files and the additions we made:
 >-user.js: Added warbles, followers, following, and several other methods
 
 ###In node_modules
->-added connect-flash, and formidabble (has not been used)
+>-added connect-flash (and formidabble but it has not been implemented
+
+###In Public
+>-javascripts folder: contains the file for the dynamic updating of warbles
+>-TwitterImplementation.pdf: the Requirements doc for Warble. It is linked on every page in the footer.  
+
 
