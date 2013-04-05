@@ -40,6 +40,7 @@ note: The link to the specification document in the footer (next to About).
 
 >####Main Page (user/main)
 >- After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar.
+>- The additional feature we are adding to Warble, is the capacity to upload files, in addition to images. At the moment, clicking on "Choose File" button will prompt you to select a file, and display the name of the file. We have yet to implement the actual upload. 
 
 >####Discover
 >- The discover page displays "Warbles" from other users
