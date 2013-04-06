@@ -104,4 +104,6 @@ Here is a list of the files and the additions we made:
 >-javascripts folder: contains the file for the dynamic updating of warbles
 >-TwitterImplementation.pdf: the Requirements doc for Warble. It is linked on every page in the footer.  
 
+Note: There are additional .js files in lib (lib/followers and lib/warbles) that were never used, hence they don't have any documentation. 
+
 
