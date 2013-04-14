@@ -1,3 +1,14 @@
+
+// Server-side support for chat app:
+exports.init = function (socket) {
+  socket.on('post', function (data) {
+    console.log('Received post: ' + JSON.stringify(data));
+    socket.broadcast.emit('post', data);
+  });
+};
+
+/*OLD CHAT
+
 // Chat Module
 
 // Records all the posts made to the server:
@@ -29,4 +40,4 @@ exports.check = function (req, res) {
 	var last = parseInt(req.body.last, 10);
 	var rest = posts.slice(last, posts.length);
 	res.json(rest);
-};
+};*/

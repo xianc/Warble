@@ -13,7 +13,7 @@ var express = require('express')
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  //app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.favicon());
@@ -33,8 +33,9 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-
-
+app.configure('production', function(){
+  app.use(express.errorHandler());
+});
 
 
 app.get('/', user.login);
@@ -68,8 +69,17 @@ app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
 app.post('/form/process/:id', user.process);
 
+var server = http.createServer(app);
 
+// WebSockets/Socket.IO
+var io      = require('socket.io', {'log level': 0}).listen(server);
+var chatApp = require('./chat');
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+io.sockets.on('connection', function (socket) {
+  chatApp.init(socket);
+});
+
+server.listen(3000, function(){
+  console.log("Express server listening on port %d in %s mode",
+              server.address().port, app.settings.env);
 });

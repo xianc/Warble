@@ -1,10 +1,11 @@
+
+
 <% include header %>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script type="text/javascript"
-    		src="/javascripts/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript"
-    		src="/javascripts/chat-client.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/javascripts/chat.js"></script>
 <div id="header">
 <!-- Top Navigation Bar -->
 
@@ -56,9 +57,9 @@
         <td valign="top">
           <div id="content">
     
-
-    <input type="text" id="size">
-    <div align="right"><button>Chat</button></div>
+    <textarea id="chat-text-area"></textarea>
+    <br>
+    <input id="chat-post-button" type="submit" value="Post">
 
         </td></div></tr> </table><br>
     
@@ -69,7 +70,7 @@
                 <h1>Realtime Chat</h1>
                 <hr>
 
-                 <ul id="chat">
+                 <ul id="message-list">
       <!-- Fill in with the posts from server. -->
                 </ul>
 
