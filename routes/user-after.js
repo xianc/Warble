@@ -382,6 +382,8 @@ exports.chat = function(req, res){
                          follower : user.getFollowerdb() // access the following database
                         });
     }
+
+    
 };
 
 

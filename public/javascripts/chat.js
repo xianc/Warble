@@ -57,12 +57,12 @@ function chatTextArea() {
 
   // Returns the text contained in the textarea:
   obj.getText = function () {
-    return obj.elm.val();
+    return obj.elm.user + ': ' + obj.elm.val();
   };
 
   // Removes the text from the text area:
   obj.clearText = function () {
-    obj.elm.val('');
+    obj.elm.val(' ');
   };
 
   return obj;
@@ -98,7 +98,7 @@ function messageList() {
   obj.addMessage = function (msg) {
     var next = $('<li>');
     var date = new Date();
-    next.html(msg +  '<br> <font size="2"> on ' + date.toDateString() + '</font>');
+    next.html(msg +  '<br> <font size="2"> on ' + date + '</font>');
     //next.text(msg);
     obj.elm.prepend(next);
   };
