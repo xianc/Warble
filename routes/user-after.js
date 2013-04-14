@@ -133,7 +133,13 @@ exports.main = function(req, res) {
     if (req.method === 'POST') {
       console.log('Adding Warbles:');
       user.addWarbs(users.username, new Date(), req.body.update);
+
     }
+
+   if (req.method === 'GET') {
+      console.log('Deleting Warbles:' + req.params.msg);
+      user.deleteWarbs(req.params.msg);
+     }
 
     res.render('main', { title   : 'User main',
                          message : 'Login Successful',

@@ -109,7 +109,12 @@
                   <%= warble[i].message %>
                   <br><font size=2><u>Attached</u>: <i>
                   <%= warble[i].attachment %>
-                  </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
+                  </i></font> </b></td><td width="50px"><font size="2">
+                  <% if (warble[i].username == username) { %>
+                      <a href="" warbStat="DELETE" index="<% i %>">Delete</a><br>
+                  <% } else { %>
+                  <a href="">Reply</a><br>
+                  <% } %>
                   <a href="">Warble</a><br><!--<a href="front" onClick = warble.splice (i, 1);>Delete</a><br>--><a href="">Download</a></font></td></table><hr>
                   <% } %>
 
