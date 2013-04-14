@@ -1,3 +1,4 @@
+
 // Important Objects:
 function publisher() {
   var subscribers = {};
@@ -86,6 +87,7 @@ function chatPostButton() {
   return obj;
 }
 
+
 // The message list that corresponds with the message list defined in
 // the view:
 function messageList() {
@@ -95,7 +97,9 @@ function messageList() {
   // A method to add a message to the list:
   obj.addMessage = function (msg) {
     var next = $('<li>');
-    next.text(msg);
+    var date = new Date();
+    next.html(msg +  '<br> <font size="2"> on ' + date.toDateString() + '</font>');
+    //next.text(msg);
     obj.elm.prepend(next);
   };
 
