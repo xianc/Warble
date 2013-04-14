@@ -4,7 +4,7 @@
 The semester project for UMass's CS326 Web Programming course focuses on implementing <a href="http://twitter.com" target="_blank">Twitter</a>. Our implementation is <b>Warble</b>-- a microblogging web application that allows users to upload files of a certain size. 
 
 ####Current Version
->-The current version of the Warble web app works best on the Chrome and Safari web browser.
+>-The current version of the Warble web app works best on the Chrome and Safari web browsers.
 
 ##How to Run Our App:
 
@@ -23,6 +23,7 @@ https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 >-  Password: warble
   
 note: The link to the specification document in the footer (next to About).
+
 
 ##Our Files:
 
@@ -80,8 +81,9 @@ The following are test files.
 
 ##Project Assignment 03
 Here is a list of the files and the additions we made:
-####In Views
+
 >- app.js: added new routes
+####In Views
 >- style.css: uploaded Warble Font
 >- login.ejs: checks user database to validate user login
 >- main.ejs: include new features (Warbles, online users, greets the user currently logged in, lists the username of online users)
@@ -104,6 +106,27 @@ Here is a list of the files and the additions we made:
 >-javascripts folder: contains the file for the dynamic updating of warbles
 >-TwitterImplementation.pdf: the Requirements doc for Warble. It is linked on every page in the footer.  
 
+
 Note: There are additional .js files in lib (lib/followers and lib/warbles) that were never used, hence they don't have any documentation. 
+
+
+##Project Assignment 4:
+
+Our Web Sockets Implementation is our Chat Feature
+Our AJAX Feature is our User Search Feature 
+
+For AJAX:
+We Referenced Example 2: Lecture 20
+
+For Web Sockets:
+We Referenced Example 1: Lecture 23
+
+
+>- app.js: Added functionality to use web socket use
+####In Views
+>- chat.ejs: displays a chat like feature that dynamically updates the "tweet" section. This implements web sockets as apposed to AJAX in assignment 3.
+>- discover.ejs: a user can dynamically search for other users using AJAX. Parts of queries are supported. Querying "r" for example will yield results "Eric" and "Hridya".
+####In Chat
+>- chat.js added functionality to support web socket instant messaging. As with the example in class our chat feature implements the Publisher/Subscriber model. Our chat supports user-name display.
 
 
