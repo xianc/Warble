@@ -57,7 +57,6 @@
         <td valign="top">
           <div id="content">
     
-    <textarea id="chat-user" style="visibility:hidden; display:none;"> <%= username %></textarea>
     <textarea id="chat-text-area" user="<%= username %>"></textarea>
     <br>
     <input id="chat-post-button" user="<%= username %>" type="submit" value="Post">
@@ -71,9 +70,9 @@
                 <h1>Realtime Chat</h1>
                 <hr>
 
-                 <div id="message-list">
+                 <ul id="message-list">
       <!-- Fill in with the posts from server. -->
-                </div>
+                </ul>
 
              
                    
