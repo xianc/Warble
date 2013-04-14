@@ -55,14 +55,28 @@ function chatTextArea() {
   var obj = Object.create(publisher());
   obj.elm = $('#chat-text-area');
 
-  // Returns the text contained in the textarea:
+  //Returns the text contained in the textarea:
   obj.getText = function () {
-    return obj.elm.user + ': ' + obj.elm.val();
+    return obj.elm.val();
   };
 
   // Removes the text from the text area:
   obj.clearText = function () {
     obj.elm.val(' ');
+  };
+
+  return obj;
+}
+
+// The chat text area object that corresponds with the text area
+// defined by the view:
+function chatTextTitle() {
+  var obj = Object.create(publisher());
+  obj.elm = $('#chat-user');
+
+  //Returns the text contained in the title:
+  obj.getText = function () {
+    return obj.elm.val();
   };
 
   return obj;
@@ -113,6 +127,7 @@ function chatApp(socket) {
   obj.elm = $('div#chat-app');
 
   // Create each of the important UI objects:
+  obj.titleText = chatTextTitle();
   obj.text = chatTextArea();
   obj.post = chatPostButton();
   obj.list = messageList();
@@ -123,10 +138,12 @@ function chatApp(socket) {
   obj.post.subscribe('submit', function () {
     // Grab the textarea's text and send to server:
     var message = obj.text.getText();
-    socket.emit('post', { post : message });
+    var message2 = obj.titleText.getText();
+    message2 = message2 + ":" + message;
+    socket.emit('post', { post : message2 });
     // Clear the text box and add the message locally:
     obj.text.clearText();
-    obj.list.addMessage(message);
+    obj.list.addMessage(message2);
   });
 
   // Handle incoming post messages from the server:
