@@ -136,10 +136,10 @@ exports.main = function(req, res) {
 
     }
 
-   if (req.method === 'GET') {
+   /*if (req.method === 'GET') {
       console.log('Deleting Warbles:' + req.params.msg);
       user.deleteWarbs(req.params.msg);
-     }
+     }*/
 
     res.render('main', { title   : 'User main',
                          message : 'Login Successful',
