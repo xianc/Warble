@@ -405,6 +405,7 @@ exports.wuser = function (req, res) {
   if (req.method === 'POST') {
       console.log('Adding to Followers:');
       user.addToFollow (users.username, c.username);  // This adds the following and followed to the following database
+      user.addToFollowing (users.username, c.username);
     }
 
     res.render ('users/wuser' , { title : 'Profile+ ' + c.username,
