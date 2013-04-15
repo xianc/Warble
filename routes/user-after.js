@@ -2,6 +2,7 @@
 
 // Requiring the user library
 var user = require('../lib/user');
+var formidable = require('formidable');
 
 // Records the user logged in
 var userids = 0;
@@ -109,6 +110,11 @@ exports.logout = function(req, res) {
   res.redirect('/');
 };
 
+var querystring = require('querystring'),
+    fs = require('fs');
+
+    
+    
 /* ## Main Page
 Also known as the Front Page. This page: 
 > 1. Greets the user that is signed in. 
@@ -130,9 +136,27 @@ exports.main = function(req, res) {
     //This part of the code adds Warbles! It currently does not 
     //implement the "attachment" or "at user" feature but it does add
     //warbles to warbledb
+    var form = new formidable.IncomingForm();
+	var filen = '';
+	console.log('Looking at file');
+    form.uploadDir = 'upload';
     if (req.method === 'POST') {
-      console.log('Adding Warbles:');
-      user.addWarbs(users.username, new Date(), req.body.update);
+    	form.parse(req, function (err, fields, files) {
+          console.log('parsing done.');        
+          fs.rename(files.upload.path, 
+                    'upload/' + files.upload.name,
+                    function (err) {
+                        if (err) {
+                           console.log('error');
+                        } else {
+                        	filen='upload/' + files.upload.name;
+                           
+                        }
+                    });
+                    });
+    console.log('The file '+filen);
+      console.log('Adding Warbles');
+      user.addWarbs(users.username, new Date(), req.body.update, filen);
 
     }
 

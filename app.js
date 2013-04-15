@@ -7,6 +7,7 @@ var express = require('express')
   , chat = require('./chat')
   , http  = require('http')
   , path  = require('path')
+  , formidable = require('formidable')
   // TDR: Include flash middleware:
   , flash = require('connect-flash');
 
