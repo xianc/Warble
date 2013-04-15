@@ -31,11 +31,11 @@
 
       <div id="content">
         <!-- Search Field and Button-->
-        <textarea rows="1">I'm looking for...</textarea>
+        <textarea rows="1" onblur="if(this.value==''){this.value='Search...'}">I'm looking for...</textarea>
         <a href="" id="get"><input type="submit" value="Find me!"></input></a>
       </div>
 
-      <div id="output"></div>
+      
       
             <br>
             <div id="content"width="100%">
@@ -81,10 +81,15 @@
 
     </td>
 
-        <td width="15px"></td>
+      <td width="15px"></td>
       <td valign="top" id="default">
+
+      <div id="output"></div>
+      
+      <h1>Recent Warbles</h1>
+      <hr>
             <!-- Search Results -->
-           <% for(var i = warble.length-1 ; i >= 0; i--) { %>
+           <% for(var i = warble.length-1 ; i >=  warble.length-5; i--) { %>
                   <table width="100%" valign="top"><td><b>
                   <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
@@ -115,6 +120,7 @@
 
   $('#get').bind('click',
     function (event) {
+
       // Load the "data":
       //loaddata('data.js');
 
@@ -128,7 +134,7 @@
     <% for(var i = 0; i < allUsers.length; i++) { %>
       if('<%= allUsers[i].username %>'.indexOf(id) > -1){
         if(value == '-1'){
-          value = '<a href="/users/<%= allUsers[i].username %>"><%= allUsers[i].username %></a>';
+          value = '<h1>Search Results</h1> <hr><a href="/users/<%= allUsers[i].username %>"><%= allUsers[i].username %></a>';
         }
         else{
           value = value + '<br><a href="/users/<%= allUsers[i].username %>"><%= allUsers[i].username %></a>';
@@ -140,7 +146,7 @@
       value = 'User Not Found';
     }
     
-    $('#output').html(value);
+    $('#output').html(value + '<br><br>');
     
       }, 300);
       return false;
