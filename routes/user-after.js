@@ -174,10 +174,15 @@ exports.discover = function (req,res) {
     res.redirect('/user/login');
   }
   else {
+    var users = online[userid];
   res.render('discover', { title  : 'Discover',
                             users : online,
                             warble : user.getWarbledb(),
-                            allUsers : user.getUserdb()});
+                            allUsers : user.getUserdb(),
+                            username : users.username,
+                            warble : user.getWarbledb()
+                          });
+
 }
 }
 
