@@ -135,19 +135,20 @@
   $('#get').bind('click',
     function (event) {
 
-      // Load the "data":
-      //loaddata('data.js');
-
-      // Get the id to display:
+      // Get the user to display:
       var id   = $('textarea').val();
 
       // Display data after 300 ms:
       setTimeout(function () {
+
+    //Value to terminate at:  
     var value = '-1';
     
+    //Search for the user in userdb
     <% for(var i = 0; i < allUsers.length; i++) { %>
       if('<%= allUsers[i].username %>'.indexOf(id) > -1){
         if(value == '-1'){
+        //Display the user under Search Results when found
           value = '<h1>Search Results</h1> <hr><a href="/users/<%= allUsers[i].username %>"><%= allUsers[i].username %></a>';
         }
         else{
@@ -156,10 +157,12 @@
       }
         <% } %>
     
+    //Show user not found if the id is -1
     if(value == '-1'){
       value = 'User Not Found';
     }
     
+    //Display the output
     $('#output').html(value + '<br><br>');
     
       }, 300);
