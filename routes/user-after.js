@@ -220,7 +220,8 @@ exports.my_profile = function (req, res) {
                               username : users.username, 
                               warble : user.getWarbledb(), // access the warbles database
               							  follower : user.getFollowerdb(), //access the followers database
-              							  following : user.getFollowingdb() // access the following database
+              							  following : user.getFollowingdb(), // access the following database
+                              userdata : user.getUserdb()
 							  });
   }
 }
@@ -344,6 +345,7 @@ function userData(req) {
       //email: req.body.email,
       username : req.body.username,
       password : req.body.password,
+      birthday:  req.body.month + '/' + req.body.day + '/' + req.body.year,
       //sex  : req.body.sex,
       //month: req.body.month,
       //day  : req.body.day,
@@ -385,7 +387,7 @@ exports.chat = function(req, res){
                          username : users.username,
                          password : users.password, 
                          warble : user.getWarbledb(), // access the warbles database
-                         follower : user.getFollowerdb() // access the following database
+                         follower : user.getFollowerdb()
                         });
     }
 
@@ -413,7 +415,8 @@ exports.wuser = function (req, res) {
                               username : c.username, // username of the user page being viewed
                               warble : user.getWarbledb(), // access the warbles database
                               follower : user.getFollowerdb(), // access the followers database
-                              following : user.getFollowingdb() // access the following database
+                              following : user.getFollowingdb(), // access the following database
+                              userdata : user.getUserdb()
                 });
 
 };

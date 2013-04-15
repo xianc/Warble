@@ -56,7 +56,7 @@
                      <!--Number of uploads by user-->    
                     <b>Uploads</b>
                     </td><td>
-                    <a href=""><i><font size="2">472</font></i></a></td>
+                    <a href=""><i><font size="2">0</font></i></a></td>
                     </tr><tr><td>
                     <!--Number of people the user follows-->      
                     <b>Following</b>
@@ -86,7 +86,13 @@
                 <!--User's birthday--> 
                     <b>Birthday</b>
                     </td><td width="80px"><font size="2">
-                    <a href=""><i>Nov 04</i></a><br>
+                    <a href=""><i>
+                    <% for (var i=0; i<userdata.length; i++){
+					if (userdata[i].username == username){ %>
+					<%= userdata[i].birthday %>
+					<% }}
+					%>
+					</i></a><br>
                     </font></td></table><hr width="80%">
                 <!--A quote and/or description by the user-->      
                 <b><i>"You can have it all. Just not all at once"</i></b>
