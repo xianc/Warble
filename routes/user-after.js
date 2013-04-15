@@ -167,10 +167,18 @@ exports.online = function(req, res) {
 //Lists the users online as well as the 5 most recent entries 
 //in the user database. This page also displays Warbles from the Warble Databse
 exports.discover = function (req,res) {
+  var userid = req.cookies.userid;
+  //authenticate login
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
   res.render('discover', { title  : 'Discover',
                             users : online,
                             warble : user.getWarbledb(),
                             allUsers : user.getUserdb()});
+}
 }
 
 
@@ -303,7 +311,7 @@ exports.process = function (req, res) {
       'username': 'Username',
       'password' : 'Password',
     };
-    var m = 'Missing information:<br>';
+    var m = '<font color=red><b>Uh oh!</b></font> <br> Either the username you have entered has already been taken or you have forgotten to fill out some required information! (*)<br><br>';
     for (p in smap) {
       if (user[p] === '' &&
           p in smap) {
@@ -332,9 +340,6 @@ function userData(req) {
       password : req.query.password,
       uid : req.query.uid,
       //sex  : req.query.sex,
-      //month : req.query.month,
-      //day : req.query.day,
-      //year : req.query.year,
     };
   }
   //## registers user
@@ -347,9 +352,6 @@ function userData(req) {
       password : req.body.password,
       birthday:  req.body.month + '/' + req.body.day + '/' + req.body.year,
       //sex  : req.body.sex,
-      //month: req.body.month,
-      //day  : req.body.day,
-      //year : req.body.year,
     };
   }
   
