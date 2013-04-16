@@ -131,36 +131,37 @@ exports.main = function(req, res) {
     res.redirect('/user/login');
   }
   else {
-    var users = online[userid];
-
     //This part of the code adds Warbles! It currently does not 
     //implement the "attachment" or "at user" feature but it does add
     //warbles to warbledb
+    var users = online[userid];
     var form = new formidable.IncomingForm();
-	var filen = '';
-	console.log('Looking at file');
-    form.uploadDir = 'upload';
-    if (req.method === 'POST') {
-    	form.parse(req, function (err, fields, files) {
-          console.log('parsing done.');        
-          fs.rename(files.upload.path, 
-                    'upload/' + files.upload.name,
-                    function (err) {
-                        if (err) {
-                           console.log('error');
-                        } else {
-                        	filen='upload/' + files.upload.name;
-                           
-                        }
-                    });
+  	var filen = '';
+  	console.log('Looking at file');
+      form.uploadDir = 'upload';
+      if (req.method === 'POST') {
+      	form.parse(req, function (err, fields, files) {
+            console.log('parsing done.');        
+            fs.rename(files.upload.path, 
+                      'upload/' + files.upload.name, // the upload path
+                      function (err) {
+                          if (err) {
+                             console.log('error');
+                          } else {
+                          	filen='upload/' + files.upload.name;
+                             
+                          }
+                      });
                     });
     console.log('The file '+filen);
-      console.log('Adding Warbles');
-      user.addWarbs(users.username, new Date(), req.body.update, filen);
-
+    console.log('Adding Warbles');
+    //adding to warble database
+    user.addWarbs(users.username, new Date(), req.body.update, filen); 
     }
 
-   /*if (req.method === 'GET') {
+   /* Not yet working: delete feature
+
+   if (req.method === 'GET') {
       console.log('Deleting Warbles:' + req.params.msg);
       user.deleteWarbs(req.params.msg);
      }*/
@@ -170,8 +171,8 @@ exports.main = function(req, res) {
                          users : online,
                          username : users.username,
                          password : users.password, 
-                         warble : user.getWarbledb(),
-						             follower : user.getFollowerdb()
+                         warble : user.getWarbledb(), // access the warble database
+						             follower : user.getFollowerdb() // access the follower database
                         });
   }
 
@@ -201,10 +202,9 @@ exports.discover = function (req,res) {
     var users = online[userid];
   res.render('discover', { title  : 'Discover',
                             users : online,
-                            warble : user.getWarbledb(),
-                            allUsers : user.getUserdb(),
+                            allUsers : user.getUserdb(), // access the user database
                             username : users.username,
-                            warble : user.getWarbledb()
+                            warble : user.getWarbledb() // access the warble database
                           });
 
 }
@@ -301,8 +301,8 @@ exports.following = function (req, res) {
   res.render ('following', { title : 'Following',
                               username : users.username,
                               warble : user.getWarbledb(),// access the warbles database
-							               following : user.getFollowingdb(), // access the following database
-							               follower : user.getFollowerdb()//access the followers database
+							                following : user.getFollowingdb(), // access the following database
+							                follower : user.getFollowerdb()//access the followers database
 							});
   }
 }
@@ -327,6 +327,7 @@ exports.process = function (req, res) {
   if (user.validateUser(auser)) {
     user.addUser(auser);
     genUserList(function (ul) {
+      //if there is no errors, user gets added to the database
       res.render('form/' + id,
                  { title: 'form - ' + id,
                    id: id,
@@ -340,6 +341,8 @@ exports.process = function (req, res) {
       'username': 'Username',
       'password' : 'Password',
     };
+    // Error message
+    // display if there is missing information or the username selected is already taken
     var m = '<font color=red><b>Uh oh!</b></font> <br> Either the username you have entered has already been taken or you have forgotten to fill out some required information! (*)<br><br>';
     for (p in smap) {
       if (user[p] === '' &&
@@ -362,25 +365,17 @@ function userData(req) {
   var auser;
   if (req.method === 'GET') {
     auser = {
-      //fname: req.query.fname,
-      //lname: req.query.lname,
-      //email: req.query.email,
       username: req.query.username,
       password : req.query.password,
       uid : req.query.uid,
-      //sex  : req.query.sex,
     };
   }
   //## registers user
   else {
     auser = {
-      //fname: req.body.fname,
-      //lname: req.body.lname,
-      //email: req.body.email,
-      username : req.body.username,
-      password : req.body.password,
-      birthday:  req.body.month + '/' + req.body.day + '/' + req.body.year,
-      //sex  : req.body.sex,
+      username : req.body.username, // gets the username
+      password : req.body.password, // gets the password
+      birthday:  req.body.month + '/' + req.body.day + '/' + req.body.year, // formats the date
     };
   }
   
@@ -418,11 +413,9 @@ exports.chat = function(req, res){
                          username : users.username,
                          password : users.password, 
                          warble : user.getWarbledb(), // access the warbles database
-                         follower : user.getFollowerdb()
+                         follower : user.getFollowerdb() // access the follower
                         });
     }
-
-    
 };
 
 
@@ -447,7 +440,7 @@ exports.wuser = function (req, res) {
                               warble : user.getWarbledb(), // access the warbles database
                               follower : user.getFollowerdb(), // access the followers database
                               following : user.getFollowingdb(), // access the following database
-                              userdata : user.getUserdb()
+                              userdata : user.getUserdb() // access the user database
                 });
 
 };
