@@ -68,10 +68,11 @@ function chatTextArea() {
   return obj;
 }
 
-// The chat text area object that corresponds with the text area
-// defined by the view:
+// The chat text area object that corresponds with the 
+// username of the person sending the chat:
 function chatTextTitle() {
   var obj = Object.create(publisher());
+  //the html id of the user title element
   obj.elm = $('#chat-user');
 
   //Returns the text contained in the title:
@@ -81,6 +82,21 @@ function chatTextTitle() {
 
   return obj;
 }
+
+// anonymous chat feature not entered
+// function chatAnonToggle() {
+//   var obj = Object.create(publisher());
+//   //the html id of the user element
+//   obj.elm = $('input[name=anony]');
+//   console.log(obj.elm.val());
+
+//   //Returns the text contained in the title:
+//   $("input[name=anony]").click(function() {
+//     obj.elm.val = $(this).val();
+// });
+
+//   return obj;
+// }
 
 // The chat post button that corresponds with the button defined in
 // the view:
@@ -127,7 +143,8 @@ function chatApp(socket) {
   obj.elm = $('div#chat-app');
 
   // Create each of the important UI objects:
-  obj.titleText = chatTextTitle();
+  //obj.toggle = chatAnonToggle();
+  obj.titleText = chatTextTitle(); //this is the title object being added
   obj.text = chatTextArea();
   obj.post = chatPostButton();
   obj.list = messageList();
@@ -135,8 +152,9 @@ function chatApp(socket) {
   // We let the post button deal with its own click event.  We simply
   // subscribe to the submit event on the post button.  It will invoke
   // our callback when it is ready to do so:
+
   obj.post.subscribe('submit', function () {
-    // Grab the textarea's text and send to server:
+    // Grabs the title of the chat and the message and appends them together
     var message = obj.titleText.getText() + ': ' + obj.text.getText();
     socket.emit('post', { post : message });
     // Clear the text box and add the message locally:
