@@ -7,6 +7,7 @@ var express = require('express')
   , chat = require('./chat')
   , http  = require('http')
   , path  = require('path')
+  , formidable = require('formidable')
   // TDR: Include flash middleware:
   , flash = require('connect-flash');
 
@@ -56,7 +57,6 @@ app.get('/users/:username', user.wuser);
 app.post('/users/:username', user.wuser);
 app.post('/user/main', user.main);
 
-//app.post('/user/addWarb', user.main);
 
 //#Chat Test
 //The below is a test for dynamically updated statuses

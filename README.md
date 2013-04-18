@@ -125,7 +125,7 @@ We Referenced Example 1: Lecture 23
 >- app.js: Added functionality to use web socket use
 ####In Views
 >- chat.ejs: displays a chat like feature that dynamically updates the "tweet" section. This implements web sockets as apposed to AJAX in assignment 3.
->- discover.ejs: a user can dynamically search for other users using AJAX. Parts of queries are supported. Querying "r" for example will yield results "Eric" and "Hridya".
+>- discover.ejs: a user can dynamically search for other users by using the "I am looking for..." box which uses AJAX. Parts of queries are supported. Querying "r" for example will yield results "Eric" and "Hridya".
 ####In Chat
 >- chat.js added functionality to support web socket instant messaging. As with the example in class our chat feature implements the Publisher/Subscriber model. Our chat supports user-name display.
 
