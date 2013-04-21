@@ -44,11 +44,11 @@
           <div style="padding:5px">
           <font color="#b2b2b2">
               <% for(var userid in users) { %>
-            - <%= users[userid].username %><br>
+            - <a href="/users/<%= users[userid].username %>"><font style="color:WHITE; filter:alpha(opacity=.7);
+  opacity:.7;"><%= users[userid].username %></font></a><br>
             <% } %>
           </font>
           </div>
-
       </div>
     </td>
     <td width="10px"></td>
@@ -57,7 +57,7 @@
         <td valign="top">
           <div id="content">
     
-    <textarea id="chat-user" style="visibility:hidden; display:none;"> <%= username %></textarea>
+    <textarea id="chat-user" style="visibility:hidden; display:none;"><%= username %></textarea>
     <center><textarea id="chat-text-area" user="<%= username %>"></textarea></center>
     <!-- <input id="anon-user-toggle" name="anony" value="0" --> <!-- type="radio"/> <font color="#b2b2b2">Anonymous Chat</font>-->
     
