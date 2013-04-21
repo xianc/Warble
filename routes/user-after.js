@@ -331,7 +331,7 @@ exports.process = function (req, res) {
       res.render('form/' + id,
                  { title: 'form - ' + id,
                    id: id,
-                   msg: 'Congrats! Your Account has been created!!',
+                   msg: 'Congrats! Your Account has been created!!<br><br>',
                    user: ul });
     });
   }
