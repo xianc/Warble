@@ -8,12 +8,12 @@ drop table if exists followers;
 
 
 create table users (
-	uid integer primary key autoincrement,
-	username varchar(50) not null,
-	password varchar(8) not null,
-	birthday varchar(10) null
-	);
-	
+  uid integer primary key autoincrement,
+  username varchar(50) not null,
+  password varchar(8) not null,
+  birthday varchar(10) null
+  );
+
 create table warbles (
   id integer primary key autoincrement,
   username varchar(50) not null,
@@ -24,9 +24,9 @@ create table warbles (
   );
 
 create table followers (
-	follower varchar(50) not null,
-	following varchar(50) not null
-	);
+  follower varchar(50) not null,
+  following varchar(50) not null
+  );
 
 
 -- add data
