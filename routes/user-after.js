@@ -135,28 +135,52 @@ exports.main = function(req, res) {
     //implement the "attachment" or "at user" feature but it does add
     //warbles to warbledb
     var users = online[userid];
-    var form = new formidable.IncomingForm();
-  	var filen = '';
-  	console.log('Looking at file');
-      form.uploadDir = 'upload';
+ 
       if (req.method === 'POST') {
-      	form.parse(req, function (err, fields, files) {
-            console.log('parsing done.');        
-            fs.rename(files.upload.path, 
-                      'upload/' + files.upload.name, // the upload path
-                      function (err) {
-                          if (err) {
-                             console.log('error');
-                          } else {
-                          	filen='upload/' + files.upload.name;
-                             
-                          }
-                      });
-                    });
-    console.log('The file '+filen);
+        var path;
+      	
+    //console.log('The file '+filen);
     console.log('Adding Warbles');
-    //adding to warble database
-    user.addWarbs(users.username, new Date(), req.body.update, filen); 
+
+
+
+
+            console.log('File upload path: ' + req.files.fileToUpload.path);
+            console.log('File upload name: ' + req.files.fileToUpload.name);
+            console.log('File upload type: ' + req.files.fileToUpload.type);
+            console.log('File upload size: ' + req.files.fileToUpload.size);
+             
+            /*** Move to a public folder ***/
+            // Move file from path to the upload directory using original file name.
+            // Note: path uses the temp file name
+            var fileDestPath = 'public/uploadedFiles/' + req.files.fileToUpload.name;
+            fs.rename(req.files.fileToUpload.path, fileDestPath, function(err) {
+
+                  if (err) {
+                        console.log('File could not be moved to proper directory.');
+                        // Delete the temp file.
+                        fs.unlink(req.files.fileToUpload.path, function(err2) {
+                            if (err2) {
+                                console.log('Temp file could not be deleted.');
+                                throw err2;
+                            }
+                        });
+                        console.log('Temp file deleted.');
+                        throw err;
+                  }
+                  
+                  // Log and send response success
+                  console.log('Upload done!');
+                      
+                  //res.setHeader('Content-Type', 'text/html');
+                  //var resContent = '<html><body>Upload done. <a href="uploadedFiles/' + req.files.fileToUpload.name + '">link to the file</a></body></html>';
+                  //res.send(resContent);
+
+            });
+
+//adding to warble database
+    user.addWarbs(users.username, new Date(), req.body.update,req.files.fileToUpload.name); 
+
     }
 
    /* Not yet working: delete feature
@@ -442,5 +466,51 @@ exports.wuser = function (req, res) {
                               following : user.getFollowingdb(), // access the following database
                               userdata : user.getUserdb() // access the user database
                 });
+    };
 
-};
+
+
+/*exports.begin = function(req, res) {
+            console.log('Request received for file uploader page.');
+            res.setHeader('Content-Type', 'text/html');
+            res.send(fs.readFileSync('./views/begin.ejs'));
+        };*/
+
+
+exports.upload = function(req, res) {
+            console.log('File upload path: ' + req.files.fileToUpload.path);
+            console.log('File upload name: ' + req.files.fileToUpload.name);
+            console.log('File upload type: ' + req.files.fileToUpload.type);
+            console.log('File upload size: ' + req.files.fileToUpload.size);
+             
+            /*** Move to a public folder ***/
+            // Move file from path to the upload directory using original file name.
+            // Note: path uses the temp file name
+            var fileDestPath = 'public/uploadedFiles/' + req.files.fileToUpload.name;
+            fs.rename(req.files.fileToUpload.path, fileDestPath, function(err) {
+
+                  if (err) {
+                        console.log('File could not be moved to proper directory.');
+                        // Delete the temp file.
+                        fs.unlink(req.files.fileToUpload.path, function(err2) {
+                            if (err2) {
+                                console.log('Temp file could not be deleted.');
+                                throw err2;
+                            }
+                        });
+                        console.log('Temp file deleted.');
+                        throw err;
+                  }
+                  
+                  // Log and send response success
+                  console.log('Upload done!');
+                      
+                  res.setHeader('Content-Type', 'text/html');
+                  var resContent = '<html><body>Upload done. <a href="uploadedFiles/' + req.files.fileToUpload.name + '">link to the file</a></body></html>';
+                  res.send(resContent);
+            });
+            
+        };
+
+
+

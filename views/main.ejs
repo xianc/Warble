@@ -62,7 +62,7 @@
 
 
 
-            <form method="post" id="main" action="main">
+            <form method="post" id="main" action="main" enctype="multipart/form-data">
                 <center>
                 <Textarea for Status Updates
                     <textarea rows="1" name="update" id="update"
@@ -74,7 +74,7 @@
                         <!-- Upload files button and display message -->
                         <!--input type="file" id= "file" accept="image/*"--><!--/input-->
                         <!--<form method="post" enctype="multipart/form-data" action="/upload">-->
-                        <input type="file" name="upload">
+                        <INPUT TYPE='file' NAME='fileToUpload' />
                         <!--</form>-->
 
                     </td>
@@ -108,7 +108,7 @@
                   </font><br>
                   <%= warble[i].message %>
                   <br><font size=2><u>Attached</u>: <i>
-                  <%= warble[i].attachment %>
+                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank"><%= warble[i].attachment %></a>
                   </i></font> </b></td><td width="50px"><font size="2">
                   <% if (warble[i].username == username) { %>
                       <a href="" warbStat="DELETE" index="<% i %>">Delete</a><br>

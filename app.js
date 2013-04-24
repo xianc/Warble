@@ -58,6 +58,7 @@ app.post('/users/:username', user.wuser);
 app.post('/user/main', user.main);
 
 
+
 //#Chat Test
 //The below is a test for dynamically updated statuses
 app.get('/chat', user.chat);
@@ -68,6 +69,12 @@ app.post('/check', chat.check);
 app.get('/form/:id', user.form);
 app.get('/form/process/:id', user.process);
 app.post('/form/process/:id', user.process);
+
+
+//Upload
+app.get('/begin' , user.begin);
+app.post('/upload', user.upload);
+//app.get('/show', user.show);
 
 var server = http.createServer(app);
 
