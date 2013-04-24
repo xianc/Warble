@@ -11,13 +11,13 @@ create table users (
 	uid integer primary key autoincrement,
 	username varchar(50) not null,
 	password varchar(8) not null,
-	birthday varchar(10)
+	birthday varchar(10) null
 	);
 	
 create table warbles (
   id integer primary key autoincrement,
   username varchar(50) not null,
-  when date not null,
+  dayadd date not null,
   message varchar(350) not null
 --  attachment varchar (60),
 --  warbleAt varchar(50),
@@ -33,7 +33,7 @@ create table followers (
 
 insert into users values
   (01, 'Xian', 'Chocolate', '07/19/92'),
-  (02, 'Eric', 'Smith!', '');
+  (02, 'Eric', 'Smith!', ''),
   (03, 'Tim', 'cs326', 'N/A');
 
 insert into warbles values
@@ -51,8 +51,8 @@ insert into followers values
 select * from warbles;
 
 -- select particular attributes:
-select username from warbles;
-order by id;
+--select username from warbles;
+--order by id;
 
 -- select with condition
 /*select sname, rating, age
