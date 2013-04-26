@@ -19,8 +19,8 @@ create table warbles (
   username varchar(50) not null,
   day date not null,
   message varchar(350) not null
---  attachment varchar (60),
---  warbleAt varchar(50),
+  attachment varchar (60) not null,
+  warbleAt varchar(50) null,
   );
 
 create table followers (
