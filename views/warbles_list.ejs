@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <body>
+    <h1><%= title %></h1>
+    <p>Warbles</p>
+    <ul>
+      <% for (var i = 0; i < users.length; i++) { %>
+        <li><%= users[i].username %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
