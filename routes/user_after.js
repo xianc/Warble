@@ -95,7 +95,7 @@ exports.auth = function(req, res) {
                    { maxAge : 900000 }); // 15 minutes
 
         // Store the user in our in memory database.
-        online[userid] = warbles;
+        online[userid] = user;
         // Redirect to main.
         res.redirect('/user/me');
       }
@@ -119,14 +119,15 @@ exports.logout = function(req, res) {
 // ## At Me Page
 // Displays Warbles at the user that is logged in. 
 exports.me = function (req, res) {
-
+  //renders here
   var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
   }
   else {
-    var users = online[userid];
+    var user = online[userid];
+    console.log('username '+ user.username);
     warbles.getWarbles(function (err, warbs) {
       if (err) { res.send('problem access data layer!'); }
       else {

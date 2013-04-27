@@ -73,13 +73,13 @@ exports.me = function (req, res) {
     res.redirect('/user/login');
   }
   else {
-    var users = online[userid];
-    var me = warbles.getMe(users);
+    var user = online[userid];
+    console.log('username '+ user.username);
     warbles.getWarbles(function (err, warbs) {
 	    if (err) { res.send('problem access data layer!'); }
 	    else {
 	     res.render('me', { title  : 'At Me',
-	                        username : me.username,
+	                        username : user.username,
 	                        warble : warbs
 	                      });
 	   

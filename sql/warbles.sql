@@ -1,12 +1,9 @@
-
 -- drop tables
 drop table if exists users;
 drop table if exists warbles;
 drop table if exists followers;
 
 -- create tables
-
-
 create table users (
   uid integer primary key autoincrement,
   username varchar(50) not null,
@@ -15,12 +12,12 @@ create table users (
   );
 
 create table warbles (
-  id integer primary key autoincrement,
+  wid integer primary key autoincrement,
   username varchar(50) not null,
-  day date not null,
-  message varchar(350) not null
-  attachment varchar (60) not null,
-  warbleAt varchar(50) null,
+  day varchar(50) not null,
+  message varchar(350) not null,
+  attachment varchar(60) not null,
+  warbleAt varchar(50) not null
   );
 
 create table followers (
@@ -40,14 +37,14 @@ insert into users values
   (06, 'Michelle', 'qwerty', '08/03/91');
 
 insert into warbles values
-  (1,'Xian','4/21/13 at 2:15pm','shtarbucks refreshhherrssss nonomnomz'),
-  (2,'Xian','4/22/13 at 2:28pm','daaaaaataaabasseeeee'),
-  (3,'Eric','4/23/13 at 4:50pm','yolo!'),
-  (4,'Xian','4/23/13 at 12:02pm','wanna sshleeeppp alllll dayyyy'),
-  (5,'Hridya','4/24/13 at 12:02pm','Upload worksss!!!'),
-  (6,'Hridya','4/24/13 at 12:05pm','The weather is FINALLY getting better!'),
-  (7,'Tim','4/23/13 at 12:10pm','Semester ends on May 1st'),
-  (8,'Michelle','4/22/13 at 12:20pm','Warbling is cool!');
+  (1,'Xian','4/21/13 at 2:15pm','shtarbucks refreshhherrssss nonomnomz','none','Eric'),
+  (2,'Xian','4/22/13 at 2:28pm','daaaaaataaabasseeeee','none','Hridya'),
+  (3,'Eric','4/23/13 at 4:50pm','yolo!','none','Xian'),
+  (4,'Xian','4/23/13 at 12:02pm','wanna sshleeeppp alllll dayyyy','none','none'),
+  (5,'Hridya','4/24/13 at 12:02pm','Upload worksss!!!','none','Xian'),
+  (6,'Hridya','4/24/13 at 12:05pm','The weather is FINALLY getting better!','none','Eric'),
+  (7,'Tim','4/23/13 at 12:10pm','Semester ends on May 1st','none','Xian'),
+  (8,'Michelle','4/22/13 at 12:20pm','Warbling is cool!','none','Xian');
 
 insert into followers values
   ('Xian','Eric'),
