@@ -1,7 +1,5 @@
 // # user-after.js
 
-// Requiring the user library
-var user = require('../lib/user');
 //the warble database
 var warbles = require('../lib/warbles.js');
 var formidable = require('formidable');
@@ -55,7 +53,8 @@ exports.login = function(req, res){
   // the cookie may still be stored on the client even if the
   // server has been restarted.
   if (userid !== undefined && online[userid] !== undefined) {
-    res.redirect('/user/main');
+    flash(req, res, 'message', 'Signing in...');
+    res.redirect('/user/me');
   }
   else {
     // Render the login view if this is a new login.
@@ -64,28 +63,27 @@ exports.login = function(req, res){
   }
 };
 
+
 // ## Login Authentification
 // Performs **basic** user authentication.
-// Looks at username and password and tries to find a match in userdb 
 exports.auth = function(req, res) {
-  // TDR: redirect if logged in:
   var userid = req.cookies.userid;
 
-  // TDR: do the check as described in the `exports.login` function.
   if (userid !== undefined && online[userid] !== undefined) {
-    res.redirect('/user/main');
+    flash(req, res, 'message', 'Signing in...');
+    res.redirect('/user/me');
   }
   else {
     // Pull the values from the form.
     var username = req.body.username;
     var password = req.body.password;
     // Perform the user lookup.
-    user.lookup(username, password, function(error, user) {
+    warbles.lookup(username, password, function(error, user) {
       if (error) {
         // If there is an error we "flash" a message to the
         // redirected route `/user/login`.
         flash(req, res, 'auth', error);
-        res.redirect('/user/login');
+        res.redirect('/login');
       }
       else {
         // TDR: use cookie to record stateful connection. Here
@@ -97,9 +95,9 @@ exports.auth = function(req, res) {
                    { maxAge : 900000 }); // 15 minutes
 
         // Store the user in our in memory database.
-        online[userid] = user;
+        online[userid] = warbles;
         // Redirect to main.
-        res.redirect('/user/main');
+        res.redirect('/user/me');
       }
     });
   }
@@ -117,8 +115,38 @@ exports.logout = function(req, res) {
   res.redirect('/');
 };
 
+
+// ## At Me Page
+// Displays Warbles at the user that is logged in. 
+exports.me = function (req, res) {
+
+  var userid = req.cookies.userid;
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    var users = online[userid];
+    warbles.getWarbles(function (err, warbs) {
+      if (err) { res.send('problem access data layer!'); }
+      else {
+        var user = online[userid];
+        res.render('me', { title  : 'At Me',
+                          username : user.username,
+                          warble : warbs
+                        });
+     
+      }
+    });
+  }
+}
+
+
 var querystring = require('querystring'),
     fs = require('fs');
+
+
+
 
 
 

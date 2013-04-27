@@ -35,22 +35,27 @@
         <div id="default">
            <h3><font size="5pt">@Me</font></h3>
                 <hr>
-
-                <% for(var i = warble.length-1 ; i >= 0; i--) { 
-                if (warble[i].atUser == username) { %>
-                  <table width="100%" valign="top"><td><b>
+                
+                <% for (var i = 0; i < warble.length; i++) {
+                  if(warble[i].warbleAt == username){ %>
+        		    <table width="100%" valign="top"><td><b>
                   <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
-                  <%= warble[i].date %>
+                  <%= warble[i].day %>
                   </font><b> @ 
                   <%= username %>
                   </b><br>
                   <%= warble[i].message %>
                   <br><font size=2><u>Attached</u>: <i>
                   <%= warble[i].attachment %>
-                  </i></font> </b></td><td width="50px"><font size="2"><a href="">Reply</a><br>
-                  <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
+                  </i></font> </b></td><td width="50px"><font size="2">
+                  <a href="">Reply</a><br>
+                  <a href="">Warble</a><br>
+                  <a href="">Download</a>
+                </font></td></table><hr>
                   <% } } %>
+		
+                
 
 
                     </div>

@@ -1,8 +1,9 @@
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
+  , routes = require('./routes/user_after.js')
+  , user = require('./routes/user_sessions.js')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , flash = require('connect-flash');
 
 var app = express();
 
@@ -27,10 +28,10 @@ app.configure('development', function(){
 app.get('/', routes.login);
 app.get ('/user/login' , routes.login);
 app.post('/user/auth'  , routes.auth);
-app.get ('/user/logout', routes.logout);
+app.get ('/logout', routes.logout);
 
 //app.get('/users', user.list);
-
+app.get ('/user/me', routes.me);
 app.get('/warbles/list', user.warbles_list);
 
 //app.get('/sailors/list', routes.sailors_list);
