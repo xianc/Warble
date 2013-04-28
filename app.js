@@ -1,23 +1,36 @@
 var express = require('express')
-  , routes = require('./routes/user_after.js')
-  , user = require('./routes/user_sessions.js')
-  , http = require('http')
-  , path = require('path')
-  , flash = require('connect-flash');
+  , user    = require('./routes')
+  , chat    = require('./chat')
+  , http    = require('http')
+  , path    = require('path')
+  , flash   = require('connect-flash');
 
 var app = express();
 
+function auth(req, res, next) {
+  if (req.session.user === undefined && req.url === '/user/login') {
+    user.auth(req, res, next);
+  }
+  else if (req.session.user === undefined) {
+    user.login(req, res, next);
+  }
+  else {
+    next();
+  }
+}
+
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
+  app.use(express.cookieParser('cookies monster'));
   app.use(express.session());
+  app.use(flash());
   app.use(app.router);
+//  app.use(auth);
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
@@ -25,19 +38,34 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.login);
-app.get ('/user/login' , routes.login);
-app.post('/user/auth'  , routes.auth);
-app.get ('/logout', routes.logout);
+app.configure('production', function(){
+  app.use(express.errorHandler());
+});
+
+app.get('/'             , user.login);
+app.get ('/user/login'  , user.login);
+app.post('/user/auth'   , user.auth);
+app.get ('/user/logout' , user.logout);
 
 //app.get('/users', user.list);
-app.get ('/user/me', routes.me);
-app.get('/warbles/list', user.warbles_list);
+app.get ('/user/me'       , user.me);
+app.get('/user/my_profile', user.my_profile);
+app.get('/warbles/list'   , user.warbles_list);
 
-//app.get('/sailors/list', routes.sailors_list);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+var server = http.createServer(app);
+
+// WebSockets/Socket.IO
+var io      = require('socket.io', {'log level': 0}).listen(server);
+var chatApp = require('./chat');
+
+io.sockets.on('connection', function (socket) {
+  chatApp.init(socket);
+});
+
+server.listen(3000, function(){
+  console.log("Express server listening on port %d in %s mode",
+              server.address().port, app.settings.env);
 });
 
 

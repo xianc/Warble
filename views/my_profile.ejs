@@ -63,8 +63,8 @@
                     </td><td>
                     <a href="following"><i><font size="2">
 					<% var k = 0 %>
-					<% for(var i = following.length-1; i >= 0; i--){
-						if(following[i].follower == username){ %>
+					<% for(var i = follwer.length-1; i >= 0; i--){
+						if(follwer[i].following == username){ %>
 							<% k = k + 1 %>
 					<% }} %>
 					<%= k %>
@@ -76,7 +76,7 @@
                     <a href="followers"><font size="2"><i>
 					<% var k = 0 %>
 					<% for(var i = follower.length-1; i >= 0; i--){
-						if(follower[i].followed == username){ %>
+						if(follower[i].follower == username){ %>
 							<% k = k + 1 %>
 					<% }} %>
 					<%= k %>
@@ -86,13 +86,7 @@
                 <!--User's birthday--> 
                     <b>Birthday</b>
                     </td><td width="80px"><font size="2">
-                    <a href=""><i>
-                    <% for (var i=0; i<userdata.length; i++){
-					if (userdata[i].username == username){ %>
-					<%= userdata[i].birthday %>
-					<% }}
-					%>
-					</i></a><br>
+                    <a href=""><i><% username.birthday %></i></i></a><br>
                     </font></td></table><hr width="80%">
                 <!--A quote and/or description by the user-->      
                 <b><i>"You can have it all. Just not all at once"</i></b>

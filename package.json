@@ -1,38 +1,14 @@
 {
-  "name": "Warble",
-  "description": "Twitter-like Web Application",
+  "name": "application-name",
   "version": "0.0.1",
   "private": true,
-  "author": [
-    {
-      "name": "Xian Chen",
-      "email": "xianc@student.umass.edu"
-    },
-    {
-      "name": "Eric Smith",
-      "email": "ecsmith@student.umass.edu"
-    },
-    {
-      "name": "Ryan Becker",
-      "email": "rbecker@student.umass.edu"
-    },
-    {
-      "name": "Hridya Turlapati",
-      "email": "hturlapa@student.umass.edu"
-    }
-  ],
-  
   "scripts": {
-  "start": "node app"
+    "start": "node app"
   },
   "dependencies": {
     "express": "3.1.0",
     "ejs": "*",
     "connect-flash": "0.1.0",
-    "socket.io" : ">=0.9.10",
+    "socket.io" : ">=0.9.10"
   }
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/xianc/Warble.git"
-  },
 }

@@ -1,0 +1,8 @@
+{
+    "name"     : "user routes",
+    "version" : "0.0.1",
+    "author"   : "Team Sugarloaf",
+    "description" : "a library for user routes",
+    "main": "./user-after.js"
+}
+
