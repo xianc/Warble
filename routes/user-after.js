@@ -145,6 +145,26 @@ exports.me = function (req, res) {
   }
 }
 
+exports.my_profile = function (req, res) {
+  var userid = req.cookies.userid;
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    var user = online[userid];
+
+    var user = online[userid];
+    res.render('my_profile', { title  : 'My Profile',
+                          username : user.username,
+                          warble : warbles.getAllUsers(),
+                          follower : warbles.getAllFollowers()
+                        });
+      
+  
+    }
+  };
+
 /*exports.my_profile = function (req, res) {
   var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
