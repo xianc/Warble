@@ -64,7 +64,7 @@
                     <a href="following"><i><font size="2">
 					<% var k = 0 %>
 					<% for(var i = follower.length-1; i >= 0; i--){
-						if(follwer[i].following == username){ %>
+						if(follower[i].following == username){ %>
 							<% k = k + 1 %>
 					<% }} %>
 					<%= k %>
@@ -112,24 +112,23 @@
 
 
 
-            <% for(var i = warble.length-1 ; i >= 0; i--) { 
-            if (warble[i].username == username) { %>
-                  <table width="100%" valign="top"><td><b>
-                  <%= warble[i].username %>
+            <% for (var i = 0; i < warble.length; i++) {
+                if(warble[i].username == username){ %>
+                <table width="100%" valign="top"><td><b>
+                  <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
-                  <%= warble[i].date %>
-                  </font><br>
+                  <%= warble[i].day %>
+                  </font><b> @ 
+                  <%= username %>
+                  </b><br>
                   <%= warble[i].message %>
                   <br><font size=2><u>Attached</u>: <i>
                   <%= warble[i].attachment %>
                   </i></font> </b></td><td width="50px"><font size="2">
-                   </i></font> </b></td><td width="50px"><font size="2">
-                  <% if (warble[i].username == username) { %>
-                      <a href="" warbStat="DELETE" index="<% i %>">Delete</a><br>
-                  <% } else { %>
                   <a href="">Reply</a><br>
-                  <% } %>
-                  <a href="">Warble</a><br><a href="">Download</a></font></td></table><hr>
+                  <a href="">Warble</a><br>
+                  <a href="">Download</a>
+                </font></td></table><hr>
                   <% } } %>
 
                  </div>

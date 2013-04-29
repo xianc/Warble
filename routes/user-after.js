@@ -152,17 +152,19 @@ exports.my_profile = function (req, res) {
     res.redirect('/user/login');
   }
   else {
-    var user = online[userid];
 
-    var user = online[userid];
-    res.render('my_profile', { title  : 'My Profile',
-                          username : user.username,
-                          warble : warbles.getAllUsers(),
-                          follower : warbles.getAllFollowers()
-                        });
-      
-  
-    }
+    var warbs = warbles.getWarbles();
+    warbles.getWarbles(function (err, warbs) {
+      warbles.getFollowers(function (err2, follows) {
+        var user = online[userid];
+        res.render('my_profile', { title  : 'My Profile',
+                              username : user.username,
+                              warble : warbs,
+                              follower : follows
+                            });
+      });
+    });
+  }
   };
 
 /*exports.my_profile = function (req, res) {
