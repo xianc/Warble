@@ -73,9 +73,10 @@
                     <td>
                         <!-- Upload files button and display message -->
                         <!--input type="file" id= "file" accept="image/*"--><!--/input-->
-                        <!--<form method="post" enctype="multipart/form-data" action="/upload">-->
+                        <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5194304" /> 
                         <INPUT TYPE='file' NAME='fileToUpload' />
-                        <!--</form>-->
+                        </form>
 
                     </td>
                     <td align="right">
