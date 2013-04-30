@@ -228,7 +228,7 @@ exports.about = function (req, res) {
   res.render('about', { title  : 'About'});
 }
 
-/  /* ## Main Page
+  /* ## Main Page
 Also known as the Front Page. This page: 
 > 1. Greets the user that is signed in. 
 > 2. Displays the name of online users
