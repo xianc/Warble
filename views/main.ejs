@@ -28,79 +28,45 @@
 <!-- Using a table to create a dynamically fluid webpage -->
 <table cellspacing="0" cellpadding="0" id="main_size" align="center">
   <td valign="top" width="180px">
-     <div id="black">
-        <div class="Warble" align="center">Hello <%= username %></div>
-      </div>
-            
+    <div id="black">
+      <div class="Warble" align="center">Hello <%= username %></div>
+    </div>
+
       <div id="black">
-          <h1 class="Warble"><center>Online Users</center></h1>
-          <div style="padding:5px">
-          <font color="#b2b2b2">
-              <% for(var userid in users) { %>
+
+        <!--User Greeting-->
+        <h1 class="Warble"><center>Online Users</center></h1>
+        <div style="padding:5px"><font color="#b2b2b2">
+
+          <!--List of Online Users-->
+          <% for(var userid in users) { %>
             - <a href="/users/<%= users[userid].username %>"><font style="color:WHITE; filter:alpha(opacity=.7);
   opacity:.7;"><%= users[userid].username %></font></a><br>
-            <% } %>
-          </font>
+            <% } %></font>
           </div>
-      </div>
+        </div>
     
       <div id="content">
-        <div class="Warble" align="center"><a href="/chat">Realtime Chat</a></div>
+        <!--Realtime Chat-->
+      <div class="Warble" align="center"><a href="/chat">Realtime Chat</a></div>
       </div>
 
     </td>
     <td width="10px"></td>
     <td>
-      <table width="100%"><tr>
-        <td valign="top">
-          <div id="content">
+      <!--Warble Form-->
+      <% include inc/warble_form %>
 
-            <!--JavaScript for Status Updates
-            <script type="text/javascript" src="javascript/update.js" /> </script>
-            <script type="text/javascript" src="lib/warbles/upload.js"></script>
-            Status Update and Document Upload Form -->
+      </td>
+    </div>
+  </tr>
+</table><br>
 
-
-
-            <form method="post" id="main" action="main" enctype="multipart/form-data">
-                <center>
-                <Textarea for Status Updates
-                    <textarea rows="1" name="update" id="update"
-                    type="text">Isn't it delightful?</textarea>
-                </center>
-
-                <table width="97%" align="center">
-                    <td>
-                        <!-- Upload files button and display message -->
-                        <!--input type="file" id= "file" accept="image/*"--><!--/input-->
-                        <form method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="5194304" /> 
-                        <INPUT TYPE='file' NAME='fileToUpload' />
-                        </form>
-
-                    </td>
-                    <td align="right">
-                        <!-- Status Update Confirmation Button -->
-                        <input type="submit" value="Warble!"></input>
-                    </td>
-                </table>
-            </form>
-
-        </td>
-        </div>
-
-        </tr>
-        </table><br>
-    
-        <table width="100%" align="center"><tr>
-            
-            <td valign="top"><div id="content">
-                <!-- List of status updates -->
-                <h1>Warbles</h1>
-                <hr>
-
-
-
+<table width="100%" align="center"><tr>
+  <td valign="top"><div id="content">
+    <!-- List of status updates -->
+    <h1>Warbles</h1>
+    <hr>
                   <% for(var i = warble.length-1 ; i >= 0; i--) { %>
                   <table width="100%" valign="top"><td><b>
                   <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
@@ -118,13 +84,10 @@
                   <% } %>
                   <a href="">Warble</a><br><!--<a href="front" onClick = warble.splice (i, 1);>Delete</a><br>--><a href="">Download</a></font></td></table><hr>
                   <% } %>
-
-                   
-                    </div>
+                </div>
                 
-            </td>
-        </tr>
-
+    </td>
+  </tr>
 </table>
 </td></table>
 

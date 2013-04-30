@@ -1,0 +1,9 @@
+<a href="follower"><i><font size="2">
+<% var k = 0
+for(var i = follower.length-1; i >= 0; i--){
+	if(follower[i].follow == username){
+		k = k++;
+	}
+} %>
+<%= k %>
+</font></i></a>

@@ -1,0 +1,14 @@
+      <div class="Warble" align="center" style="padding-top:8px"><font size="5pt"><b><%= username %>'s Warbles</b></font></div>
+        <hr>
+        <% for (var i = 0; i < warble.length; i++) {
+          if(warble[i].username == username){ %>
+          <table width="100%" valign="top"><td><b>
+          <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a></b> <font size="2">on <%= warble[i].day %></font><b> @  <%= username %> </b><br>
+            <%= warble[i].message %>
+          <br><font size=2><u>Attached</u>: <i><%= warble[i].attachment %></i></font> </b></td><td width="50px"><font size="2">
+            <a href="">Reply</a><br>
+            <a href="">Warble</a><br>
+            <a href="">Download</a>
+          </font></td></table><hr>
+          <% } } %>
+      </div>

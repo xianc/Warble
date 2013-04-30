@@ -1,0 +1,11 @@
+<a href=""><i><font size="2">
+<% var uploads = 0;
+for (var i = 0; i < warble.length; i++) {
+	if(warble[i].username==username){
+		if (warbles[i].attachment!=''){
+			uploads++;
+		}
+	}
+} %>
+<%= uploads %>
+</font></i></a>
