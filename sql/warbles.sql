@@ -12,7 +12,6 @@ create table users (
   );
 
 create table warbles (
-  wid integer primary key autoincrement,
   username varchar(50) not null,
   day varchar(50) not null,
   message varchar(350) not null,
@@ -37,14 +36,14 @@ insert into users values
   (06, 'Michelle', 'qwerty', '08/03/91');
 
 insert into warbles values
-  (1,'Xian','4/21/13 at 2:15pm','shtarbucks refreshhherrssss nonomnomz','none','Eric'),
-  (2,'Xian','4/22/13 at 2:28pm','daaaaaataaabasseeeee','none','Hridya'),
-  (3,'Eric','4/23/13 at 4:50pm','yolo!','none','Xian'),
-  (4,'Xian','4/23/13 at 12:02pm','wanna sshleeeppp alllll dayyyy','none','none'),
-  (5,'Hridya','4/24/13 at 12:02pm','Upload worksss!!!','none','Xian'),
-  (6,'Hridya','4/24/13 at 12:05pm','The weather is FINALLY getting better!','none','Eric'),
-  (7,'Tim','4/23/13 at 12:10pm','Semester ends on May 1st','none','Xian'),
-  (8,'Michelle','4/22/13 at 12:20pm','Warbling is cool!','none','Xian');
+  ('Xian','4/21/13 at 2:15pm','shtarbucks refreshhherrssss nonomnomz','none','Eric'),
+  ('Xian','4/22/13 at 2:28pm','daaaaaataaabasseeeee','none','Hridya'),
+  ('Eric','4/23/13 at 4:50pm','yolo!','none','Xian'),
+  ('Xian','4/23/13 at 12:02pm','wanna sshleeeppp alllll dayyyy','none','none'),
+  ('Hridya','4/24/13 at 12:02pm','Upload worksss!!!','none','Xian'),
+  ('Hridya','4/24/13 at 12:05pm','The weather is FINALLY getting better!','none','Eric'),
+  ('Tim','4/23/13 at 12:10pm','Semester ends on May 1st','none','Xian'),
+  ('Michelle','4/22/13 at 12:20pm','Warbling is cool!','none','Xian');
 
 insert into followers values
   ('Xian','Eric'),

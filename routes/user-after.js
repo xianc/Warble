@@ -105,7 +105,7 @@ exports.auth = function(req, res) {
         // Store the user in our in memory database.
         online[userid] = user;
         // Redirect to main.
-        res.redirect('/user/me');
+        res.redirect('/user/main');
       }
     });
   }
@@ -152,13 +152,12 @@ exports.my_profile = function (req, res) {
     res.redirect('/user/login');
   }
   else {
-
-    var warbs = warbles.getWarbles();
     warbles.getWarbles(function (err, warbs) {
       warbles.getFollowers(function (err2, follows) {
         var user = online[userid];
         res.render('my_profile', { title  : 'My Profile',
                               username : user.username,
+                              birthday : user.birthday,
                               warble : warbs,
                               follower : follows
                             });
@@ -167,39 +166,80 @@ exports.my_profile = function (req, res) {
   }
   };
 
-/*exports.my_profile = function (req, res) {
+
+
+
+  /* ## Main Page
+Also known as the Front Page. This page: 
+> 1. Greets the user that is signed in. 
+> 2. Displays the name of online users
+> 3. Allow users to "tweet" (warbles)
+> 4. Displays recent tweets/warbles
+*/
+exports.main = function(req, res) {
+  // TDR: added cookie support
   var userid = req.cookies.userid;
+
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
   }
   else {
-    var user = online[userid];
-    var warbs;
-    var followers;
+     warbles.getWarbles(function (err, warbs) {
+      warbles.getFollowers(function (err2, follows) {
+        var users = online[userid];
+          if (req.method === 'POST') {
+            var path;
+            console.log('Adding Warbles');
 
-    warbles.getWarbles(function (err, warbles) {
-      warbs = warbles;
-    }
-    warbles.getFollowers(function (err, follow) {
-      followers = follow;
-    }
+            if (req.files.fileToUpload.size!=0){
+            console.log('File upload path: ' + req.files.fileToUpload.path);
+            console.log('File upload name: ' + req.files.fileToUpload.name);
+            console.log('File upload type: ' + req.files.fileToUpload.type);
+            console.log('File upload size: ' + req.files.fileToUpload.size);
+                 
+            var fileDestPath = 'public/uploadedFiles/' + req.files.fileToUpload.name;
+            fs.rename(req.files.fileToUpload.path, fileDestPath, function(err) {
 
-    console.log('username '+ user.username);
-    console.log('follower ' + followers[0].username);
+              if (err) {
+                console.log('File could not be moved to proper directory.');
+                fs.unlink(req.files.fileToUpload.path, function(err2) {
+                  if (err2) {
+                    console.log('Temp file could not be deleted.');
+                    throw err2;
+                  }
+                });
+                console.log('Temp file deleted.');
+                throw err;
+              }
+              console.log('Upload done!');
+            });
+          
+            warbles.addWarble(users.username, new Date(), req.body.update, req.files.fileToUpload.name, '', function (err3) {
+              if (err) { res.send('bad warble insert'); }
+              else { res.redirect('/user/main'); }
+            });
+          }
+          else{
+            warbles.addWarble(users.username, new Date(), req.body.update, '', '', function (err3) {
+              if (err) { res.send('bad warble insert'); }
+              else { res.redirect('/user/main'); }
+            });
 
-    var user = online[userid];
-    res.render('my_profile', { title  : 'My Profile',
-                          username : user.username,
-                          warble : warbs,
-                          follower : followers
-                        });
-      
-  
-    }
-  };
-*/
+          }
 
+          }
+          
 
-
-
+              res.render('main', { title   : 'User main',
+                                       message : 'Login Successful',
+                                       users : online,
+                                       username : users.username,
+                                       password : users.password, 
+                                       warble : warbs,
+                                       follower : follows
+                                      });
+        });
+      });
+      }
+};

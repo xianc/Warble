@@ -48,6 +48,8 @@ app.post('/user/auth'   , user.auth);
 app.get ('/user/logout' , user.logout);
 
 //app.get('/users', user.list);
+app.get ('/user/main'     , user.main);
+app.post('/user/main', user.main);
 app.get ('/user/me'       , user.me);
 app.get('/user/my_profile', user.my_profile);
 app.get('/warbles/list'   , user.warbles_list);
