@@ -145,6 +145,8 @@ exports.me = function (req, res) {
   }
 }
 
+
+
 exports.my_profile = function (req, res) {
   var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -167,9 +169,66 @@ exports.my_profile = function (req, res) {
   };
 
 
+  // ## Followers Page
+// Displays the followers of the user currently logged in. 
+// Is accessed via a user profile and clicking on the number
+// corresponding to followers
+exports.followers = function (req, res) {
+   var userid = req.cookies.userid;
+   //Authentification
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+  //var users = online[userid];
+  //var users = warbles.getUser();
+   warbles.getWarbles(function (err, warbs) {
+      warbles.getFollowers(function (err2, follows) {
+      var user = online[userid];
+      res.render ('followers', { title : 'Followers',
+                              username : user.username,
+                              warble : warbs, // access the warbles database
+                              follower : follows, //access the followers database
+                              following : follows // access the following database
+              });
 
+  });
+  });
+  }
+};
 
-  /* ## Main Page
+exports.following = function (req, res) {
+   var userid = req.cookies.userid;
+   //Authentification
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+  //var users = online[userid];
+  //var users = warbles.getUser();
+   warbles.getWarbles(function (err, warbs) {
+      warbles.getFollowers(function (err2, follows) {
+      var user = online[userid];
+      res.render ('following', { title : 'Following',
+                              username : user.username,
+                              warble : warbs, // access the warbles database
+                              follower : follows, //access the followers database
+                              following : follows // access the following database
+              });
+
+  });
+  });
+  }
+};
+
+  // ## About Page
+exports.about = function (req, res) {
+  res.render('about', { title  : 'About'});
+}
+
+/  /* ## Main Page
 Also known as the Front Page. This page: 
 > 1. Greets the user that is signed in. 
 > 2. Displays the name of online users
