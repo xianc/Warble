@@ -56,6 +56,9 @@ app.get('/warbles/list'   , user.warbles_list);
 app.get('/user/followers' , user.followers);
 app.get('/user/following' , user.following);
 app.get('/user/gallery'   , user.gallery);
+app.get ('/user/discover' , user.discover);
+app.get('/users/:username', user.wuser);
+app.post('/users/:username', user.wuser);
 
 
 var server = http.createServer(app);

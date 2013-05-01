@@ -158,6 +158,7 @@ exports.my_profile = function (req, res) {
       warbles.getFollowers(function (err2, follows) {
         var user = online[userid];
         res.render('my_profile', { title  : 'My Profile',
+                              me        : user.username,
                               username : user.username,
                               birthday : user.birthday,
                               warble : warbs,
@@ -304,6 +305,61 @@ exports.main = function(req, res) {
       });
       }
 };
+
+//## Discover Page
+//Lists the users online as well as the 5 most recent entries 
+//in the user database. This page also displays Warbles from the Warble Databse
+exports.discover = function (req,res) {
+  var userid = req.cookies.userid;
+  //authenticate login
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    warbles.getWarbles(function (err, warbs) {
+        warbles.getUsers(function (err3, usr) {
+          var users = online[userid];
+          res.render('discover', { title  : 'Discover',
+                                    users : online,
+                                    allUsers : usr, // access the user database
+                                    username : users.username,
+                                    warble : warbs // access the warble database
+                                  });
+        });
+      });
+
+}
+};
+
+
+exports.wuser = function (req, res) {
+  var userid = req.cookies.userid;
+  var users = online[userid];
+  var u = req.params.username;
+  //var c = warbles.get_user(u); // This method searches for user in the user database
+
+
+  warbles.getWarbles(function (err, warbs) {
+    warbles.getFollowers(function (err2, follow) {
+        warbles.getUsers(function (err3, usr) {
+          if (req.method === 'POST') {
+              console.log('Adding to Followers:');
+              user.addToFollow (users.username, u);  // This adds the following and followed to the following database
+              }
+
+            res.render ('users/wuser' , { title : 'Profile+ ' + u,
+                                      me : users.username,  // username of user viewing the page
+                                      username : u, // username of the user page being viewed
+                                      warble : warbs, // access the warbles database
+                                      follower : follow, // access the followers database
+                                      userdata : usr,
+                                      birthday : users.birthday
+                        });
+            });
+        });
+    });
+    };
 
 
 /*exports.gallery = function (req, res) {

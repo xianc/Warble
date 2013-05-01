@@ -6,6 +6,27 @@
             <font size="2"><i><a href=""><font color=white>edit</font></a></i></font>
             </div>
 
+            <div id="content">
+            <% var added=0;
+            for(var i = follower.length-1; i >= 0; i--){
+              if (follower[i].follower == me && follower[i].following==username){ 
+                added=1; %>
+               You are a follower!
+            <% }} %>
+            <% if (added==0 && me!=username) { %>
+            <form method="post" id="<%= username %>" action="<%= username %>">
+            <center><input type="submit" username="<%= username %>" value="FOLLOW"></input>
+            </form>
+            <% } %>
+            <%if (me == username){ %>
+              <a href="/user/my_profile">My Profile</a>
+            <%} %>
+
+
+
+            </div>
+
+
 
             <div id="content">
      	        <table width="80%" valign="top"><tr><td>
