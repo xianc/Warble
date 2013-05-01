@@ -273,14 +273,16 @@ exports.main = function(req, res) {
               }
               console.log('Upload done!');
             });
-          
-            warbles.addWarble(users.username, new Date(), req.body.update, req.files.fileToUpload.name, '', function (err3) {
+            var date = new Date()+'';
+            warbles.addWarble(users.username, date, req.body.update, req.files.fileToUpload.name, '', function (err3) {
               if (err) { res.send('bad warble insert'); }
               else { res.redirect('/user/main'); }
             });
           }
           else{
-            warbles.addWarble(users.username, new Date(), req.body.update, '', '', function (err3) {
+            console.log('Date: ' + new Date());
+            var date = new Date()+'';
+            warbles.addWarble(users.username, date, req.body.update, '', '', function (err3) {
               if (err) { res.send('bad warble insert'); }
               else { res.redirect('/user/main'); }
             });
@@ -302,3 +304,26 @@ exports.main = function(req, res) {
       });
       }
 };
+
+
+/*exports.gallery = function (req, res) {
+  //renders here
+  var userid = req.cookies.userid;
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    warbles.getWarbles(function (err, warbs) {
+      if (err) { res.send('problem access data layer!'); }
+      else {
+        var user = online[userid];
+        res.render('me', { title  : 'User Gallery',
+                          username : user.username,
+                          warble : warbs
+                        });
+     
+      }
+    });
+  }
+}*/

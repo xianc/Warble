@@ -2,6 +2,7 @@
 drop table if exists users;
 drop table if exists warbles;
 drop table if exists followers;
+drop table if exist gallery;
 
 -- create tables
 create table users (
@@ -23,6 +24,11 @@ create table followers (
   follower varchar(50) not null,
   following varchar(50) not null
   );
+
+create table gallery {
+  image varchar(50) not null,
+  day varchar(50) not null
+  };
 
 
 -- add data
