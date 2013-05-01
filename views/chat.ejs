@@ -1,28 +1,21 @@
-
-
 <% include header %>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script type="text/javascript" src="/javascripts/jquery-min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="/javascripts/chat.js"></script>
 <div id="header">
 <!-- Top Navigation Bar -->
 
-<button type="button" class="active">
-<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/main">Front</a>
+<button type="button">
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="main">Front</a>
 </button>
 
 <button type="button">
-<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/discover">Discover</a>
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="discover">Discover</a>
 </button>
 
 <button type="button">
-<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/me">At Me</a>
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="me">At Me</a>
 </button>
 
 <button type="button">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/my_profile">My Profile</a>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
 </button>
 
 <button type="button">

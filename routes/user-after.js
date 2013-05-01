@@ -362,6 +362,30 @@ exports.wuser = function (req, res) {
     };
 
 
+
+exports.chat = function(req, res){
+  var userid = req.cookies.userid;
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    warbles.getWarbles(function (err, warbs) {
+      warbles.getFollowers(function (err2, follow) {
+        var users = online[userid];
+        res.render('chat', { title   : 'Realtime Chat',
+                             users : online,  // array of users currently online
+                             username : users.username,
+                             password : users.password, 
+                             warble : warbs, // access the warbles database
+                             follower : follow // access the follower
+                            });
+        });
+    });
+    }
+};
+
+
 /*exports.gallery = function (req, res) {
   //renders here
   var userid = req.cookies.userid;
