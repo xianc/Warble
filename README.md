@@ -138,7 +138,7 @@ Replaced our fake database (Arrays) with an actual Sqlite3 database.
 >- We set up a new sql folder, which contains our database data, as well as the schemas for the tables.
 >- Added warbles.js to the lib folder. This contains all the necessary syntax to access the required data from our database.
 >- Updates user-after.js to render the data from the database, rather than the fake database arrays.
->- 
+
 
 
 
