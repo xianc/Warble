@@ -129,4 +129,16 @@ We Referenced Example 1: Lecture 23
 ####In Chat
 >- chat.js added functionality to support web socket instant messaging. As with the example in class our chat feature implements the Publisher/Subscriber model. Our chat supports user-name display.
 
+##Project Assignment 5:
+
+Replaced our fake database (Arrays) with an actual Sqlite3 database. 
+
+>- Login, Signup and all the warble pages as well as user profiles are being rendered using the data from the database.
+>- Our additional feature, uploading files in addition to images works, and has been integrated with the database. Upload can be done by clicking on the "upload" button on the main page under the input box for your post. Clicking on the "warble" button would then post your latest status and the upload file attached to it.
+>- We set up a new sql folder, which contains our database data, as well as the schemas for the tables.
+>- Added warbles.js to the lib folder. This contains all the necessary syntax to access the required data from our database.
+>- Updates user-after.js to render the data from the database, rather than the fake database arrays.
+>- 
+
+
 
