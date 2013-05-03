@@ -262,7 +262,8 @@ exports.my_profile = function (req, res) {
                               username : user.username,
                               birthday : user.birthday,
                               warble : warbs,
-                              follower : follows
+                              follower : follows,
+                              attach: warbs.attachment
                             });
       });
     });
