@@ -249,10 +249,12 @@ exports.me = function (req, res) {
   }
 }
 
-
-
+// ## My Profile Page 
+// Displays profile (Warbles  and User Info) of user currently logged in.
+// Is accessed via a menu bar at the top of all pages during a user's session
 exports.my_profile = function (req, res) {
   var userid = req.cookies.userid;
+  //Authentication
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
