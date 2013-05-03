@@ -5,10 +5,15 @@
           <table width="100%" valign="top"><td><b>
           <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a></b> <font size="2">on <%= warble[i].day %></font><b> @  <%= warble[i].warbleAt %> </b><br>
             <%= warble[i].message %>
-          <br><font size=2><u>Attached</u>: <i><%= warble[i].attachment %></i></font> </b></td><td width="50px"><font size="2">
+         <% if(warble[i].attachment!='none') { %>
+                  <br><font size=2><u>Attached</u>: <i>
+                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank"><%= warble[i].attachment %></a>
+                  <% } %></i></font> </b></td><td width="50px"><font size="2">
             <a href="">Reply</a><br>
             <a href="">Warble</a><br>
-            <a href="">Download</a>
+            <% if(warble[i].attachment!='none') { %>
+                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank">Download</a>
+                   <% } %>
           </font></td></table><hr>
           <% } } %>
       </div>
