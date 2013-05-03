@@ -39,7 +39,7 @@
 				<hr>
 						<% for(var i = follower.length-1; i >= 0; i--){
 							if(follower[i].follower == username){ %>
-						<a href="/users/<%= follower[i].follower %>"><%= follower[i].following %></a>
+						<a href="/users/<%= follower[i].following %>"><%= follower[i].following %></a>
 						<br>
 						<% }} %>
 					</div>

@@ -60,7 +60,10 @@ app.get('/warbles/list'   , user.warbles_list);
 app.get('/user/followers' , user.followers);
 app.get('/user/following' , user.following);
 app.get('/user/gallery'   , user.gallery);
-app.get('/user/chat'      , user.chat);
+
+app.get('/user/chat', user.chat);
+app.post('/user/post', chat.post);
+app.post('/user/check', chat.check);
 
 app.get('/user/my_profile', user.my_profile);
 app.get ('/user/discover' , user.discover);
