@@ -123,6 +123,105 @@ exports.logout = function(req, res) {
   res.redirect('/');
 };
 
+
+
+
+
+// Processes form get requests: for sign up
+exports.process = function (req, res) {
+  var id   = req.params.id;
+  var auser = userData(req);
+  //Validates and adds new user to the userdatabse
+  warbles.validateUser(auser, function(error, user) {
+      console.log('checking...');
+      if (error) {
+        var smap = {
+      'username': 'Username',
+      'password' : 'Password',
+    };
+    // Error message
+    // display if there is missing information or the username selected is already taken
+    var m = '<font color=red><b>Uh oh!</b></font> <br> Either the username you have entered has already been taken or you have forgotten to fill out some required information! (*)<br><br>';
+    for (p in smap) {
+      if (warbles[p] === '' &&
+          p in smap) {
+        m += smap[p] + ' is required! <br/>';
+      }
+    }
+    genUserList(function (ul) {
+      res.render('form/' + id,
+                 { title: 'form - ' + id,
+                   id: id,
+                   msg: m,
+                   user: ul });
+    });
+      }
+      else {
+       console.log('added new user');
+       warbles.addUser(auser.username, auser.password, auser.birthday, function (err) {
+        
+        genUserList(function (ul) {
+      //if there is no errors, user gets added to the database
+       res.render('form/' + id,
+                 { title: 'form - ' + id,
+                   id: id,
+                   msg: 'Congrats! Your Account has been created!!<br><br>',
+                   user: ul });
+                   });
+            
+            });
+    }
+  });
+}
+
+// is a form for signup
+exports.form = function (req, res) {
+  var id = req.params.id;
+  genUserList(function (ul) {
+    res.render('form/' + id,
+               { title: 'form - ' + id,
+                 id: id,
+                 msg: '',
+                 user: ul });
+  });
+};
+
+function userData(req) {
+  var auser;
+  if (req.method === 'GET') {
+    auser = {
+      username: req.query.username,
+      password : req.query.password,
+      uid : req.query.uid,
+    };
+  }
+  //## registers user
+  else {
+    auser = {
+      username : req.body.username, // gets the username
+      password : req.body.password, // gets the password
+      birthday:  req.body.month + '/' + req.body.day + '/' + req.body.year, // formats the date
+    };
+  }
+  
+  return auser;
+}
+
+// Displays user
+function genUserList(callback) {
+  var i;
+  warbles.getUserInfo([], function (list) {
+  var u = '<ul>';
+    for (i = 0; i < list.length; i++ ) {
+      var userInfo = list[i];
+      u += '<li>' + userInfo + '</li>';
+    }
+    u += '</ul>';
+    callback(u);
+  });
+}
+
+
 exports.me = function (req, res) {
   //renders here
   var userid = req.cookies.userid;

@@ -48,6 +48,10 @@ app.post('/user/auth'   , user.auth);
 app.get ('/user/logout' , user.logout);
 app.get ('/user/forget_password' , user.logout);
 
+app.get('/form/:id', user.form);
+app.get('/form/process/:id', user.process);
+app.post('/form/process/:id', user.process);
+
 //app.get('/users', user.list);
 app.get ('/user/main'     , user.main);
 app.post('/user/main'     , user.main);
