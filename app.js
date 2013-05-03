@@ -43,6 +43,7 @@ app.configure('production', function(){
 });
 
 app.get('/'             , user.login);
+app.get('/user/about'        , user.about);
 app.get ('/user/login'  , user.login);
 app.post('/user/auth'   , user.auth);
 app.get ('/user/logout' , user.logout);

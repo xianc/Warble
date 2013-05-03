@@ -17,7 +17,6 @@ var online = {};
  * GET home page.
  */
 
-
 // ### Flash
 
 function flash(req, res, name, value) {
@@ -38,6 +37,11 @@ function flash(req, res, name, value) {
     // Return the `value`.
     return value;
   }
+}
+
+// ## About Page
+exports.about = function (req, res) {
+  res.render('about', { title  : 'About'});
 }
 
 // ## User Server-Side Routes
@@ -258,9 +262,9 @@ exports.my_profile = function (req, res) {
       warbles.getFollowers(function (err2, follows) {
         var user = online[userid];
         res.render('my_profile', { title  : 'My Profile',
-                              me        : user.username,
+                              me       : user.username,
                               username : user.username,
-                              birthday : user.birthday,
+                              birthday : (user.username).birthday,
                               warble : warbs,
                               follower : follows
                             });

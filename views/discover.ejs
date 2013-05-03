@@ -89,17 +89,19 @@
       <h1>Recent Warbles</h1>
       <hr>
             <!-- Search Results -->
-           <% for(var i = warble.length-1 ; i >=  warble.length-5; i--) { %>
+           <% for(var i = warble.length-1 ; i >= 0; i--) { %>
                   <table width="100%" valign="top"><td><b>
                   <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
-                  <%= warble[i].date %>
+                  <%= warble[i].day %>
                   </font><br>
                   <%= warble[i].message %>
                   <br><font size=2><u>Attached</u>: <i>
-                  <%= warble[i].attachment %>
+                  <% if(warble[i].attachment!='') { %>
+                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank"><%= warble[i].attachment %></a>
+                  <% } else {%>
+                  none <% } %>
                   </i></font> </b></td><td width="50px"><font size="2">
-                   </i></font> </b></td><td width="50px"><font size="2">
                   <% if (warble[i].username == username) { %>
                       <a href="" warbStat="DELETE" index="<% i %>">Delete</a><br>
                   <% } else { %>
@@ -107,6 +109,7 @@
                   <% } %>
                   <a href="">Warble</a><br><!--<a href="front" onClick = warble.splice (i, 1);>Delete</a><br>--><a href="">Download</a></font></td></table><hr>
                   <% } %>
+                </div>
         </td>
       </tr>
 
@@ -151,7 +154,7 @@
     
     //Show user not found if the id is -1
     if(value == '-1'){
-      value = 'User Not Found';
+      value = '<h1>Search Results</h1> <hr>User Not Found';
     }
     
     //Display the output
