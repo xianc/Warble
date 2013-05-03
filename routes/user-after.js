@@ -136,25 +136,26 @@ exports.process = function (req, res) {
       console.log('checking...');
       if (error) {
         var smap = {
-      'username': 'Username',
-      'password' : 'Password',
-    };
+          'username': 'Username',
+          'password' : 'Password',
+        };
     // Error message
     // display if there is missing information or the username selected is already taken
-    var m = '<font color=red><b>Uh oh!</b></font> <br> Either the username you have entered has already been taken or you have forgotten to fill out some required information! (*)<br><br>';
-    for (p in smap) {
-      if (warbles[p] === '' &&
-          p in smap) {
-        m += smap[p] + ' is required! <br/>';
+      var m = '<font color=red><b>Uh oh!</b></font> <br> Either the username you have entered has already been taken or you have forgotten to fill out some required information! (*)<br><br>';
+      for (p in smap) {
+        if (warbles[p] === '' &&  p in smap) {
+          m += smap[p] + ' is required! <br/>';
+        }
       }
-    }
-    genUserList(function (ul) {
+
+      genUserList(function (ul) {
       res.render('form/' + id,
                  { title: 'form - ' + id,
                    id: id,
                    msg: m,
-                   user: ul });
-    });
+                   user: ul 
+                 });
+       });
       }
       else {
        console.log('added new user');
@@ -287,16 +288,18 @@ exports.followers = function (req, res) {
       warbles.getFollowers(function (err2, follows) {
       var user = online[userid];
       res.render ('followers', { title : 'Followers',
+                              me        : user.username,
                               username : user.username,
-                              warble : warbs, // access the warbles database
-                              follower : follows, //access the followers database
-                              following : follows // access the following database
+                              birthday : user.birthday,
+                              warble : warbs,
+                              follower : follows
               });
 
   });
   });
   }
 };
+
 
 exports.following = function (req, res) {
    var userid = req.cookies.userid;
@@ -312,10 +315,11 @@ exports.following = function (req, res) {
       warbles.getFollowers(function (err2, follows) {
       var user = online[userid];
       res.render ('following', { title : 'Following',
+                              me        : user.username,
                               username : user.username,
-                              warble : warbs, // access the warbles database
-                              follower : follows, //access the followers database
-                              following : follows // access the following database
+                              birthday : user.birthday,
+                              warble : warbs,
+                              follower : follows
               });
 
   });
