@@ -3,9 +3,9 @@
 
 The semester project for UMass's CS326 Web Programming course focuses on implementing <a href="http://twitter.com" target="_blank">Twitter</a>. Our implementation is <b>Warble</b>-- a microblogging web application that allows users to upload files of a certain size. 
 
-####Current Version
->-The current version of the Warble web app works best on the Chrome and Safari web browsers.
->-If the code is taking long to pull or clone, please use the zip folder instead. It usually pulls and clone, but it has been taking a couple of minutes due to the size of the project.
+> ####Current Version
+>- The current version of the Warble web app works best on the Chrome and Safari web browsers.
+>- If the code is taking long to pull or clone, please use the zip folder instead. It usually pulls and clone, but it has been taking a couple of minutes due to the size of the project.
 
 ##How to Run Our App:
 
