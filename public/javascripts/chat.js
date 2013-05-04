@@ -83,21 +83,6 @@ function chatTextTitle() {
   return obj;
 }
 
-// anonymous chat feature not entered
-// function chatAnonToggle() {
-//   var obj = Object.create(publisher());
-//   //the html id of the user element
-//   obj.elm = $('input[name=anony]');
-//   console.log(obj.elm.val());
-
-//   //Returns the text contained in the title:
-//   $("input[name=anony]").click(function() {
-//     obj.elm.val = $(this).val();
-// });
-
-//   return obj;
-// }
-
 // The chat post button that corresponds with the button defined in
 // the view:
 function chatPostButton() {

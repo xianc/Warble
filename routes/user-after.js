@@ -179,7 +179,11 @@ exports.process = function (req, res) {
   });
 }
 
-// is a form for signup
+
+// ## Form 
+/*
+Used for signup and forget password pages.
+*/
 exports.form = function (req, res) {
   var id = req.params.id;
   genUserList(function (ul) {
@@ -191,6 +195,10 @@ exports.form = function (req, res) {
   });
 };
 
+// ## User information
+/*
+Gets all the information about the user to be used by other methods. 
+*/
 function userData(req) {
   var auser;
   if (req.method === 'GET') {
@@ -226,7 +234,10 @@ function genUserList(callback) {
   });
 }
 
-
+// ## At me page
+/*
+All the warbles directed at the user who's online will get displayed here. 
+*/
 exports.me = function (req, res) {
   //renders here
   var userid = req.cookies.userid;
@@ -249,10 +260,12 @@ exports.me = function (req, res) {
   }
 }
 
-
-
+// ## My Profile Page 
+// Displays profile (Warbles  and User Info) of user currently logged in.
+// Is accessed via a menu bar at the top of all pages during a user's session
 exports.my_profile = function (req, res) {
   var userid = req.cookies.userid;
+  //Authentication
   if (userid === undefined || online[userid] === undefined) {
     flash(req, res, 'auth', 'Not logged in!');
     res.redirect('/user/login');
@@ -305,7 +318,13 @@ exports.followers = function (req, res) {
   }
 };
 
-
+// ##Following Page
+/*
+Displays all the users being followed by the person who's currently online. 
+Can only be accessed for the person who's online by clicking on the following count in my_profile.
+For all other users, the count shows up on their user page, but cannot see the actual list.
+This is getting it's data from the follower schema in the database.
+*/
 exports.following = function (req, res) {
    var userid = req.cookies.userid;
    //Authentification
@@ -440,7 +459,12 @@ exports.discover = function (req,res) {
 }
 };
 
-
+// ## User pages
+/*
+This renders the user pages for all the users currently signed up to warble.
+Can be accessed by clicking on the name of the user or by going to users/Name.
+Can see their profile information, but cannot see their following or followers list, just the count.
+*/
 exports.wuser = function (req, res) {
   var userid = req.cookies.userid;
   var users = online[userid];
@@ -477,7 +501,12 @@ exports.wuser = function (req, res) {
     };
 
 
-
+// ##Chat page
+/*
+Allows users to interact with each other instantly. 
+//Chat is implemeted using web sockets.
+It gets the user information from the database and uses this info to render each chat line.
+*/
 exports.chat = function(req, res){
   var userid = req.cookies.userid;
   if (userid === undefined || online[userid] === undefined) {
@@ -490,7 +519,7 @@ exports.chat = function(req, res){
         var users = online[userid];
         res.render('chat', { title   : 'Realtime Chat',
                              users : online,  // array of users currently online
-                             username : users.username,
+                             username : users.username, 
                              password : users.password, 
                              warble : warbs, // access the warbles database
                              follower : follow // access the follower
@@ -501,24 +530,4 @@ exports.chat = function(req, res){
 };
 
 
-/*exports.gallery = function (req, res) {
-  //renders here
-  var userid = req.cookies.userid;
-  if (userid === undefined || online[userid] === undefined) {
-    flash(req, res, 'auth', 'Not logged in!');
-    res.redirect('/user/login');
-  }
-  else {
-    warbles.getWarbles(function (err, warbs) {
-      if (err) { res.send('problem access data layer!'); }
-      else {
-        var user = online[userid];
-        res.render('me', { title  : 'User Gallery',
-                          username : user.username,
-                          warble : warbs
-                        });
-     
-      }
-    });
-  }
-}*/
+

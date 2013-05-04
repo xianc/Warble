@@ -25,49 +25,37 @@
         <a href="#flash">Flash</a>
       </div>
       <div class="heading h2">
-        <a href="#user-server-side-routes">User Server-Side Routes</a>
+        <a href="#about%20page">About Page</a>
       </div>
       <div class="heading h2">
-        <a href="#login-page">Login Page</a>
+        <a href="#user%20server-side%20routes">User Server-Side Routes</a>
       </div>
       <div class="heading h2">
-        <a href="#login-authentification">Login Authentification</a>
+        <a href="#login%20page">Login Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#login%20authentification">Login Authentification</a>
       </div>
       <div class="heading h3">
         <a href="#logout">logout</a>
       </div>
       <div class="heading h2">
-        <a href="#main-page">Main Page</a>
+        <a href="#registers%20user">registers user</a>
       </div>
       <div class="heading h2">
-        <a href="#online-page">Online Page</a>
+        <a href="#my%20profile%20page">My Profile Page</a>
       </div>
       <div class="heading h2">
-        <a href="#discover-page">Discover Page</a>
+        <a href="#followers%20page">Followers Page</a>
       </div>
       <div class="heading h2">
-        <a href="#at-me-page">At Me Page</a>
+        <a href="#about%20page">About Page</a>
       </div>
       <div class="heading h2">
-        <a href="#about-page">About Page</a>
+        <a href="#main%20page">Main Page</a>
       </div>
       <div class="heading h2">
-        <a href="#upload-function">Upload Function</a>
-      </div>
-      <div class="heading h2">
-        <a href="#my-profile-page">My Profile Page</a>
-      </div>
-      <div class="heading h2">
-        <a href="#followers-page">Followers Page</a>
-      </div>
-      <div class="heading h2">
-        <a href="#following-page">Following Page</a>
-      </div>
-      <div class="heading h2">
-        <a href="#registers-user">registers user</a>
-      </div>
-      <div class="heading h2">
-        <a href="#user-pages">User Pages</a>
+        <a href="#discover%20page">Discover Page</a>
       </div>
     </div>
   </div>
@@ -79,7 +67,7 @@
         <td class="docs">
 <div class="pilwrap" id="user-after.js">
   <h1>
-    <a href="#user-after.js" class="pilcrow">&#182;</a>
+    <a href="#user-after.js" name="user-after.js" class="pilcrow">&#182;</a>
     user-after.js
   </h1>
 </div>
@@ -93,12 +81,14 @@
 <div class="pilwrap">
   <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
 </div>
-<p>Requiring the user library</p>
+<p>the warble database</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/user&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">formidable</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;formidable&#39;</span><span class="p">);</span>
-
+<span class="kd">var</span> <span class="nx">warbles</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/warbles.js&#39;</span><span class="p">),</span>
+    <span class="nx">formidable</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;formidable&#39;</span><span class="p">),</span>
+    <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;querystring&#39;</span><span class="p">),</span>
+    <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+    
 
 </pre></div>
         </td>
@@ -127,6 +117,26 @@
 <span class="kd">var</span> <span class="nx">online</span> <span class="o">=</span> <span class="p">{};</span>
 
 
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>GET home page.</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+
 </pre></div>
         </td>
       </tr>
@@ -134,7 +144,7 @@
         <td class="docs">
 <div class="pilwrap" id="flash">
   <h3>
-    <a href="#flash" class="pilcrow">&#182;</a>
+    <a href="#flash" name="flash" class="pilcrow">&#182;</a>
     Flash
   </h3>
 </div>
@@ -150,7 +160,7 @@
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
 </div>
 <p>If <code>value</code> is not undefined we are <em>setting</em> a flash
 value (i.e., setting a cookie).</p>
@@ -165,7 +175,7 @@ value (i.e., setting a cookie).</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
 </div>
 <p>We return the <code>value</code> to be consistent with the
 alternative call - to retrieve the value.</p>
@@ -181,7 +191,7 @@ alternative call - to retrieve the value.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
 </div>
 <p>Grab the <code>value</code> from the cookies sent along with
 the request.</p>
@@ -195,7 +205,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
 </div>
 <p>Clear the cookie in the response.</p>
         </td>
@@ -208,7 +218,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
 </div>
 <p>Return the <code>value</code>.</p>
         </td>
@@ -223,9 +233,28 @@ the request.</p>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="user-server-side-routes">
+<div class="pilwrap" id="about%20page">
   <h2>
-    <a href="#user-server-side-routes" class="pilcrow">&#182;</a>
+    <a href="#about%20page" name="about%20page" class="pilcrow">&#182;</a>
+    About Page
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">about</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">});</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="user%20server-side%20routes">
+  <h2>
+    <a href="#user%20server-side%20routes" name="user%20server-side%20routes" class="pilcrow">&#182;</a>
     User Server-Side Routes
   </h2>
 </div>
@@ -239,9 +268,9 @@ the request.</p>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="login-page">
+<div class="pilwrap" id="login%20page">
   <h2>
-    <a href="#login-page" class="pilcrow">&#182;</a>
+    <a href="#login%20page" name="login%20page" class="pilcrow">&#182;</a>
     Login Page
   </h2>
 </div>
@@ -258,7 +287,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
 </div>
 <p>Grab any messages being sent to use from redirect.</p>
         </td>
@@ -272,7 +301,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
 </div>
 <p>TDR: redirect if logged in:</p>
         </td>
@@ -286,7 +315,7 @@ the request.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
+  <a class="pilcrow" href="#section-17" id="section-17">&#182;</a>
 </div>
 <p>If the user is already logged in - they are redirected to the
 main/front page of Warble. We must check both that the <code>userid</code>
@@ -296,7 +325,8 @@ server has been restarted.</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
   <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/main&#39;</span><span class="p">);</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Signing in...&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/me&#39;</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
 
@@ -306,15 +336,16 @@ server has been restarted.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
+  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
 </div>
 <p>Render the login view if this is a new login.</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User Login&#39;</span><span class="p">,</span>
-                          <span class="nx">message</span> <span class="o">:</span> <span class="nx">authmessage</span> <span class="p">});</span>
+                          <span class="nx">message</span> <span class="o">:</span> <span class="nx">warbles</span><span class="p">.</span><span class="nx">User</span> <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">};</span>
+
 
 
 </pre></div>
@@ -322,47 +353,23 @@ server has been restarted.</p>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="login-authentification">
+<div class="pilwrap" id="login%20authentification">
   <h2>
-    <a href="#login-authentification" class="pilcrow">&#182;</a>
+    <a href="#login%20authentification" name="login%20authentification" class="pilcrow">&#182;</a>
     Login Authentification
   </h2>
 </div>
 
 
-<p>Performs <strong>basic</strong> user authentication.
-Looks at username and password and tries to find a match in userdb </p>
+<p>Performs <strong>basic</strong> user authentication.</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">auth</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
-</div>
-<p>TDR: redirect if logged in:</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
 
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-19" id="section-19">&#182;</a>
-</div>
-<p>TDR: do the check as described in the <code>exports.login</code> function.</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
   <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/main&#39;</span><span class="p">);</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Signing in...&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/me&#39;</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
 
@@ -391,8 +398,11 @@ Looks at username and password and tries to find a match in userdb </p>
 <p>Perform the user lookup.</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-    <span class="nx">user</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;chcking credentials&#39;</span><span class="p">);</span>
+    <span class="nx">warbles</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;checking...&#39;</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error! redirecting...&#39;</span><span class="p">);</span>
 
 </pre></div>
         </td>
@@ -410,6 +420,7 @@ redirected route <code>/user/login</code>.</p>
         <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
       <span class="p">}</span>
       <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;login success!&#39;</span><span class="p">);</span>
 
 </pre></div>
         </td>
@@ -458,7 +469,7 @@ passed back and forth between client and server.</p>
       <span class="p">}</span>
     <span class="p">});</span>
   <span class="p">}</span>
-<span class="p">};</span>
+<span class="p">}</span>
 
 
 </pre></div>
@@ -468,7 +479,7 @@ passed back and forth between client and server.</p>
         <td class="docs">
 <div class="pilwrap" id="logout">
   <h3>
-    <a href="#logout" class="pilcrow">&#182;</a>
+    <a href="#logout" name="logout" class="pilcrow">&#182;</a>
     logout
   </h3>
 </div>
@@ -498,11 +509,408 @@ passed back and forth between client and server.</p>
   <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;querystring&#39;</span><span class="p">),</span>
-    <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
 
-    
-    
+
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-28" id="section-28">&#182;</a>
+</div>
+<p>Processes form get requests: for sign up</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span>   <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">auser</span> <span class="o">=</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-29" id="section-29">&#182;</a>
+</div>
+<p>Validates and adds new user to the userdatabse</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">warbles</span><span class="p">.</span><span class="nx">validateUser</span><span class="p">(</span><span class="nx">auser</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;checking...&#39;</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">smap</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;Username&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span>
+        <span class="p">};</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-30" id="section-30">&#182;</a>
+</div>
+<p>Error message
+display if there is missing information or the username selected is already taken</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+      <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="s1">&#39;&lt;font color=red&gt;&lt;b&gt;Uh oh!&lt;/b&gt;&lt;/font&gt; &lt;br&gt; Either the username you have entered has already been taken or you have forgotten to fill out some required information! (*)&lt;br&gt;&lt;br&gt;&#39;</span><span class="p">;</span>
+      <span class="k">for</span> <span class="p">(</span><span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">warbles</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">&amp;&amp;</span>  <span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">m</span> <span class="o">+=</span> <span class="nx">smap</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; is required! &lt;br/&gt;&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">msg</span><span class="o">:</span> <span class="nx">m</span><span class="p">,</span>
+                   <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> 
+                 <span class="p">});</span>
+       <span class="p">});</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;added new user&#39;</span><span class="p">);</span>
+       <span class="nx">warbles</span><span class="p">.</span><span class="nx">addUser</span><span class="p">(</span><span class="nx">auser</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nx">auser</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="nx">auser</span><span class="p">.</span><span class="nx">birthday</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-31" id="section-31">&#182;</a>
+</div>
+<p>if there is no errors, user gets added to the database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+       <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                   <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;Congrats! Your Account has been created!!&lt;br&gt;&lt;br&gt;&#39;</span><span class="p">,</span>
+                   <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+                   <span class="p">});</span>
+            
+            <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-32" id="section-32">&#182;</a>
+</div>
+<p>is a form for signup</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+  <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+               <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
+                 <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                 <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">auser</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">auser</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+      <span class="nx">password</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+      <span class="nx">uid</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">uid</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="registers%20user">
+  <h2>
+    <a href="#registers%20user" name="registers%20user" class="pilcrow">&#182;</a>
+    registers user
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">auser</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">username</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="c1">// gets the username</span>
+      <span class="nx">password</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="c1">// gets the password</span>
+      <span class="nx">birthday</span><span class="o">:</span>  <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">month</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">day</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span> <span class="c1">// formats the date</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">auser</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-34" id="section-34">&#182;</a>
+</div>
+<p>Displays user</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">function</span> <span class="nx">genUserList</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">warbles</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">([],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span> <span class="nx">userInfo</span> <span class="o">+</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">;</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">me</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-35" id="section-35">&#182;</a>
+</div>
+<p>renders here</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;problem access data layer!&#39;</span><span class="p">);</span> <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;At Me&#39;</span><span class="p">,</span>
+                          <span class="nx">username</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                          <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span>
+                        <span class="p">});</span>
+     
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="my%20profile%20page">
+  <h2>
+    <a href="#my%20profile%20page" name="my%20profile%20page" class="pilcrow">&#182;</a>
+    My Profile Page
+  </h2>
+</div>
+
+
+<p>Displays profile (Warbles  and User Info) of user currently logged in.
+Is accessed via a menu bar at the top of all pages during a user's session</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">my_profile</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-37" id="section-37">&#182;</a>
+</div>
+<p>Authentication</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">warbles</span><span class="p">.</span><span class="nx">getFollowers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="nx">follows</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;my_profile&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;My Profile&#39;</span><span class="p">,</span>
+                              <span class="nx">me</span>       <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">birthday</span> <span class="o">:</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">).</span><span class="nx">birthday</span><span class="p">,</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span><span class="p">,</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">follows</span><span class="p">,</span>
+                              <span class="nx">attach</span><span class="o">:</span> <span class="nx">warbs</span><span class="p">.</span><span class="nx">attachment</span>
+                            <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="p">};</span>
+
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="followers%20page">
+  <h2>
+    <a href="#followers%20page" name="followers%20page" class="pilcrow">&#182;</a>
+    Followers Page
+  </h2>
+</div>
+
+
+<p>Displays the followers of the user currently logged in. 
+Is accessed via a user profile and clicking on the number
+corresponding to followers</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">followers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-39" id="section-39">&#182;</a>
+</div>
+<p>Authentification</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-40" id="section-40">&#182;</a>
+</div>
+<p>var users = online[userid];
+var users = warbles.getUser();</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+   <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">warbles</span><span class="p">.</span><span class="nx">getFollowers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="nx">follows</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;followers&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Followers&#39;</span><span class="p">,</span>
+                              <span class="nx">me</span>        <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">birthday</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">birthday</span><span class="p">,</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span><span class="p">,</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">follows</span>
+              <span class="p">});</span>
+
+  <span class="p">});</span>
+  <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">following</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-41" id="section-41">&#182;</a>
+</div>
+<p>Authentification</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-42" id="section-42">&#182;</a>
+</div>
+<p>var users = online[userid];
+var users = warbles.getUser();</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+   <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">warbles</span><span class="p">.</span><span class="nx">getFollowers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="nx">follows</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;following&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Following&#39;</span><span class="p">,</span>
+                              <span class="nx">me</span>        <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                              <span class="nx">birthday</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">birthday</span><span class="p">,</span>
+                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span><span class="p">,</span>
+                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">follows</span>
+              <span class="p">});</span>
+
+  <span class="p">});</span>
+  <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="about%20page">
+  <h2>
+    <a href="#about%20page" name="about%20page" class="pilcrow">&#182;</a>
+    About Page
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">about</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">});</span>
+<span class="p">}</span>
+
 
 </pre></div>
         </td>
@@ -510,9 +918,9 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs"><div class="dox">
   <div class="summary">
-<div class="pilwrap" id="main-page">
+<div class="pilwrap" id="main%20page">
   <h2>
-    <a href="#main-page" class="pilcrow">&#182;</a>
+    <a href="#main%20page" name="main%20page" class="pilcrow">&#182;</a>
     Main Page
   </h2>
 </div>
@@ -542,7 +950,7 @@ passed back and forth between client and server.</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-29" id="section-29">&#182;</a>
+  <a class="pilcrow" href="#section-45" id="section-45">&#182;</a>
 </div>
 <p>TDR: added cookie support</p>
         </td>
@@ -554,88 +962,65 @@ passed back and forth between client and server.</p>
     <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
+     <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">warbles</span><span class="p">.</span><span class="nx">getFollowers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="nx">follows</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">path</span><span class="p">;</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Adding Warbles&#39;</span><span class="p">);</span>
 
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-30" id="section-30">&#182;</a>
-</div>
-<p>This part of the code adds Warbles! It currently does not 
-implement the "attachment" or "at user" feature but it does add
-warbles to warbledb</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-    <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">formidable</span><span class="p">.</span><span class="nx">IncomingForm</span><span class="p">();</span>
-    <span class="kd">var</span> <span class="nx">filen</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Looking at file&#39;</span><span class="p">);</span>
-      <span class="nx">form</span><span class="p">.</span><span class="nx">uploadDir</span> <span class="o">=</span> <span class="s1">&#39;upload&#39;</span><span class="p">;</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">form</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">fields</span><span class="p">,</span> <span class="nx">files</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;parsing done.&#39;</span><span class="p">);</span>        
-            <span class="nx">fs</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="nx">files</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> 
-                      <span class="s1">&#39;upload/&#39;</span> <span class="o">+</span> <span class="nx">files</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="c1">// the upload path</span>
-                      <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-                          <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-                             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
-                          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                            <span class="nx">filen</span><span class="o">=</span><span class="s1">&#39;upload/&#39;</span> <span class="o">+</span> <span class="nx">files</span><span class="p">.</span><span class="nx">upload</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-                             
-                          <span class="p">}</span>
-                      <span class="p">});</span>
-                    <span class="p">});</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;The file &#39;</span><span class="o">+</span><span class="nx">filen</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Adding Warbles&#39;</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">size</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;File upload path: &#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">path</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;File upload name: &#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;File upload type: &#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;File upload size: &#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
+                 
+            <span class="kd">var</span> <span class="nx">fileDestPath</span> <span class="o">=</span> <span class="s1">&#39;public/uploadedFiles/&#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+            <span class="nx">fs</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">fileDestPath</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-31" id="section-31">&#182;</a>
-</div>
-<p>adding to warble database</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-    <span class="nx">user</span><span class="p">.</span><span class="nx">addWarbs</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span> <span class="nx">filen</span><span class="p">);</span> 
-    <span class="p">}</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;File could not be moved to proper directory.&#39;</span><span class="p">);</span>
+                <span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err2</span><span class="p">)</span> <span class="p">{</span>
+                  <span class="k">if</span> <span class="p">(</span><span class="nx">err2</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Temp file could not be deleted.&#39;</span><span class="p">);</span>
+                    <span class="k">throw</span> <span class="nx">err2</span><span class="p">;</span>
+                  <span class="p">}</span>
+                <span class="p">});</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Temp file deleted.&#39;</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
+              <span class="p">}</span>
+              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Upload done!&#39;</span><span class="p">);</span>
+            <span class="p">});</span>
+            <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+            <span class="nx">warbles</span><span class="p">.</span><span class="nx">addWarble</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nx">date</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">fileToUpload</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err3</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;bad warble insert&#39;</span><span class="p">);</span> <span class="p">}</span>
+              <span class="k">else</span> <span class="p">{</span> <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/main&#39;</span><span class="p">);</span> <span class="p">}</span>
+            <span class="p">});</span>
+          <span class="p">}</span>
+          <span class="k">else</span><span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Date: &#39;</span> <span class="o">+</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+            <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+            <span class="nx">warbles</span><span class="p">.</span><span class="nx">addWarble</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nx">date</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">update</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err3</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;bad warble insert&#39;</span><span class="p">);</span> <span class="p">}</span>
+              <span class="k">else</span> <span class="p">{</span> <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/main&#39;</span><span class="p">);</span> <span class="p">}</span>
+            <span class="p">});</span>
 
+          <span class="p">}</span>
 
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-32" id="section-32">&#182;</a>
-</div>
-<div class="dox">
-  <div class="summary"><p>Not yet working: delete feature</p>
-  </div>
-  <div class="body"><p>if (req.method === 'GET') {
-console.log('Deleting Warbles:' + req.params.msg);
-user.deleteWarbs(req.params.msg);
-}  </p>
-  </div>
-</div>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
+          <span class="p">}</span>
+          
 
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User main&#39;</span><span class="p">,</span>
-                         <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
-                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
-                         <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                         <span class="nx">password</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> 
-                         <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span> <span class="c1">// access the warble database</span>
-                         <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span> <span class="c1">// access the follower database</span>
-                        <span class="p">});</span>
-  <span class="p">}</span>
-
-
+              <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User main&#39;</span><span class="p">,</span>
+                                       <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
+                                       <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
+                                       <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                                       <span class="nx">password</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> 
+                                       <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span><span class="p">,</span>
+                                       <span class="nx">follower</span> <span class="o">:</span> <span class="nx">follows</span>
+                                      <span class="p">});</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+      <span class="p">}</span>
 <span class="p">};</span>
 
 
@@ -644,33 +1029,9 @@ user.deleteWarbs(req.params.msg);
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap" id="online-page">
+<div class="pilwrap" id="discover%20page">
   <h2>
-    <a href="#online-page" class="pilcrow">&#182;</a>
-    Online Page
-  </h2>
-</div>
-
-
-<p>shows the other users online at a point in time</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">online</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;user Online&#39;</span><span class="p">,</span>
-                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span> <span class="p">});</span>
-<span class="p">};</span>
-
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="discover-page">
-  <h2>
-    <a href="#discover-page" class="pilcrow">&#182;</a>
+    <a href="#discover%20page" name="discover%20page" class="pilcrow">&#182;</a>
     Discover Page
   </h2>
 </div>
@@ -689,7 +1050,7 @@ in the user database. This page also displays Warbles from the Warble Databse</p
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-35" id="section-35">&#182;</a>
+  <a class="pilcrow" href="#section-47" id="section-47">&#182;</a>
 </div>
 <p>authenticate login</p>
         </td>
@@ -699,289 +1060,26 @@ in the user database. This page also displays Warbles from the Warble Databse</p
     <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;discover&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;Discover&#39;</span><span class="p">,</span>
-                            <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
-                            <span class="nx">allUsers</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">(),</span> <span class="c1">// access the user database</span>
-                            <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                            <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">()</span> <span class="c1">// access the warble database</span>
-                          <span class="p">});</span>
+    <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">warbles</span><span class="p">.</span><span class="nx">getUsers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err3</span><span class="p">,</span> <span class="nx">usr</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+          <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;discover&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;Discover&#39;</span><span class="p">,</span>
+                                    <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>
+                                    <span class="nx">allUsers</span> <span class="o">:</span> <span class="nx">usr</span><span class="p">,</span> <span class="c1">// access the user database</span>
+                                    <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                                    <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span> <span class="c1">// access the warble database</span>
+                                  <span class="p">});</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
 
 <span class="p">}</span>
-<span class="p">}</span>
-
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="at-me-page">
-  <h2>
-    <a href="#at-me-page" class="pilcrow">&#182;</a>
-    At Me Page
-  </h2>
-</div>
-
-
-<p>Displays Warbles at the user that is logged in. </p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">me</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-37" id="section-37">&#182;</a>
-</div>
-<p>authenticate login</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;At Me&#39;</span><span class="p">,</span>
-                    <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                    <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">()</span>  <span class="p">});</span>
-<span class="p">}</span>
-<span class="p">}</span>
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="about-page">
-  <h2>
-    <a href="#about-page" class="pilcrow">&#182;</a>
-    About Page
-  </h2>
-</div>
-
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">about</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>  <span class="o">:</span> <span class="s1">&#39;About&#39;</span><span class="p">});</span>
-<span class="p">}</span>
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs"><div class="dox">
-  <div class="summary">
-<div class="pilwrap" id="upload-function">
-  <h2>
-    <a href="#upload-function" class="pilcrow">&#182;</a>
-    Upload Function
-  </h2>
-</div>
-
-
-<p>This function is currently commented out and does nothing
-exports.upload = function (req, res) {
-res.render('upload', { title  : 'Upload'});
-}</p>
-  </div>
-  <div class="body">
-  </div>
-</div>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="my-profile-page">
-  <h2>
-    <a href="#my-profile-page" class="pilcrow">&#182;</a>
-    My Profile Page
-  </h2>
-</div>
-
-
-<p>This page display user information like: the number of Warbles and 
-followers they have and the number of people they follow. It also 
-displays Warbles by that user</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">my_profile</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-41" id="section-41">&#182;</a>
-</div>
-<p>authentification</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;my_profile&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;My Profile&#39;</span><span class="p">,</span>
-                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> 
-                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span> <span class="c1">// access the warbles database</span>
-                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span> <span class="c1">//access the followers database</span>
-                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">(),</span> <span class="c1">// access the following database</span>
-                              <span class="nx">userdata</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">()</span>
-                <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="followers-page">
-  <h2>
-    <a href="#followers-page" class="pilcrow">&#182;</a>
-    Followers Page
-  </h2>
-</div>
-
-
-<p>Displays the followers of the user currently logged in. 
-Is accessed via a user profile and clicking on the number
-corresponding to followers</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">followers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-43" id="section-43">&#182;</a>
-</div>
-<p>Authentification</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;followers&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Followers&#39;</span><span class="p">,</span>
-                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span> <span class="c1">// access the warbles database</span>
-                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span> <span class="c1">//access the followers database</span>
-                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">()</span> <span class="c1">// access the following database</span>
-              <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="following-page">
-  <h2>
-    <a href="#following-page" class="pilcrow">&#182;</a>
-    Following Page
-  </h2>
-</div>
-
-
-<p>Displays the who the logged in user is following
-Is accessed via a user profile and clicking on the number
-corresponding to following</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">following</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-45" id="section-45">&#182;</a>
-</div>
-<p>Authentification</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;following&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Following&#39;</span><span class="p">,</span>
-                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span><span class="c1">// access the warbles database</span>
-                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">(),</span> <span class="c1">// access the following database</span>
-                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span><span class="c1">//access the followers database</span>
-              <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-46" id="section-46">&#182;</a>
-</div>
-<p>is a form for signup</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-  <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-               <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-                 <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
-                 <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-                 <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
-  <span class="p">});</span>
 <span class="p">};</span>
 
 
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-47" id="section-47">&#182;</a>
-</div>
-<p>Processes form get requests: for sign up</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">process</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">id</span>   <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">auser</span> <span class="o">=</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
-
+<span class="nx">exports</span><span class="p">.</span><span class="nx">wuser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+  <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
 
 </pre></div>
         </td>
@@ -991,12 +1089,64 @@ corresponding to following</p>
 <div class="pilwrap">
   <a class="pilcrow" href="#section-48" id="section-48">&#182;</a>
 </div>
-<p>Validates and adds new user to the userdatabse</p>
+<p>var c = warbles.get_user(u); // This method searches for user in the user database</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">validateUser</span><span class="p">(</span><span class="nx">auser</span><span class="p">))</span> <span class="p">{</span>
-    <span class="nx">user</span><span class="p">.</span><span class="nx">addUser</span><span class="p">(</span><span class="nx">auser</span><span class="p">);</span>
-    <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
+
+
+  <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">warbles</span><span class="p">.</span><span class="nx">getFollowers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="nx">follow</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">warbles</span><span class="p">.</span><span class="nx">getUsers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err3</span><span class="p">,</span> <span class="nx">usr</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Adding to Followers:&#39;</span><span class="p">);</span>
+
+              <span class="nx">warbles</span><span class="p">.</span><span class="nx">addToFollow</span> <span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nx">u</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err3</span><span class="p">){</span>  <span class="c1">// This adds the following and followed to the following database</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;bad warble insert&#39;</span><span class="p">);</span> 
+                <span class="k">else</span>  <span class="p">{</span>
+                  <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;users/&#39;</span> <span class="o">+</span> <span class="nx">u</span><span class="p">);</span>
+
+                <span class="p">}</span>
+              <span class="p">});</span>
+              <span class="p">}</span>
+
+            <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;users/wuser&#39;</span> <span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Profile+ &#39;</span> <span class="o">+</span> <span class="nx">u</span><span class="p">,</span>
+                                      <span class="nx">me</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>  <span class="c1">// username of user viewing the page</span>
+                                      <span class="nx">username</span> <span class="o">:</span> <span class="nx">u</span><span class="p">,</span> <span class="c1">// username of the user page being viewed</span>
+                                      <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span><span class="p">,</span> <span class="c1">// access the warbles database</span>
+                                      <span class="nx">follower</span> <span class="o">:</span> <span class="nx">follow</span><span class="p">,</span> <span class="c1">// access the followers database</span>
+                                      <span class="nx">userdata</span> <span class="o">:</span> <span class="nx">usr</span><span class="p">,</span>
+                                      <span class="nx">birthday</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">birthday</span>
+                        <span class="p">});</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+    <span class="p">};</span>
+
+
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">chat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">warbles</span><span class="p">.</span><span class="nx">getWarbles</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">warbs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">warbles</span><span class="p">.</span><span class="nx">getFollowers</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err2</span><span class="p">,</span> <span class="nx">follow</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;Realtime Chat&#39;</span><span class="p">,</span>
+                             <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>  <span class="c1">// array of users currently online</span>
+                             <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                             <span class="nx">password</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> 
+                             <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span><span class="p">,</span> <span class="c1">// access the warbles database</span>
+                             <span class="nx">follower</span> <span class="o">:</span> <span class="nx">follow</span> <span class="c1">// access the follower</span>
+                            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+
 
 </pre></div>
         </td>
@@ -1006,209 +1156,32 @@ corresponding to following</p>
 <div class="pilwrap">
   <a class="pilcrow" href="#section-49" id="section-49">&#182;</a>
 </div>
-<p>if there is no errors, user gets added to the database</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
-                   <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;Congrats! Your Account has been created!!&#39;</span><span class="p">,</span>
-                   <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-50" id="section-50">&#182;</a>
+<div class="dox">
+  <div class="summary"><p>exports.gallery = function (req, res) {
+//renders here
+var userid = req.cookies.userid;
+if (userid === undefined || online[userid] === undefined) {
+flash(req, res, 'auth', 'Not logged in!');
+res.redirect('/user/login');
+}
+else {
+warbles.getWarbles(function (err, warbs) {
+if (err) { res.send('problem access data layer!'); }
+else {
+var user = online[userid];
+res.render('me', { title  : 'User Gallery',
+username : user.username,
+warble : warbs
+});</p>
+  </div>
+  <div class="body"><p>}
+});
+}
+}  </p>
+  </div>
 </div>
-<p>If some information is missing, the form will display an error message</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">smap</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;Username&#39;</span><span class="p">,</span>
-      <span class="s1">&#39;password&#39;</span> <span class="o">:</span> <span class="s1">&#39;Password&#39;</span><span class="p">,</span>
-    <span class="p">};</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-51" id="section-51">&#182;</a>
-</div>
-<p>Error message
-display if there is missing information or the username selected is already taken</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-    <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="s1">&#39;&lt;font color=red&gt;&lt;b&gt;Uh oh!&lt;/b&gt;&lt;/font&gt; &lt;br&gt; Either the username you have entered has already been taken or you have forgotten to fill out some required information! (*)&lt;br&gt;&lt;br&gt;&#39;</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">&amp;&amp;</span>
-          <span class="nx">p</span> <span class="k">in</span> <span class="nx">smap</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">m</span> <span class="o">+=</span> <span class="nx">smap</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; is required! &lt;br/&gt;&#39;</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nx">genUserList</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">ul</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;form/&#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-                 <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;form - &#39;</span> <span class="o">+</span> <span class="nx">id</span><span class="p">,</span>
-                   <span class="nx">id</span><span class="o">:</span> <span class="nx">id</span><span class="p">,</span>
-                   <span class="nx">msg</span><span class="o">:</span> <span class="nx">m</span><span class="p">,</span>
-                   <span class="nx">user</span><span class="o">:</span> <span class="nx">ul</span> <span class="p">});</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-52" id="section-52">&#182;</a>
-</div>
-<p>Renders userData. Currently the commented out paramaters are not yet implemented
-but will be in the future</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">function</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">auser</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">auser</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">username</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-      <span class="nx">password</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
-      <span class="nx">uid</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">uid</span><span class="p">,</span>
-    <span class="p">};</span>
-  <span class="p">}</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="registers-user">
-  <h2>
-    <a href="#registers-user" class="pilcrow">&#182;</a>
-    registers user
-  </h2>
-</div>
-
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">auser</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">username</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="c1">// gets the username</span>
-      <span class="nx">password</span> <span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="c1">// gets the password</span>
-      <span class="nx">birthday</span><span class="o">:</span>  <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">month</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">day</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span> <span class="c1">// formats the date</span>
-    <span class="p">};</span>
-  <span class="p">}</span>
-  
-  <span class="k">return</span> <span class="nx">auser</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-54" id="section-54">&#182;</a>
-</div>
-<p>Displays user</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">function</span> <span class="nx">genUserList</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
-  <span class="nx">user</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">([],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-      <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span> <span class="nx">userInfo</span> <span class="o">+</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">u</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">;</span>
-    <span class="nx">callback</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span>
-  <span class="p">});</span>
-<span class="p">}</span>
-
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-55" id="section-55">&#182;</a>
-</div>
-<p>A chat function used in localhost:3000/chat. A test function for dynamically updated statuses</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">chat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
-  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">flash</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/user/login&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User main&#39;</span><span class="p">,</span>
-                         <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
-                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>  <span class="c1">// array of users currently online</span>
-                         <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                         <span class="nx">password</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> 
-                         <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span> <span class="c1">// access the warbles database</span>
-                         <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">()</span> <span class="c1">// access the follower</span>
-                        <span class="p">});</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap" id="user-pages">
-  <h2>
-    <a href="#user-pages" class="pilcrow">&#182;</a>
-    User Pages
-  </h2>
-</div>
-
-
-<p>This function displays user profiles. for example, user/Xian will display Xian's followers and warbles and the users who follows her. Her followers and the people who follower her can be displayed by clicking on the number link next to the corresponding category. (Currently 'uploads' are not yet implemented for a user.)</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">wuser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
-  <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">get_user</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span> <span class="c1">// This method searches for user in the user database</span>
-
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Adding to Followers:&#39;</span><span class="p">);</span>
-      <span class="nx">user</span><span class="p">.</span><span class="nx">addToFollow</span> <span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">);</span>  <span class="c1">// This adds the following and followed to the following database</span>
-      <span class="nx">user</span><span class="p">.</span><span class="nx">addToFollowing</span> <span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span> <span class="p">(</span><span class="s1">&#39;users/wuser&#39;</span> <span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Profile+ &#39;</span> <span class="o">+</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-                              <span class="nx">me</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>  <span class="c1">// username of user viewing the page</span>
-                              <span class="nx">username</span> <span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="c1">// username of the user page being viewed</span>
-                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getWarbledb</span><span class="p">(),</span> <span class="c1">// access the warbles database</span>
-                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowerdb</span><span class="p">(),</span> <span class="c1">// access the followers database</span>
-                              <span class="nx">following</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getFollowingdb</span><span class="p">(),</span> <span class="c1">// access the following database</span>
-                              <span class="nx">userdata</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getUserdb</span><span class="p">()</span> <span class="c1">// access the user database</span>
-                <span class="p">});</span>
-
-<span class="p">};</span>
 </pre></div>
         </td>
       </tr>
