@@ -1,1 +1,1 @@
-var tree={"files":["user.js"]};
+var tree={"dirs":{"user":{"files":["user-db-test.js","user.js"]}},"files":["warbles.js"]};
