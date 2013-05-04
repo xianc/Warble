@@ -134,11 +134,11 @@ Replaced our fake database (Arrays) with an actual Sqlite3 database.
 
 
 ##Features not implemented:
->-Forget Password Page
->-Reply to warbles
->-Deleting warbles
->-User profile settings page
->-A "gallery" for uploaded files
->-Search by category/warbles
->-Filtering main page with warbles by people followed
->-"At Me" feature
+>- Forget Password Page
+>- Reply to warbles
+>- Deleting warbles
+>- User profile settings page
+>- A "gallery" for uploaded files
+>- Search by category/warbles
+>- Filtering main page with warbles by people followed
+>- "At Me" feature
