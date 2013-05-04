@@ -20,25 +20,21 @@ https://github.com/xianc/Warble/blob/master/public/TwitterImplementation.pdf
 4. The website will be displayed on your browser on: localhost:3000. 
 
 5. AT THE LOGIN SCREEN USE CREDIENTIALS:
->-  Username: Tim
->-  Password: warble
+>-  Username: Xian
+>-  Password: Chocolate
   
-note: The link to the specification document in the footer (next to About).
+*note: The link to the specification document in the footer (next to About).
 
 
 ##Our Files:
 
 >####Login page
->- The index page (home page) is also the login page. We currently have a few usernames set up. The names and passwords exist in the users database in the user.js file and are fair game to sign in with. Otherwise create a username on the sign-up form.
->- To view how the "sign up" page and "forget password page", click their correspondiong links before the sign in form. 
->- You can use (username, password): (Tim, warble) or any of these other credentials (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), (Hridya, Puppies)
->- Note: Username and Password are case-sensitive
+>- The index page (home page) is also the login page. We have a few sample usernames set up in the warble database (warbles.db) for testing. 
+>- The sample usernames are (username, password): (Tim, warble), (Xian, Chocolate), (Eric, Smith!), (Ryan, CS326), and (Hridya, Puppies)
+>- Note: Username and Password are case-sensitive!
 
 >####Sign Up Page
 >- The sign up page is a form that asks users for information.If all required information is filled out when the form is submitted, a new user is created and added to the user database in user.js and can be used to login. Otherwise, an error message will be displayed.
-
->####Forget Password Page
->- The forget password page is a one entry form that asks a user for their username or e-mail address. This feature is not implemented yet.
 
 >####Main Page (user/main)
 >- After a user is logged in, he/she will be redirected to the main page. On the left most column of the main page, the user is greeted with a "hello" followed by a list of online users. The list of users is linked to the user's profiles. Below this is a link to a Realtime Chat page where users can send messages to other users. The chat page is updated dynamically. A list of recent "Warbles" (updates) as well as a status update box ("Warble" box) is display to the right. By completeing the status form, a "warble" is added to the warble database and displayed at the top of the list of most recent warbles. From the main page the user can also navigate to the Discover, At Me, and Profile pages using the header navigation bar.
@@ -46,8 +42,7 @@ note: The link to the specification document in the footer (next to About).
 
 >####Discover
 >- The discover page displays "Warbles" from other users
->- The discover page allows a user to enter keyword searches. 
->- Users can filter searches by "Warbles," "Uploads," and "People"
+>- The discover page allows a user to enter keyword searches for other users (using AJAX). 
 >- Clicking on the username section of a user's warble brings you to their profile page.
 
 >#### At Me
@@ -63,7 +58,6 @@ note: The link to the specification document in the footer (next to About).
 
 >#### Following
 >- Displays a list of users who the user currently logged in is followers. Users can only view their own following list. 
-
 
 >#### User Pages (user/:wuser)
 >- This page is the skeleton of all user pages. It takes information from routes to generate a user specific page. On this page you are able to follow a user, if you have not already done so. If you are already following a user, instead of a "FOLLOW" button, text is displayed that the user is already in your following list. If the user is yourself, a "My Account" link will be dispayed. 
@@ -95,20 +89,16 @@ Here is a list of the files and the additions we made:
 >- chat.ejs: displays a chat like feature that dynamically updates the "tweet" section
 
 ####In Routes
->- user-after, user-before, user-sessions: replaced index.js to render pages
+>- user-after
 
-####In lib/user
->-user.js: Added warbles, followers, following, and several other methods
-
-####In node_modules
->-added connect-flash (and formidabble but it has not been implemented
+####In lib
+>-warble.js
 
 ####In Public
 >-javascripts folder: contains the file for the dynamic updating of warbles
 >-TwitterImplementation.pdf: the Requirements doc for Warble. It is linked on every page in the footer.  
-
-
-Note: There are additional .js files in lib (lib/followers and lib/warbles) that were never used, hence they don't have any documentation. 
+>-docs folder: docker files
+>-uploadedFiles: directory in which all uploaded files goes into
 
 
 ##Project Assignment 4:
@@ -143,4 +133,12 @@ Replaced our fake database (Arrays) with an actual Sqlite3 database.
 
 
 
-
+##Features not implemented:
+>-Forget Password Page
+>-Reply to warbles
+>-Deleting warbles
+>-User profile settings page
+>-A "gallery" for uploaded files
+>-Search by category/warbles
+>-Filtering main page with warbles by people followed
+>-"At Me" feature
