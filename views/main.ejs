@@ -74,7 +74,7 @@
                   <%= warble[i].day %>
                   </font><br>
                   <%= warble[i].message %>
-                  <% if(warble[i].attachment!='none') { %>
+                  <% if(warble[i].attachment!='none' && warble[i].attachment!='') { %>
                   <br><font size=2><u>Attached</u>: <i>
                   <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank"><%= warble[i].attachment %></a>
                   <% } %>
@@ -85,7 +85,7 @@
                   <a href="">Reply</a><br>
                   <% } %>
                   <a href="">Warble</a><br><!--<a href="front" onClick = warble.splice (i, 1);>Delete</a><br>-->
-                  <% if(warble[i].attachment!='none') { %>
+                 <% if(warble[i].attachment!='none' && warble[i].attachment!='') { %>
                   <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank">Download</a>
                    <% } 
                    else { } %>

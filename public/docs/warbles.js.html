@@ -18,6 +18,18 @@
     </div>
     <div id="tree"></div>
     <div id="headings">
+      <div class="heading h3">
+        <a href="#user%20lookup%20function%20for%20validation%20during%20sign%20in">user Lookup function for validation during sign in</a>
+      </div>
+      <div class="heading h4">
+        <a href="#checks%20the%20username%20and%20password%20to%20make%20sure%20they%20are%20correct">checks the username and password to make sure they are correct</a>
+      </div>
+      <div class="heading h3">
+        <a href="#validates%20user%20for%20sign%20up">validates user for sign up</a>
+      </div>
+      <div class="heading h4">
+        <a href="#checks%20to%20see%20if%20the%20username%20entered%20during%20sign%20up%20is%20already">checks to see if the username entered during sign up is already</a>
+      </div>
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -35,14 +47,38 @@
 <div class="pilwrap">
   <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
 </div>
-
+<p>Require the inclusion of sqlite3 database and other libraries</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">sqlite3</span>   <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sqlite3&#39;</span><span class="p">),</span>
     <span class="nx">async</span>     <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;async&#39;</span><span class="p">),</span>
     <span class="nx">Sequelize</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sequelize&#39;</span><span class="p">);</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>Path to the .db file being used to render all the Warble pages</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sqlite3</span><span class="p">.</span><span class="nx">Database</span><span class="p">(</span><span class="s1">&#39;./data/warbles.db&#39;</span><span class="p">);</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>Sequelizing the information </p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">sequelize</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sequelize</span><span class="p">(</span><span class="s1">&#39;database&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">dialect</span><span class="o">:</span> <span class="s1">&#39;sqlite&#39;</span><span class="p">,</span>
   <span class="nx">logging</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -50,24 +86,84 @@
 <span class="p">});</span>
 
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>User info and its instance methods</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">sequelize</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,{</span>
   <span class="nx">username</span> <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
   <span class="nx">password</span> <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
   <span class="nx">birthday</span> <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span>
 <span class="p">},{</span>
   <span class="nx">instanceMethods</span><span class="o">:</span><span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Username of the user</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getUsername</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
     <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Password of the user</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getPassword</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
     <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>Birthday of the user</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getBirthday</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">birthday</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>Warble info and its instance methods</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Warble</span> <span class="o">=</span> <span class="nx">sequelize</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Warble&#39;</span><span class="p">,{</span>
   <span class="nx">username</span>   <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
   <span class="nx">day</span>        <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
@@ -76,32 +172,128 @@
   <span class="nx">warbleAt</span>    <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
 <span class="p">},{</span>
   <span class="nx">instanceMethods</span><span class="o">:</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>Username of the person who made the warble</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getUsername</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
     <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<p>Day and time the warble was made at</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getDay</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">day</span><span class="p">;</span>
     <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>The message in the warble</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getMessage</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">message</span><span class="p">;</span>
     <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+</div>
+<p>The attached files to the warble</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getAttachment</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">attachment</span><span class="p">;</span>
     <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+</div>
+<p>Who the warble is directed to</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getWarbleAt</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">warbleAt</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+</div>
+<p>Follower and following info and its instance methods</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Follower</span> <span class="o">=</span> <span class="nx">sequelize</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Follower&#39;</span><span class="p">,{</span>
   <span class="nx">follower</span> <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
   <span class="nx">following</span> <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span>
 <span class="p">},{</span>
   <span class="nx">instanceMethods</span><span class="o">:</span><span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
+</div>
+<p>Followers infor</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getFollow</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">follow</span><span class="p">;</span>
     <span class="p">},</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
+</div>
+<p>Following info</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">getFollowing</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">following</span><span class="p">;</span>
     <span class="p">}</span>
@@ -110,6 +302,17 @@
 
 
 
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17">&#182;</a>
+</div>
+<p>Gallery info and its instance methods</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">var</span> <span class="nx">Gallery</span> <span class="o">=</span> <span class="nx">sequelize</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Gallery&#39;</span><span class="p">,{</span>
   <span class="nx">image</span> <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span><span class="p">,</span>
   <span class="nx">day</span> <span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">STRING</span>
@@ -129,6 +332,18 @@
 <span class="nx">Follower</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="nx">User</span><span class="p">);</span>
 <span class="nx">sequelize</span><span class="p">.</span><span class="nx">sync</span><span class="p">();</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
+</div>
+<p>Method to create a new user</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">makeUser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">birthday</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">User</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
     <span class="nx">username</span> <span class="o">:</span> <span class="nx">username</span><span class="p">,</span>
@@ -137,6 +352,18 @@
   <span class="p">}).</span><span class="nx">success</span><span class="p">(</span><span class="nx">cb</span><span class="p">);</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19">&#182;</a>
+</div>
+<p>Method to create a new warble. Its called from post on the main page</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">makeWarble</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">day</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">attachment</span><span class="p">,</span> <span class="nx">warbleAt</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">Warble</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
     <span class="nx">day</span>        <span class="o">:</span> <span class="nx">day</span><span class="p">,</span>
@@ -149,6 +376,18 @@
   <span class="p">});</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-20" id="section-20">&#182;</a>
+</div>
+<p>Method to add a new warble to the database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">addWarble</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">day</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">attachment</span><span class="p">,</span> <span class="nx">warbleAt</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;insert into warbles values (?,?,?,?,?)&#39;</span><span class="p">,</span> 
     <span class="p">[</span><span class="nx">username</span><span class="p">,</span> <span class="nx">day</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">attachment</span><span class="p">,</span> <span class="nx">warbleAt</span><span class="p">],</span>
@@ -156,24 +395,73 @@
 <span class="p">};</span>
 
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-21" id="section-21">&#182;</a>
+</div>
+<p>Method to add a new user and inserts the new user into the users
+tables in warbles.db</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">addUser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">birthday</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;insert into users values (NULL,?,?,?)&#39;</span><span class="p">,</span> 
     <span class="p">[</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">birthday</span><span class="p">],</span>
     <span class="nx">cb</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-22" id="section-22">&#182;</a>
+</div>
+<p>Method to add a gallery. This method is not implemented because a gallery has not yet been set up</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">addGallery</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">day</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;insert into warbles values (?,?)&#39;</span><span class="p">,</span> 
     <span class="p">[</span><span class="nx">image</span><span class="p">,</span> <span class="nx">day</span><span class="p">],</span>
     <span class="nx">cb</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-23" id="section-23">&#182;</a>
+</div>
+<p>Following new people and adds it to the database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">addToFollow</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">follow</span><span class="p">,</span> <span class="nx">following</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="s1">&#39;insert into followers values (?,?)&#39;</span><span class="p">,</span> 
     <span class="p">[</span><span class="nx">follow</span><span class="p">,</span> <span class="nx">following</span><span class="p">],</span>
     <span class="nx">cb</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-24" id="section-24">&#182;</a>
+</div>
+<p>Creating a new follower and adds it to warbles.db</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">makeFollower</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">follow</span><span class="p">,</span> <span class="nx">following</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">Follower</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
     <span class="p">}).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">follow</span><span class="p">)</span> <span class="p">{</span>
@@ -184,37 +472,6 @@
 <span class="p">};</span>
 
 
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
-</div>
-<div class="dox">
-  <div class="summary"><p>exports.validateUser = function validateUser(user) {
-db.all('select * from users', function (err, userdb) {
-var found=false;
-for (var i = 0; i &lt; userdb.length; i++) {
-if (userdb[i].username === user.username) {
-found=true; <br />
-}
-}
-if (user.username &amp;&amp; user.password &amp;&amp; found==false) { return true }
-else if (found==true){ return false }
-});
-};  </p>
-  </div>
-  <div class="body">
-  </div>
-</div>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
-
-
-
-
 
 </pre></div>
         </td>
@@ -222,7 +479,7 @@ else if (found==true){ return false }
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+  <a class="pilcrow" href="#section-25" id="section-25">&#182;</a>
 </div>
 <p>Find a user and return it</p>
         </td>
@@ -238,7 +495,19 @@ else if (found==true){ return false }
     <span class="k">return</span> <span class="nx">c</span><span class="p">;</span>
 <span class="p">};</span>
 
- <span class="nx">exports</span><span class="p">.</span><span class="nx">getUserInfo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">getUserInfo</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-26" id="section-26">&#182;</a>
+</div>
+<p>returns user information</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">getUserInfo</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;select * from users&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">userdb</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">userdb</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">list</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">userdb</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">username</span><span class="p">);</span>
@@ -253,10 +522,22 @@ else if (found==true){ return false }
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+<div class="pilwrap" id="user%20lookup%20function%20for%20validation%20during%20sign%20in">
+  <h3>
+    <a href="#user%20lookup%20function%20for%20validation%20during%20sign%20in" name="user%20lookup%20function%20for%20validation%20during%20sign%20in" class="pilcrow">&#182;</a>
+    user Lookup function for validation during sign in
+  </h3>
 </div>
-<p>User Lookup function</p>
+
+
+
+<div class="pilwrap" id="checks%20the%20username%20and%20password%20to%20make%20sure%20they%20are%20correct">
+  <h4>
+    <a href="#checks%20the%20username%20and%20password%20to%20make%20sure%20they%20are%20correct" name="checks%20the%20username%20and%20password%20to%20make%20sure%20they%20are%20correct" class="pilcrow">&#182;</a>
+    checks the username and password to make sure they are correct
+  </h4>
+</div>
+
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">lookup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
@@ -273,6 +554,32 @@ else if (found==true){ return false }
   <span class="p">});</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="validates%20user%20for%20sign%20up">
+  <h3>
+    <a href="#validates%20user%20for%20sign%20up" name="validates%20user%20for%20sign%20up" class="pilcrow">&#182;</a>
+    validates user for sign up
+  </h3>
+</div>
+
+
+
+<div class="pilwrap" id="checks%20to%20see%20if%20the%20username%20entered%20during%20sign%20up%20is%20already">
+  <h4>
+    <a href="#checks%20to%20see%20if%20the%20username%20entered%20during%20sign%20up%20is%20already" name="checks%20to%20see%20if%20the%20username%20entered%20during%20sign%20up%20is%20already" class="pilcrow">&#182;</a>
+    checks to see if the username entered during sign up is already
+  </h4>
+</div>
+
+
+<p>taken. If it already has, we throw back an error. </p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">validateUser</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;select * from users&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">userdb</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">found</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
@@ -283,39 +590,21 @@ else if (found==true){ return false }
         <span class="nx">cb</span><span class="p">(</span><span class="s1">&#39;err&#39;</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
-</div>
-<p>if (user.username &amp;&amp; user.password &amp;&amp; found==false) { cb(undefined, true) }</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">cb</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
     <span class="p">});</span>
   <span class="p">};</span>
 
 
+
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+  <a class="pilcrow" href="#section-29" id="section-29">&#182;</a>
 </div>
-<div class="dox">
-  <div class="summary"><p>exports.getUsers = function (cb) {
-db.all('select * from warbles', cb);
-};  </p>
-  </div>
-  <div class="body">
-  </div>
-</div>
+<p>finds and gets a user</p>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getUser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">props</span><span class="p">,</span> <span class="nx">errorcb</span><span class="p">,</span> <span class="nx">succcb</span><span class="p">)</span> <span class="p">{</span>
@@ -326,18 +615,65 @@ db.all('select * from warbles', cb);
 
 
 
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-30" id="section-30">&#182;</a>
+</div>
+<p>gets and array of all the users from the database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getUsers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;select * from users&#39;</span><span class="p">,</span> <span class="nx">cb</span><span class="p">);</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-31" id="section-31">&#182;</a>
+</div>
+<p>gets and array of all the warbles from the database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getWarbles</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;select * from warbles&#39;</span><span class="p">,</span> <span class="nx">cb</span><span class="p">);</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-32" id="section-32">&#182;</a>
+</div>
+<p>gets and array of all the images from gallery</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getGallery</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;select * from gallery&#39;</span><span class="p">,</span> <span class="nx">cb</span><span class="p">);</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-33" id="section-33">&#182;</a>
+</div>
+<p>returns and array of all the followers from the database</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">getFollowers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">db</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;select * from followers&#39;</span><span class="p">,</span> <span class="nx">cb</span><span class="p">);</span>
 <span class="p">};</span>

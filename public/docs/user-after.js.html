@@ -40,13 +40,25 @@
         <a href="#logout">logout</a>
       </div>
       <div class="heading h2">
+        <a href="#form">Form</a>
+      </div>
+      <div class="heading h2">
+        <a href="#user%20information">User information</a>
+      </div>
+      <div class="heading h2">
         <a href="#registers%20user">registers user</a>
+      </div>
+      <div class="heading h2">
+        <a href="#at%20me%20page">At me page</a>
       </div>
       <div class="heading h2">
         <a href="#my%20profile%20page">My Profile Page</a>
       </div>
       <div class="heading h2">
         <a href="#followers%20page">Followers Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#following%20page">Following Page</a>
       </div>
       <div class="heading h2">
         <a href="#about%20page">About Page</a>
@@ -56,6 +68,12 @@
       </div>
       <div class="heading h2">
         <a href="#discover%20page">Discover Page</a>
+      </div>
+      <div class="heading h2">
+        <a href="#user%20pages">User pages</a>
+      </div>
+      <div class="heading h2">
+        <a href="#chat%20page">Chat page</a>
       </div>
     </div>
   </div>
@@ -606,15 +624,26 @@ display if there is missing information or the username selected is already take
 <span class="p">}</span>
 
 
+
 </pre></div>
         </td>
       </tr>
       <tr>
         <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-32" id="section-32">&#182;</a>
+<div class="pilwrap" id="form">
+  <h2>
+    <a href="#form" name="form" class="pilcrow">&#182;</a>
+    Form
+  </h2>
 </div>
-<p>is a form for signup</p>
+
+
+<div class="dox">
+  <div class="summary"><p>Used for signup and forget password pages.</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
         </td>
         <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
@@ -628,6 +657,28 @@ display if there is missing information or the username selected is already take
   <span class="p">});</span>
 <span class="p">};</span>
 
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="user%20information">
+  <h2>
+    <a href="#user%20information" name="user%20information" class="pilcrow">&#182;</a>
+    User information
+  </h2>
+</div>
+
+
+<div class="dox">
+  <div class="summary"><p>Gets all the information about the user to be used by other methods. </p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="kd">function</span> <span class="nx">userData</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">auser</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
@@ -670,7 +721,7 @@ display if there is missing information or the username selected is already take
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-34" id="section-34">&#182;</a>
+  <a class="pilcrow" href="#section-35" id="section-35">&#182;</a>
 </div>
 <p>Displays user</p>
         </td>
@@ -689,6 +740,27 @@ display if there is missing information or the username selected is already take
 <span class="p">}</span>
 
 
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="at%20me%20page">
+  <h2>
+    <a href="#at%20me%20page" name="at%20me%20page" class="pilcrow">&#182;</a>
+    At me page
+  </h2>
+</div>
+
+
+<div class="dox">
+  <div class="summary"><p>All the warbles directed at the user who's online will get displayed here. </p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">me</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
 
 </pre></div>
@@ -697,7 +769,7 @@ display if there is missing information or the username selected is already take
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-35" id="section-35">&#182;</a>
+  <a class="pilcrow" href="#section-37" id="section-37">&#182;</a>
 </div>
 <p>renders here</p>
         </td>
@@ -749,7 +821,7 @@ Is accessed via a menu bar at the top of all pages during a user's session</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-37" id="section-37">&#182;</a>
+  <a class="pilcrow" href="#section-39" id="section-39">&#182;</a>
 </div>
 <p>Authentication</p>
         </td>
@@ -804,7 +876,7 @@ corresponding to followers</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-39" id="section-39">&#182;</a>
+  <a class="pilcrow" href="#section-41" id="section-41">&#182;</a>
 </div>
 <p>Authentification</p>
         </td>
@@ -821,7 +893,7 @@ corresponding to followers</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-40" id="section-40">&#182;</a>
+  <a class="pilcrow" href="#section-42" id="section-42">&#182;</a>
 </div>
 <p>var users = online[userid];
 var users = warbles.getUser();</p>
@@ -844,6 +916,30 @@ var users = warbles.getUser();</p>
 <span class="p">};</span>
 
 
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="following%20page">
+  <h2>
+    <a href="#following%20page" name="following%20page" class="pilcrow">&#182;</a>
+    Following Page
+  </h2>
+</div>
+
+
+<div class="dox">
+  <div class="summary"><p>Displays all the users being followed by the person who's currently online. 
+Can only be accessed for the person who's online by clicking on the following count in my_profile.
+For all other users, the count shows up on their user page, but cannot see the actual list.
+This is getting it's data from the follower schema in the database.</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">following</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
    <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
 
@@ -853,7 +949,7 @@ var users = warbles.getUser();</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-41" id="section-41">&#182;</a>
+  <a class="pilcrow" href="#section-44" id="section-44">&#182;</a>
 </div>
 <p>Authentification</p>
         </td>
@@ -870,7 +966,7 @@ var users = warbles.getUser();</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-42" id="section-42">&#182;</a>
+  <a class="pilcrow" href="#section-45" id="section-45">&#182;</a>
 </div>
 <p>var users = online[userid];
 var users = warbles.getUser();</p>
@@ -950,7 +1046,7 @@ var users = warbles.getUser();</p>
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-45" id="section-45">&#182;</a>
+  <a class="pilcrow" href="#section-48" id="section-48">&#182;</a>
 </div>
 <p>TDR: added cookie support</p>
         </td>
@@ -1050,7 +1146,7 @@ in the user database. This page also displays Warbles from the Warble Databse</p
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-47" id="section-47">&#182;</a>
+  <a class="pilcrow" href="#section-50" id="section-50">&#182;</a>
 </div>
 <p>authenticate login</p>
         </td>
@@ -1076,6 +1172,29 @@ in the user database. This page also displays Warbles from the Warble Databse</p
 <span class="p">};</span>
 
 
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="user%20pages">
+  <h2>
+    <a href="#user%20pages" name="user%20pages" class="pilcrow">&#182;</a>
+    User pages
+  </h2>
+</div>
+
+
+<div class="dox">
+  <div class="summary"><p>This renders the user pages for all the users currently signed up to warble.
+Can be accessed by clicking on the name of the user or by going to users/Name.
+Can see their profile information, but cannot see their following or followers list, just the count.</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">wuser</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
@@ -1087,7 +1206,7 @@ in the user database. This page also displays Warbles from the Warble Databse</p
       <tr>
         <td class="docs">
 <div class="pilwrap">
-  <a class="pilcrow" href="#section-48" id="section-48">&#182;</a>
+  <a class="pilcrow" href="#section-52" id="section-52">&#182;</a>
 </div>
 <p>var c = warbles.get_user(u); // This method searches for user in the user database</p>
         </td>
@@ -1124,6 +1243,29 @@ in the user database. This page also displays Warbles from the Warble Databse</p
 
 
 
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="chat%20page">
+  <h2>
+    <a href="#chat%20page" name="chat%20page" class="pilcrow">&#182;</a>
+    Chat page
+  </h2>
+</div>
+
+
+<div class="dox">
+  <div class="summary"><p>Allows users to interact with each other instantly. 
+//Chat is implemeted using web sockets.
+It gets the user information from the database and uses this info to render each chat line.</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
 <span class="nx">exports</span><span class="p">.</span><span class="nx">chat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
   <span class="kd">var</span> <span class="nx">userid</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">userid</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">userid</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
@@ -1136,7 +1278,7 @@ in the user database. This page also displays Warbles from the Warble Databse</p
         <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">online</span><span class="p">[</span><span class="nx">userid</span><span class="p">];</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;Realtime Chat&#39;</span><span class="p">,</span>
                              <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span><span class="p">,</span>  <span class="c1">// array of users currently online</span>
-                             <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                             <span class="nx">username</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> 
                              <span class="nx">password</span> <span class="o">:</span> <span class="nx">users</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> 
                              <span class="nx">warble</span> <span class="o">:</span> <span class="nx">warbs</span><span class="p">,</span> <span class="c1">// access the warbles database</span>
                              <span class="nx">follower</span> <span class="o">:</span> <span class="nx">follow</span> <span class="c1">// access the follower</span>
@@ -1145,43 +1287,6 @@ in the user database. This page also displays Warbles from the Warble Databse</p
     <span class="p">});</span>
     <span class="p">}</span>
 <span class="p">};</span>
-
-
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-49" id="section-49">&#182;</a>
-</div>
-<div class="dox">
-  <div class="summary"><p>exports.gallery = function (req, res) {
-//renders here
-var userid = req.cookies.userid;
-if (userid === undefined || online[userid] === undefined) {
-flash(req, res, 'auth', 'Not logged in!');
-res.redirect('/user/login');
-}
-else {
-warbles.getWarbles(function (err, warbs) {
-if (err) { res.send('problem access data layer!'); }
-else {
-var user = online[userid];
-res.render('me', { title  : 'User Gallery',
-username : user.username,
-warble : warbs
-});</p>
-  </div>
-  <div class="body"><p>}
-});
-}
-}  </p>
-  </div>
-</div>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
 </pre></div>
         </td>
       </tr>

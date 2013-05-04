@@ -1,8 +1,8 @@
-<a href=""><i><font size="2">
+<i><font size="2">
 <% var k = 0 %>
           <% for(var i = warble.length-1; i >= 0; i--){
-            if(warble[i].attach != ''){ %>
+            if(warble[i].username == username && warble[i].attachment != '' && warble[i].attachment!= 'none'){ %>
               <% k = k + 1 %>
           <% }} %>
           <%= k %>
-</font></i></a>
+</font></i>
