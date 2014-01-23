@@ -1,0 +1,6 @@
+<h1>Online Users</h1>
+<hr>
+
+<% for(var userid in users) { %>
+- <a href="/users/<%= users[userid].username %>"><%= users[userid].username %></a><br>
+<% } %>

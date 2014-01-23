@@ -72,6 +72,10 @@ app.get('/users/:username', user.wuser);
 app.post('/users/:username', user.wuser);
 
 
+app.get('/user/onlineUsers', user.onlineUsers);
+app.get('/user/allUsers', user.allUsers);
+
+
 var server = http.createServer(app);
 
 // WebSockets/Socket.IO

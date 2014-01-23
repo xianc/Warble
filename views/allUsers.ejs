@@ -1,0 +1,11 @@
+<h1>People</h1>
+<hr>
+<table>
+<% for(var i = 0 ; i < (allUsers.length); i++) { %>
+<tr>
+	<td width="60px"><img src="/images/bird.png"></td>
+	<td style="padding-right:15px;"><a href="/users/<%= allUsers[i].username %>"><%= allUsers[i].username %></a></td>
+
+</tr>
+<% } %>
+       

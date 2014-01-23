@@ -223,3 +223,13 @@ input{
 	width:99%;
 }
 
+a.load:link,a.load:active,a.load:visited{
+    text-decoration: none;
+    -webkit-transition:color .25s ease-in;  
+    -moz-transition:color .25s ease-in;  
+    -o-transition:color .25s ease-in;  
+    transition:color .25s ease-in; 
+}
+a.load:hover {
+   cursor: pointer;
+}

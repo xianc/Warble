@@ -1,4 +1,15 @@
 <% include header %>
+<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("onlineUsers").click(function(){
+    $("change").load("onlineUsers");
+  });
+  $("allUsers").click(function(){
+    $("change").load("allUsers");
+  });
+});
+</script>
 <div id="header">
 <!-- Top Navigation Bar -->
 <button type="button">
@@ -14,7 +25,7 @@
 </button>
 
 <button type="button">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">Profile</a>
 </button>
 
 <button type="button">
@@ -44,27 +55,14 @@
                   <h3><center>Categories</center></h3>
                   <hr><font size="3pt">
                   <ul>
-                    <li><a href="" title="search by profiles">People</a></li>
+                    <li><allUsers><a class="load">People</a></li>
+                    <li><onlineUsers><a class="load">Online Users</a></onlineUsers></li>
                     <li><a href="" title="search by warbles">Warbles</a></li>
                     <li><a href="" title"search by file uploads">Uploads</a></li>
-                    <li>etc...</li>
                     </uL></font>
                 </div>
             </div>
-
-            <br> 
-            <div id="content"width="100%">
-          <h1 class="Warble"><center>Online Users</center></h1>
-          <div class="text"><hr></div>
-          <div style="padding:5px; filter:alpha(opacity=.7); opacity:.7;" >
-
-              <% for(var userid in users) { %>
-            - <a href="/users/<%= users[userid].username %>"><%= users[userid].username %></a><br>
-            <% } %>
-
-          </div>
-          </div>
-          <br>
+            <br>
 
           <div id="content"width="100%">
           <h1 class="Warble"><center>New Users</center></h1>
@@ -83,13 +81,11 @@
 
       <td width="15px"></td>
       <td valign="top" id="default">
-
-      <div id="output"></div>
-      
+      <change>
       <h1>Recent Warbles</h1>
       <hr>
             <!-- Search Results -->
-           <% for(var i = warble.length-1 ; i >= 0; i--) { %>
+            <% for(var i = 10 ; i >= 0; i--) { %>
                   <table width="100%" valign="top"><td><b>
                   <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 
@@ -113,7 +109,7 @@
                    else { } %>
                 </font></td></table><hr>
                   <% } %>
-                </div>
+          </change>
         </td>
       </tr>
 
@@ -162,15 +158,13 @@
     }
     
     //Display the output
-    $('#output').html(value + '<br><br>');
+    $('#default').html(value + '<br><br>');
     
-      }, 300);
+      }, 200);
       return false;
     });
+
 </script>
-
-
-
 
 
 <% include footer %>
