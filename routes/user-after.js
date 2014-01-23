@@ -387,6 +387,8 @@ Also known as the Front Page. This page:
 > 3. Allow users to "tweet" (warbles)
 > 4. Displays recent tweets/warbles
 */
+
+
 exports.main = function(req, res) {
   // TDR: added cookie support
   var userid = req.cookies.userid;
@@ -444,7 +446,7 @@ exports.main = function(req, res) {
           }
           
 
-              res.render('main', { title   : 'User main',
+              res.render('main', { title   : 'User front',
                                        message : 'Login Successful',
                                        users : online,
                                        username : users.username,

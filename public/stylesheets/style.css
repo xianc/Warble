@@ -157,8 +157,7 @@ hr {
 }
 
 
-
-button {
+.link,button {
 	height:64px;
 	padding-left:10px;
 	padding-right:10px;
@@ -170,7 +169,7 @@ button {
 	font-size:13pt;
 	border:none;
 	background:none;
-
+	cursor: pointer;
 }
 tr{
 	margin: 0;

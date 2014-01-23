@@ -1,30 +1,59 @@
-<% include header %>
-<div id="header">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
+<script type="text/javascript" src="javascript/jquery-1.7.1.min.js"></script>
+
+</head>
+
+<script>
+$(document).ready(function(){
+   $("DISCOVER").click(function(){
+     $("FRONT,ATME,PROFILE").removeClass("active");
+     $("DISCOVER").addClass("active");
+     $("SWITCH").load("discover");
+    });
+   $("ATME").click(function(){
+     $("DISCOVER,FRONT,PROFILE").removeClass("active");
+     $("ATME").addClass("active");
+     $("SWITCH").load("me");
+    });
+   $("PROFILE").click(function(){
+     $("DISCOVER,ATME,FRONT").removeClass("active");
+     $("PROFILE").addClass("active");
+     $("SWITCH").load("my_profile");
+    });
+});
+
+</script>
+
+<body>
+<div id="container">
+  <div id="body">
+    <div id="header">
 <!-- Top Navigation Bar -->
 
-<button type="button" class="active">
-<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="main">Front</a>
-</button>
+<FRONT>
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="main">Front</a></FRONT>
+
+<DISCOVER>
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Discover</a></DISCOVER>
+
+<ATME>
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">At Me</a></ATME>
+
+<PROFILE>
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Profile</a></PROFILE>
 
 <button type="button">
-<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="discover">Discover</a>
+<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Logout</a>
 </button>
 
-<button type="button">
-<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="me">At Me</a>
-</button>
-
-<button type="button">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
-</button>
-
-<button type="button">
-<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/logout">Logout</a>
-</button>
 </div>
 <div id="bar"></div>
 <br>
 
+<SWITCH>
 <!-- Using a table to create a dynamically fluid webpage -->
 <table cellspacing="0" cellpadding="0" id="main_size" align="center">
   <td valign="top" width="180px">
@@ -97,5 +126,12 @@
   </tr>
 </table>
 </td></table>
+</SWITCH>
 
-<% include footer %>
+</div><br><br><div id="footer" align="center">
+<a href="/user/about"><font color="white">About Warble</a> | 
+<a href="../TwitterImplementation.pdf"><font color="white">Documentation (PDF)</font></a>
+</div>
+</body>
+</head>
+</html>
