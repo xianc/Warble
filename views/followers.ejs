@@ -1,40 +1,4 @@
-<% include header %>
-<div id="header">
-<!-- Top Navigation Bar -->
-<button type="button">
-<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="main">Front</a>
-</button>
 
-<button type="button">
-<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="discover">Discover</a>
-</button>
-
-<button type="button" >
-<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="me">At Me</a>
-</button>
-
-<button type="button" class="active">
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="my_profile">My Profile</a>
-</button>
-
-<button type="button">
-<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="/user/logout">Logout</a>
-</button>
-</div>
-<div id="bar"></div>
-<br>
-
-<table cellspacing="0" cellpadding="0" id="main_size"  align="center">
-    <tr>
-        <!--Creates a box with the basic info of the user -->
-        <td valign="top" width="220px" align="center">
-
-            <% include inc/profile_user_info %>
-
- 		</td><td width="15px"></td>
-            
-            
-    	<td valign="top"><div id="default">
            <div class="Warble" align="center" style="padding-top:8px"><font size="5pt"><b><%= me %>'s Followers</b></font></div>
 				<hr>
 						<% for(var i = follower.length-1; i >= 0; i--){
@@ -43,8 +7,3 @@
 						<br>
 						<% }} %>
 					</div>
-             </td>
-        </tr>
-
-</table>
-<% include footer %>

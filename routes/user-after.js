@@ -287,6 +287,30 @@ exports.my_profile = function (req, res) {
   }
   };
 
+exports.myWarbles = function (req, res) {
+  var userid = req.cookies.userid;
+  //Authentication
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    warbles.getWarbles(function (err, warbs) {
+      warbles.getFollowers(function (err2, follows) {
+        var user = online[userid];
+        res.render('myWarbles', { title  : 'My Warbles',
+                              me       : user.username,
+                              username : user.username,
+                              birthday : (user.username).birthday,
+                              warble : warbs,
+                              follower : follows,
+                              attach: warbs.attachment
+                            });
+      });
+    });
+  }
+  };
+
 
   // ## Followers Page
 // Displays the followers of the user currently logged in. 

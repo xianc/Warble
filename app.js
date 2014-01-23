@@ -76,6 +76,7 @@ app.get('/user/onlineUsers', user.onlineUsers);
 app.get('/user/allUsers', user.allUsers);
 app.get('/user/recentWarbles', user.recentWarbles);
 app.get('/user/recentUploads', user.recentUploads);
+app.get('/user/myWarbles', user.myWarbles);
 
 
 var server = http.createServer(app);

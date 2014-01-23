@@ -1,4 +1,22 @@
 <% include header %>
+<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("change").load("myWarbles");
+  $("myWarbles").click(function(){
+    $("change").load("myWarbles");
+  });
+  $("followers").click(function(){
+    $("change").load("followers");
+  });
+  $("following").click(function(){
+    $("change").load("following");
+  });
+  $("recentUploads").click(function(){
+    $("change").load("recentUploads");
+  });
+});
+</script>
 <div id="header">
 <!-- Top Navigation Bar -->
 <button type="button">
@@ -35,7 +53,8 @@
             
     	<!--Latest Warbles by user-->  
         <td valign="top"><div id="default">
-          <% include inc/my_warbles %>
+          <change>
+          </change>
         </td>
         
   </tr>
