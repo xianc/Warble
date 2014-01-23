@@ -2,11 +2,18 @@
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 <script>
 $(document).ready(function(){
+  $("change").load("recentWarbles");
   $("onlineUsers").click(function(){
     $("change").load("onlineUsers");
   });
   $("allUsers").click(function(){
     $("change").load("allUsers");
+  });
+  $("recentWarbles").click(function(){
+    $("change").load("recentWarbles");
+  });
+  $("recentUploads").click(function(){
+    $("change").load("recentUploads");
   });
 });
 </script>
@@ -55,10 +62,10 @@ $(document).ready(function(){
                   <h3><center>Categories</center></h3>
                   <hr><font size="3pt">
                   <ul>
-                    <li><allUsers><a class="load">People</a></li>
+                    <li><allUsers><a class="load">All Users</a></li>
                     <li><onlineUsers><a class="load">Online Users</a></onlineUsers></li>
-                    <li><a href="" title="search by warbles">Warbles</a></li>
-                    <li><a href="" title"search by file uploads">Uploads</a></li>
+                    <li><recentWarbles><a class="load">Recent Warbles</a></recentWarbles></li>
+                    <li><recentUploads><a class="load">Recent Uploads</a></recentUploads></li>
                     </uL></font>
                 </div>
             </div>
@@ -82,34 +89,8 @@ $(document).ready(function(){
       <td width="15px"></td>
       <td valign="top" id="default">
       <change>
-      <h1>Recent Warbles</h1>
-      <hr>
-            <!-- Search Results -->
-            <% for(var i = 10 ; i >= 0; i--) { %>
-                  <table width="100%" valign="top"><td><b>
-                  <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
-                  </b> <font size="2">on 
-                  <%= warble[i].day %>
-                  </font><br>
-                  <%= warble[i].message %>
-                  <% if(warble[i].attachment!='none' && warble[i].attachment!='') { %>
-                  <br><font size=2><u>Attached</u>: <i>
-                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank"><%= warble[i].attachment %></a>
-                  <% } %>
-                  </i></font> </b></td><td width="50px"><font size="2">
-                  <% if (warble[i].username == username) { %>
-                      <a href="" warbStat="DELETE" index="<% i %>">Delete</a><br>
-                  <% } else { %>
-                  <a href="">Reply</a><br>
-                  <% } %>
-                  <a href="">Warble</a><br><!--<a href="front" onClick = warble.splice (i, 1);>Delete</a><br>-->
-                  <% if(warble[i].attachment!='none' && warble[i].attachment!='') { %>
-                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank">Download</a>
-                   <% } 
-                   else { } %>
-                </font></td></table><hr>
-                  <% } %>
-          </change>
+      
+      </change>
         </td>
       </tr>
 
@@ -158,7 +139,7 @@ $(document).ready(function(){
     }
     
     //Display the output
-    $('#default').html(value + '<br><br>');
+    $('change').html(value + '<br><br>');
     
       }, 200);
       return false;

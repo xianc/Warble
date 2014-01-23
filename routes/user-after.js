@@ -575,3 +575,49 @@ exports.allUsers = function (req, res) {
 
     }
   };
+
+  exports.recentWarbles = function (req, res) {
+    var userid = req.cookies.userid;
+  //authenticate login
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    warbles.getWarbles(function (err, warbs) {
+        warbles.getUsers(function (err3, usr) {
+          var users = online[userid];
+          res.render('recentWarbles', { title  : 'Recent Warbles',
+                                    users : online,
+                                    allUsers : usr, // access the user database
+                                    username : users.username,
+                                    warble : warbs // access the warble database
+                                  });
+        });
+      });
+
+    }
+  };
+
+exports.recentUploads = function (req, res) {
+    var userid = req.cookies.userid;
+  //authenticate login
+  if (userid === undefined || online[userid] === undefined) {
+    flash(req, res, 'auth', 'Not logged in!');
+    res.redirect('/user/login');
+  }
+  else {
+    warbles.getWarbles(function (err, warbs) {
+        warbles.getUsers(function (err3, usr) {
+          var users = online[userid];
+          res.render('recentUploads', { title  : 'Recent Uploads',
+                                    users : online,
+                                    allUsers : usr, // access the user database
+                                    username : users.username,
+                                    warble : warbs // access the warble database
+                                  });
+        });
+      });
+
+    }
+  };

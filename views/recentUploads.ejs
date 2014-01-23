@@ -1,0 +1,28 @@
+<h1>Recent Uploads</h1>
+      <hr>
+            <!-- Search Results -->
+            <% for(var i = 10 ; i >= 0; i--) { %>
+
+                  <% if(warble[i].attachment!='none' && warble[i].attachment!='') { %>
+                  <table width="100%" valign="top"><td><b>
+                  <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
+                  </b> <font size="2">on 
+                  <%= warble[i].day %>
+                  </font><br>
+                  <%= warble[i].message %>
+                  <% if(warble[i].attachment!='none' && warble[i].attachment!='') { %>
+                  <br><font size=2><u>Attached</u>: <i>
+                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank"><%= warble[i].attachment %></a>
+                  <% } %>
+                  </i></font> </b></td><td width="50px"><font size="2">
+                  <% if (warble[i].username == username) { %>
+                      <a href="" warbStat="DELETE" index="<% i %>">Delete</a><br>
+                  <% } else { %>
+                  <a href="">Reply</a><br>
+                  <% } %>
+                  <a href="">Warble</a><br><!--<a href="front" onClick = warble.splice (i, 1);>Delete</a><br>-->
+                  <a href="/uploadedFiles/<%= warble[i].attachment %>" target="_blank">Download</a>
+                  </font></td></table><hr>
+                   <% } 
+                   else { } %>
+                  <% } %>
