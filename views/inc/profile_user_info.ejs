@@ -2,42 +2,36 @@
     	      <img src="/images/profile_ex.jpg" alt="some_text" width="90%" height="42%"> 
      	      <div class="Warble" align="center"><font size="5pt">
               <%= username %>
-            <font></div>
-            <font size="2"><i><a href=""><font color=white>edit</font></a></i></font>
             </div>
-
-            <div id="content">
+            <%if (me == username){ %>
+            <font size="2"><i><a href=""><font color=white>edit</font></a></i></font>
+            <% } %>
             <% var added=0;
             for(var i = follower.length-1; i >= 0; i--){
               if (follower[i].follower == me && follower[i].following==username){ 
                 added=1; %>
-               You are a follower!
+               <font size="2">You are a follower!</font>
             <% }} %>
             <% if (added==0 && me!=username) { %>
-            <form method="post" id="<%= username %>" action="<%= username %>">
-            <center><input type="submit" username="<%= username %>" value="FOLLOW"></input>
-            </form>
+                <form method="post" id="<%= username %>" action="<%= username %>"><center>
+                    <input type="submit" username="<%= username %>" value="Follow">
+                </form></center>
             <% } %>
             <%if (me == username){ %>
-              <a href="/user/my_profile">My Profile</a>
+              <!--<a href="/user/my_profile">My Profile</a>-->
             <%} %>
-
             </div>
+
+
+    
+
+
 
             <div id="content">
      	        <table width="80%" valign="top"><tr><td>
                 <b>Warbles</b></td><td><% include count/warble %></tr><tr><td>
-                <b>Uploads</b></td><td>
-                <i><font size="2"><% include count/upload %></font></i></td>
-                </tr><tr><td>
-                <b>Following</b></td><td><% include count/following %></td> </tr><tr><td>
-                <b>Followers</b></td><td><% include count/follower %></td></tr></table>
-                <!--<hr width="80%">
-                <table width="80%" valign="top"><tr><td>
-                <b>Birthday</b></td><td width="80px">
-                <font size="2"><a href=""><i>
-                  <% birthday %>
-                </i></i></a><br></font></td></table>
-                <hr width="80%">-->
+                <b>Uploads</b></td><td><% include count/upload %></td></tr><yt><td>
+                <b>Followers</b></td><td><% include count/follower %></td></tr><tr><td>
+                <b>Following</b></td><td><% include count/following %></td> </tr></table>
             </div>
             <br>

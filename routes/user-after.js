@@ -37,12 +37,12 @@ function flash(req, res, name, value) {
     // Return the `value`.
     return value;
   }
-}
+};
 
 // ## About Page
 exports.about = function (req, res) {
   res.render('about', { title  : 'About'});
-}
+};
 
 // ## User Server-Side Routes
 
@@ -113,7 +113,7 @@ exports.auth = function(req, res) {
       }
     });
   }
-}
+};
 
 // ### logout
 // Deletes user info & cookies - then redirects to login.
@@ -177,7 +177,7 @@ exports.process = function (req, res) {
             });
     }
   });
-}
+};
 
 
 // ## Form 
@@ -194,6 +194,7 @@ exports.form = function (req, res) {
                  user: ul });
   });
 };
+
 
 // ## User information
 /*
@@ -258,7 +259,7 @@ exports.me = function (req, res) {
       }
     });
   }
-}
+};
 
 // ## My Profile Page 
 // Displays profile (Warbles  and User Info) of user currently logged in.
@@ -285,7 +286,7 @@ exports.my_profile = function (req, res) {
       });
     });
   }
-  };
+};
 
 exports.myWarbles = function (req, res) {
   var userid = req.cookies.userid;
@@ -298,7 +299,7 @@ exports.myWarbles = function (req, res) {
     warbles.getWarbles(function (err, warbs) {
       warbles.getFollowers(function (err2, follows) {
         var user = online[userid];
-        res.render('myWarbles', { title  : 'My Warbles',
+        res.render('myWarbles', { title  : 'Warbles',
                               me       : user.username,
                               username : user.username,
                               birthday : (user.username).birthday,
@@ -309,10 +310,10 @@ exports.myWarbles = function (req, res) {
       });
     });
   }
-  };
+};
 
 
-  exports.myUploads = function (req, res) {
+exports.myUploads = function (req, res) {
   var userid = req.cookies.userid;
   //Authentication
   if (userid === undefined || online[userid] === undefined) {
@@ -323,10 +324,9 @@ exports.myWarbles = function (req, res) {
     warbles.getWarbles(function (err, warbs) {
       warbles.getFollowers(function (err2, follows) {
         var user = online[userid];
-        res.render('myUploads', { title  : 'Uploads',
+        res.render('myWarbles', { title  : 'Uploads',
                               me       : user.username,
                               username : user.username,
-                              birthday : (user.username).birthday,
                               warble : warbs,
                               follower : follows,
                               attach: warbs.attachment
@@ -334,7 +334,7 @@ exports.myWarbles = function (req, res) {
       });
     });
   }
-  };
+};
 
 
 
@@ -352,7 +352,7 @@ exports.followers = function (req, res) {
   else {
   //var users = online[userid];
   //var users = warbles.getUser();
-   warbles.getWarbles(function (err, warbs) {
+    warbles.getWarbles(function (err, warbs) {
       warbles.getFollowers(function (err2, follows) {
       var user = online[userid];
       res.render ('followers', { title : 'Followers',
@@ -363,8 +363,8 @@ exports.followers = function (req, res) {
                               follower : follows
               });
 
-  });
-  });
+      });
+    });
   }
 };
 
@@ -385,7 +385,7 @@ exports.following = function (req, res) {
   else {
   //var users = online[userid];
   //var users = warbles.getUser();
-   warbles.getWarbles(function (err, warbs) {
+    warbles.getWarbles(function (err, warbs) {
       warbles.getFollowers(function (err2, follows) {
       var user = online[userid];
       res.render ('following', { title : 'Following',
@@ -396,16 +396,11 @@ exports.following = function (req, res) {
                               follower : follows
               });
 
-  });
-  });
+      });
+    });
   }
 };
 
-
-  // ## About Page
-exports.about = function (req, res) {
-  res.render('about', { title  : 'About'});
-}
 
   /* ## Main Page
 Also known as the Front Page. This page: 
@@ -414,7 +409,6 @@ Also known as the Front Page. This page:
 > 3. Allow users to "tweet" (warbles)
 > 4. Displays recent tweets/warbles
 */
-
 
 exports.main = function(req, res) {
   // TDR: added cookie support
@@ -483,7 +477,7 @@ exports.main = function(req, res) {
                                       });
         });
       });
-      }
+    }
 };
 
 //## Discover Page
@@ -509,7 +503,7 @@ exports.discover = function (req,res) {
         });
       });
 
-}
+  }
 };
 
 // ## User pages
@@ -579,7 +573,7 @@ exports.chat = function(req, res){
                             });
         });
     });
-    }
+  }
 };
 
 

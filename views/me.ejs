@@ -1,12 +1,24 @@
 <!-- Using a table to compartmentalize the information-->
 <table cellspacing="0" cellpadding="0" id="main_size" align="center">
     <tr>
-            
+      <td valign="top" width="180px">
+    <div id="black">
+      <div class="Warble" align="center">Hello <%= username %></div>
+    </div>
+    
+      <div id="content">
+        <!--Realtime Chat-->
+      <div class="Warble" align="center"><CHAT><a class="link">Realtime Chat</a></CHAT></div>
+      </div>
+
+      </td>
+       <td width="15px"></td>
+
         <!-- @Me Warble List -->
         <!-- Can see all posts a user is mentioned in -->
     	<td valign="top">
         <div id="content">
-           <h3><font size="5pt">@Me</font></h3>
+           <h1>Warbles @Me</h1>
                 <hr>
                 
                 <% for (var i = 0; i < warble.length; i++) {

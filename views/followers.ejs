@@ -1,9 +1,13 @@
-
-           <div class="Warble" align="center" style="padding-top:8px"><font size="5pt"><b><%= me %>'s Followers</b></font></div>
-				<hr>
-						<% for(var i = follower.length-1; i >= 0; i--){
-							if(follower[i].follower == username){ %>
-						<a href="/users/<%= follower[i].following %>"><%= follower[i].following %></a>
-						<br>
-						<% }} %>
-					</div>
+<h1><%= username %>'s Followers</h1>
+<hr>
+<table>
+<% for(var i = follower.length-1; i >= 0; i--){
+	if(follower[i].follower == username){ %>
+	<tr>
+		<td width="60px"><img src="/images/bird.png"></td>
+		<td style="padding-right:15px;">
+			<a href="/users/<%= follower[i].following %>"><%= follower[i].following %></a>
+		</td>
+	</tr>
+<% }} %>
+</div>
