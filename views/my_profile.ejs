@@ -14,6 +14,9 @@ $(document).ready(function(){
   $("recentUploads").click(function(){
     $("change").load("recentUploads");
   });
+  $("myUploads").click(function(){
+    $("change").load("myUploads");
+  });
 });
 </script>
 
@@ -21,14 +24,14 @@ $(document).ready(function(){
 <table cellspacing="0" cellpadding="0" id="main_size"  align="center">
     <tr>
         <!--Creates a box with the basic info of the user -->
-        <td valign="top" width="220px" align="center">
+        <td valign="top" width="180px" align="center">
 
             <% include inc/profile_user_info %>
     
       </td><td width="15px"></td>
             
     	<!--Latest Warbles by user-->  
-        <td valign="top"><div id="default">
+        <td valign="top"><div id="content">
           <change>
           </change>
         </td>

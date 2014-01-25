@@ -1,6 +1,10 @@
 <h1>Online Users</h1>
 <hr>
-
+<table>
 <% for(var userid in users) { %>
-- <a href="/users/<%= users[userid].username %>"><%= users[userid].username %></a><br>
+<tr>
+	<td width="60px"><img src="/images/bird.png"></td>
+	<td style="padding-right:15px;">
+		<a href="/users/<%= users[userid].username %>"><%= users[userid].username %></a><br>
+	</td>
 <% } %>

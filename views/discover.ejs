@@ -19,33 +19,45 @@ $(document).ready(function(){
 <!-- Using a table to create a dynamically fluid webpage -->
 <table cellspacing="0" cellpadding="0" id="main_size" align="center">
   <tr>
-    <td valign="top" width="220px">
+    <td valign="top" width="180px">
 
-      <div id="content">
-        <!-- Search Field and Button for users-->
-        <textarea rows="1" onblur="if(this.value==''){this.value='Search...'}" onclick="this.select()">I'm looking for...</textarea>
-        <a href="" id="get"><input type="submit" value="Find user!"></input></a>
+      <div id="black">
+      <div class="Warble" align="center">Hello <%= username %></div>
+    </div>
+
+<script>
+$('#t_area').on('keyup',function() {
+    $('.btn').show();
+});
+</script>
+
+      <div id="findUser">
+        <div style="padding-right:5px">
+        <textarea id="t_area" rows="1" onblur="if(this.value==''){this.value='Search...'}" onclick="this.select()">Find me!</textarea>
+        <input type="submit" class="btn" value="Search" id="get" style="display:none">
       </div>
+    </div>
 
-       <br>
-
+<br>
        
             <div id="content"width="100%">
                 <div class="text">
                 <!-- Search by Categories -->
                   <h3><center>Categories</center></h3>
-                  <hr><font size="3pt">
-                  <ul>
+                  <hr>
+                  <div style="padding: 0px 10px 0px 10px;">
+                  <font size="3pt">
                     <li><allUsers><a class="load">All Users</a></li>
                     <li><onlineUsers><a class="load">Online Users</a></onlineUsers></li>
                     <li><recentWarbles><a class="load">Recent Warbles</a></recentWarbles></li>
                     <li><recentUploads><a class="load">Recent Uploads</a></recentUploads></li>
-                    </uL></font>
+                    </font>
+                  </div>
                 </div>
             </div>
             <br>
 
-          <div id="content"width="100%">
+          <!--<div id="content"width="100%">
           <h1 class="Warble"><center>New Users</center></h1>
           <div class="text"><hr></div>
           <div style="padding:5px; filter:alpha(opacity=.7); opacity:.7;" >
@@ -55,16 +67,18 @@ $(document).ready(function(){
         <% } %>
         </ul>
         </div>
-        </div>
+        </div>-->
           
 
     </td>
 
       <td width="15px"></td>
-      <td valign="top" id="default">
-      <change>
-      
-      </change>
+      <td valign="top">
+        <div id="content">
+          <change>
+          
+          </change>
+       </div>
         </td>
       </tr>
 

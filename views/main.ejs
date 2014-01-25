@@ -8,20 +8,24 @@
 
 <script>
 $(document).ready(function(){
-   $("DISCOVER").click(function(){
-     $("FRONT,ATME,PROFILE").removeClass("active");
-     $("DISCOVER").addClass("active");
+   $(".DISCOVER").click(function(){
+    $(".ATME,button,.PROFILE").removeClass("active");
+     $(".DISCOVER").addClass("active");
      $("SWITCH").load("discover");
     });
-   $("ATME").click(function(){
-     $("DISCOVER,FRONT,PROFILE").removeClass("active");
-     $("ATME").addClass("active");
+   $(".ATME").click(function(){
+     $(".DISCOVER,button,.PROFILE").removeClass("active");
+     $(".ATME").addClass("active");
      $("SWITCH").load("me");
     });
-   $("PROFILE").click(function(){
-     $("DISCOVER,ATME,FRONT").removeClass("active");
-     $("PROFILE").addClass("active");
+   $(".PROFILE").click(function(){
+     $(".DISCOVER,.ATME,button").removeClass("active");
+     $(".PROFILE").addClass("active");
      $("SWITCH").load("my_profile");
+    });
+   $("CHAT").click(function(){
+     $(".FRONT,.DISCOVER,.ATME,button").removeClass("active");
+     $("SWITCH").load("chat");
     });
 });
 
@@ -33,21 +37,20 @@ $(document).ready(function(){
     <div id="header">
 <!-- Top Navigation Bar -->
 
-<FRONT>
-<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a href="main">Front</a></FRONT>
+<a href="main" class="link"><button class="active">
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;">Front</button></a>
 
-<DISCOVER>
-<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Discover</a></DISCOVER>
+<button class="DISCOVER">
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Discover</a></button>
 
-<ATME>
-<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">At Me</a></ATME>
+<button class="ATME">
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">At Me</a></button>
 
-<PROFILE>
-<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Profile</a></PROFILE>
+<button class="PROFILE">
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Profile</a></button>
 
-<button type="button">
-<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Logout</a>
-</button>
+<a href="logout" class="link"><button class="LOGOUT">
+<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;">Logout</button></a>
 
 </div>
 <div id="bar"></div>
@@ -77,7 +80,7 @@ $(document).ready(function(){
     
       <div id="content">
         <!--Realtime Chat-->
-      <div class="Warble" align="center"><a href="chat">Realtime Chat</a></div>
+      <div class="Warble" align="center"><CHAT><a class="link">Realtime Chat</a></CHAT></div>
       </div>
 
     </td>
@@ -96,7 +99,7 @@ $(document).ready(function(){
     <!-- List of status updates -->
     <h1>Warbles</h1>
     <hr>
-                  <% for(var i = warble.length-1 ; i >= 0; i--) { %>
+                  <% for(var i = warble.length-1 ; i >= warble.length-5; i--) { %>
                   <table width="100%" valign="top"><td><b>
                   <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a>
                   </b> <font size="2">on 

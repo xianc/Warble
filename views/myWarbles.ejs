@@ -1,6 +1,6 @@
       <div class="Warble" align="center" style="padding-top:8px"><font size="5pt"><b><%= username %>'s Warbles</b></font></div>
         <hr>
-        <% for (var i = 0; i < warble.length; i++) {
+        <% for (var i = warble.length-1; i >= 0; i--) {
           if(warble[i].username == username){ %>
           <table width="100%" valign="top"><td><b>
           <a href="/users/<%= warble[i].username %>"><%= warble[i].username %></a></b> <font size="2">on <%= warble[i].day %></font>
