@@ -1,4 +1,63 @@
-<% include header %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
+<script type="text/javascript" src="javascript/jquery-1.7.1.min.js"></script>
+
+</head>
+
+<script>
+$(document).ready(function(){
+   $(".DISCOVER").click(function(){
+    $(".ATME,button,.PROFILE").removeClass("active");
+     $(".DISCOVER").addClass("active");
+     $("SWITCH").load("../user/discover");
+    });
+   $(".ATME").click(function(){
+     $(".DISCOVER,button,.PROFILE").removeClass("active");
+     $(".ATME").addClass("active");
+     $("SWITCH").load("../user/me");
+    });
+   $(".PROFILE").click(function(){
+     $(".DISCOVER,.ATME,button").removeClass("active");
+     $(".PROFILE").addClass("active");
+     $("SWITCH").load("../user/my_profile");
+    });
+   $("CHAT").click(function(){
+     $(".FRONT,.DISCOVER,.ATME,button").removeClass("active");
+     $("SWITCH").load("../user/chat");
+    });
+});
+
+</script>
+
+<body>
+<div id="container">
+  <div id="body">
+    <div id="header">
+<!-- Top Navigation Bar -->
+
+<a href="../user/main" class="link"><button>
+<img src="/images/icons/home.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;">Front</button></a>
+
+<button class="DISCOVER">
+<img src="/images/icons/search.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Discover</a></button>
+
+<button class="ATME">
+<img src="/images/icons/chat.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">At Me</a></button>
+
+<button class="PROFILE" id="active">
+<img src="/images/icons/profile.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;"><a class="link">Profile</a></button>
+
+<a href="../user/logout" class="link"><button class="LOGOUT">
+<img src="/images/icons/logout.png" height="40px" width="40px" align="absmiddle" style="padding-right:5px;">Logout</button></a>
+
+</div>
+<div id="bar"></div>
+<br>
+
+<SWITCH>
+
 <table cellspacing="0" cellpadding="0" id="main_size"  align="center">
     <tr>
         <!--Creates a box with the basic info of the user -->
@@ -9,11 +68,19 @@
       </td><td width="15px"></td>
             
             
-    	<td valign="top"><div id="default">
+            <td valign="top"><div id="default">
           <% include ../inc/my_warbles %>
         </td>
         </tr>
 
 </table>
 
-<% include footer %>
+</SWITCH>
+
+</div><br><br><div id="footer" align="center">
+<a href="/user/about"><font color="white">About Warble</a> | 
+<a href="../TwitterImplementation.pdf"><font color="white">Documentation (PDF)</font></a>
+</div>
+</body>
+</head>
+</html>

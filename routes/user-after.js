@@ -525,7 +525,7 @@ exports.wuser = function (req, res) {
           if (req.method === 'POST') {
               console.log('Adding to Followers:');
 
-              warbles.addToFollow (users.username, u, function (err3){  // This adds the following and followed to the following database
+              warbles.addToFollow (users.username,u, function (err3){  // This adds the following and followed to the following database
                 if (err)  res.send('bad warble insert'); 
                 else  {
                   res.redirect('users/' + u);

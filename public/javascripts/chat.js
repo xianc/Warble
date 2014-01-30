@@ -140,7 +140,7 @@ function chatApp(socket) {
 
   obj.post.subscribe('submit', function () {
     // Grabs the title of the chat and the message and appends them together
-    var message = '<a href="users/' + obj.titleText.getText()+'">' + obj.titleText.getText() + '</a>' + ': ' + obj.text.getText();
+    var message = '<a href="'+ obj.titleText.getText()+'">' + obj.titleText.getText() + '</a>' + ': ' + obj.text.getText();
     socket.emit('post', { post : message });
     // Clear the text box and add the message locally:
     obj.text.clearText();

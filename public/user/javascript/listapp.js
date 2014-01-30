@@ -1,4 +1,3 @@
-// Examples of Manipulation
 $(function () {
     var input = $('form > input[type=text]');
 
@@ -43,19 +42,19 @@ $(function () {
     bind_li();
 });
 
-// Example 2: Add List Elements
+
 function list_add(html) {
     var li = '<li>' + html + '</li>';
     $('ul#list').append(li);
 }
 
-// Example 3: Move Bottom to Top of List
+
 function list_move_bottom() {
     var last = $('ul#list :last-child');
     $('ul#list').prepend(last);
 }
 
-// Example 4: Delete Elements from List
+
 function list_delete(text) {
     var items = $('ul#list > li');
     var x     = [];
